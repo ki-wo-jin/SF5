@@ -30,8 +30,10 @@ public class RemoveHeart implements Control {
 		 
 		 if(hsvc.removeHeart(pcode)) {
 			 map.put("result", "OK");
+			 map.put("message", "삭제되었습니다.");
 		 } else {
 			 map.put("result", "NG");
+			 map.put("message", "삭제되지 않았습니다.");
 		 }
 		 String json = gson.toJson(map);
 		 resp.getWriter().print(json);
