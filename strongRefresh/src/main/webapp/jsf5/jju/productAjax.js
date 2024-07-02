@@ -1,12 +1,39 @@
+// page
+let page = 1;
+productList({ page }, productListFnc);
+
+function productList(param = { page: 1}, successCall) {
+	const xhtp = new XMLHttpRequest();
+	xhtp.open('get', 'productListJson.do?bno=' + param.bno + '&page=' + param.page);
+	xhtp.send();
+	xhtp.onload = successCall;
+}
+
+// productList의 매개값으로 사용될 함수 수정필요!
+function productListFnc(){
+	// 12개 상품을 지워주고 새롭게 목록출력
+	document.querySelectorAll('#clone').forEach((item, idx) => {
+		if(idx > 2) {
+			item.remove();
+		}
+	});
+	let data = JSON.parse(this.responseText);
+	data.forEach(product => {
+		let li = cloneRow(product);
+		document.querySelector('#list').appendChild(li);
+	});
+	
+	makePagingFnc();
+}
+
+//
 const xthp = new XMLHttpRequest();
-xthp.open('get', 'productListJason.do');
+xthp.open('get', 'productListJson.do?page=' + page);
 xthp.send();
 xthp.onload = function() {
 	let data = JSON.parse(xthp.responseText);
 	data.forEach(product => document.getElementById('list').appendChild(cloneRow(product)));
 };
-
-let page = 1;
 
 // 제품 리스트 출력
 function cloneRow(product = {}) {
@@ -74,7 +101,7 @@ function createPagingList(){
 	item.addEventListener('click', function(e) {
 		e.preventDefault(); // 페이지 이동하는 기본기능 차단
 		page = item.dataset.page;
-		svc.replyList({ bno, page }, replyListFnc);
+		productList({ page }, productListFnc);
 	});
 });
 

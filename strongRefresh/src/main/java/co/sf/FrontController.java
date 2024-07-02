@@ -71,7 +71,7 @@ public class FrontController extends HttpServlet {
 		// 제품 페이지
 		map.put("/productForm.do", new ProductForm());
 		// 제품 페이지에 제품 출력
-		map.put("/productListJason.do", new ProductList());
+		map.put("/productListJson.do", new ProductList());
 
 
 		// 로그인
