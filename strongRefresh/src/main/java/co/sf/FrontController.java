@@ -21,6 +21,7 @@ import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
 import co.sf.qna.web.QnaForm;
 import co.sf.user.web.CheckIdAjax;
+import co.sf.user.web.FindIdControl;
 import co.sf.user.web.FindIdForm;
 import co.sf.user.web.FindPwForm;
 import co.sf.user.web.JoinControl;
@@ -82,11 +83,12 @@ public class FrontController extends HttpServlet {
 
 		// 아이디 중복체크
 		map.put("/checkIdAjax.do", new CheckIdAjax());
-
 		// 아이디찾기
 		map.put("/findId.do", new FindIdForm());
+		map.put("/findIdResult.do", new FindIdControl());
 		// 비밀번호찾기
 		map.put("/findPw.do", new FindPwForm());
+		
 
 		// QNA
 		map.put("/qna.do", new QnaForm());

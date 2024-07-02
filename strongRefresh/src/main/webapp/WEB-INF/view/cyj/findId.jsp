@@ -16,15 +16,47 @@
 	</ul>
 	
 	<form name="findIdFrm" action="findIdResult.do" method="post">
-	
-	<fieldset>
-		<legend>아이디 찾기</legend>
-		
-	</fieldset>
-	
+		<table>
+			<p>아이디찾기</p>
+				<tr>
+					<th>인증방법</th>
+					<td>
+						<input type="radio" name="findPath" value="email" checked>이메일
+						<input type="radio" name="findPath" value="phone">휴대폰번호
+						<input type="radio" name="findPath" value="phoneCertification">휴대폰인증
+					</td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><input type="text" id="userName" name="userName"></td>
+				</tr>
+				
+				<div class="printFindPath">
+					<tr id="printEmailPath" style="display : block">
+						<th>이메일로 찾기</th>
+						<td><input type="text" id="userEmail" name="userEmail"></td>
+					</tr>
+					<tr id="printPhonePath" style="display : none">
+						<th>휴대폰 번호로 찾기</th>
+						<td>
+						<input type="text" id="userFrontPhone" name="userFrontPhone">
+						-
+						<input type="text" id="userMiddlePhone" name="userMiddlePhone">
+						-
+						<input type="text" id="userLastPhone" name="userLastPhone">
+						</td>
+					</tr>
+				</div>
+
+		</table>
+		<button type="submit">확인</button>
 	</form>
 
 </div>
 
 </body>
 </html>
+
+
+
+<script src="jsf5/cyj/findIdService.js"></script>

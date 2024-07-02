@@ -32,7 +32,10 @@ document.getElementById('userId').addEventListener('change', function(){
 	checkIdAjx.send();
 	checkIdAjx.onload = function(){
 		
+		console.log(checkIdAjx.responseText);
+
 		let result = JSON.parse(checkIdAjx.responseText);
+		
 		if(result.retCode=='Exist'){
 			document.querySelector('#checkId').innerHTML=checkId+'는 이미 사용중인 아이디입니다';
 		} else {
@@ -41,7 +44,7 @@ document.getElementById('userId').addEventListener('change', function(){
 		
 	}
 	
-})
+});
 
 //비밀번호 일치확인
 
@@ -54,7 +57,7 @@ document.getElementById('checkPw').addEventListener('change', function() {
 		document.querySelector('#printCheckPw').innerHTML="비밀번호가 일치하지 않습니다.";
 	}
 	
-})
+});
 
 
 //전체동의
@@ -73,9 +76,54 @@ function allSelect() {
 		personalInformationAgree.checked = true;
 		smsAgree.checked = true;
 		emailAgree.checked = true;
+	} else if (this.checked==false) {
+		termsOfUseAgree.checked = false;
+		personalInformationAgree.checked = false;
+		smsAgree.checked = false;
+		emailAgree.checked = false;
 	} 
-	
 }
 
 
-//개별체크
+//개별체크 - 이용약관
+document.getElementById('termsOfUseAgree').addEventListener('change', select1);
+
+function select1() {
+	let allAgree = document.getElementById('allAgree');
+	if(this.checked==false){
+		allAgree.checked = false;
+	}
+}
+
+//개별체크 - 개인정보수집
+document.getElementById('personalInformationAgree').addEventListener('change', select2);
+
+function select2() {
+	let allAgree = document.getElementById('allAgree');
+		if(this.checked==false){
+		allAgree.checked = false;
+	}
+}
+
+//개별체크 - sms 수신동의
+
+document.getElementById('smsAgree').addEventListener('change', select3);
+
+function select3() {
+	let allAgree = document.getElementById('allAgree');
+		if(this.checked==false){
+		allAgree.checked = false;
+	}
+}
+
+//개별체크 - 이메일 수신동의
+
+document.getElementById('emailAgree').addEventListener('change', select4);
+
+function select4() {
+	let allAgree = document.getElementById('allAgree');
+		if(this.checked==false){
+		allAgree.checked = false;
+	}
+}
+

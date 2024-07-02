@@ -1,5 +1,7 @@
 package co.sf.user.service;
 
+import java.util.List;
+
 import co.sf.user.vo.UserVO;
 
 public interface UserService {
@@ -13,6 +15,8 @@ public interface UserService {
 	//아이디 중복체크
 	boolean checkIdAjax(String id);
 	
-
+	//아이디찾기
+	boolean findId(UserVO uvo);
+	
 	
 }
