@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="site-wrap">
     <div class="site-section">
@@ -146,3 +145,4 @@
 <script src="jsf5/khs/order.js"></script>
 <script src="jsf5/khs/address.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+

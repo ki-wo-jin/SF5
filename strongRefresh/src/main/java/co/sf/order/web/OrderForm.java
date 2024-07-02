@@ -7,10 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
+import co.sf.cart.service.CartService;
+import co.sf.cart.service.CartServiceImpl;
+import co.sf.cart.vo.CartVO;
 import co.sf.common.Control;
-import co.sf.order.service.OrderService;
-import co.sf.order.service.OrderServiceImpl;
-import co.sf.order.vo.CartVO;
 
 public class OrderForm implements Control {
 
@@ -19,10 +21,12 @@ public class OrderForm implements Control {
 		String id = req.getParameter("uid");
 		id = "";
 
-		OrderService svc = new OrderServiceImpl();
+		CartService svc = new CartServiceImpl();
 		List<CartVO> list = svc.cartList(id);
 
-		req.setAttribute("cartList", list);
+		Gson gson = new Gson();
+        String cartListJson = gson.toJson(list);
+        req.setAttribute("cartListJson", cartListJson);
 
 		req.getRequestDispatcher("khs/order.tiles").forward(req, resp);
 	}

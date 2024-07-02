@@ -1,5 +1,9 @@
 package co.sf.cart.mapper;
 
-public interface CartMapper {
+import java.util.List;
 
+import co.sf.cart.vo.CartVO;
+
+public interface CartMapper {
+	List<CartVO> cartList(String id);
 }

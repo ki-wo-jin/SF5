@@ -1,3 +1,6 @@
+/*
+* 우편번호 찾기 api
+*/
 function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
