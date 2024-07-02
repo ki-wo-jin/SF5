@@ -1,4 +1,4 @@
-package co.sf.orderDetail.web;
+package co.sf.order.web;
 
 import java.io.IOException;
 

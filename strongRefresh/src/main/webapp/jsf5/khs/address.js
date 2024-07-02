@@ -1,6 +1,3 @@
-/**
- * 주소창
- */
 function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -29,9 +26,7 @@ function sample4_execDaumPostcode() {
                 document.getElementById('postalCode').value = data.zonecode;
                 document.getElementById("address").value = roadAddr;
                 document.getElementById("addressDetail").value = data.jibunAddress;
-                
                
-
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {

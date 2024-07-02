@@ -5,18 +5,15 @@
 
 <mapper namespace="co.sf.order.mapper.OrderMapper">
 
-	<select id="CartList" resultType="co.sf.cart.vo.CartVO">
-	   SELECT 
-       p.product_name AS productName,
-       p.price,
-       c.product_cnt AS quantity,
-       (p.price * c.product_cnt) AS totalPrice
-        FROM cart_f5 c JOIN product_f5 p
-        ON c.product_code = p.product_code
-        WHERE c.id = #{userId}
+	<select id="cartList" parameterType="string">
+	  select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, u.point
+      from cart_f5 c
+      join product_f5 p
+      on c.product_code = p.product_code
+      join users_f5 u
+      on c.id = u.id
+      where c.id = #{id}
 	</select>
-	
-	<select id=""></select>
 
 	<insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
 		INSERT INTO
@@ -31,5 +28,7 @@
 		DELETE FROM cart_f5
 		WHERE product_code = #{productCode}
 	</delete>
+	
+	
 
 </mapper>

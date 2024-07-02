@@ -7,13 +7,13 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import co.sf.common.DataSource;
 import co.sf.order.mapper.OrderMapper;
+import co.sf.order.vo.CartVO;
 import co.sf.order.vo.OrderVO;
-
 
 public class OrderServiceImpl implements OrderService {
 	SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
-	
+
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
@@ -32,6 +32,9 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.removeproduct(ovo) == 1;
 	}
 
-	
-	
+	@Override
+	public List<CartVO> cartList(String id) {
+		return mapper.cartList(id);
+	}
+
 }
