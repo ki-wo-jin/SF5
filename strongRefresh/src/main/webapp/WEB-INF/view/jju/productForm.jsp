@@ -46,20 +46,22 @@
               </div>
             </div>
             
+            <!-- 리스트 예시 -->
             <div class="row mb-5" id = "list" >
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" id = "clone" style = "display: none;">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid" id = "listImg"></a>
+                    <a id = "a1"><img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid" id = "listImg"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html" id = "listName">Tank Top</a></h3>
+                    <h3><a id = "listName">Tank Top</a></h3>
                     <p class="mb-0" id = "listCategorie">t-shirt</p>
                     <p class="text-primary font-weight-bold" id = "listPrice">$50</p>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- 리스트 예시 끝 -->
             
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">

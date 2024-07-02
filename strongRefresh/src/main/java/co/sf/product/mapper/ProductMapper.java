@@ -10,4 +10,5 @@ public interface ProductMapper {
 	//목록
 	List<ProductVO> selectList();
 	List<ProductVO> selectListPaging(@Param("page") int page);
+	int selectTotalCnt();
 }
