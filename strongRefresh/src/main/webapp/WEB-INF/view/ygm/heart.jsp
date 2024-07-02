@@ -73,6 +73,7 @@
                   <%-- <a href="order.do?${heart.productCode }" class="btn btn-primary" onclick="onClickRowDelete(event)">주문하기</a><br> --%>
                   <%-- <a href="order.do?productCode=${heart.productCode }" class="btn btn-primary" >주문하기</a><br> --%>
                   <a href="cart.do?productCode=${heart.productCode }" class="btn btn-primary btn-sm">카트담기</a><br>
+                  <br>
                   <button type="button" id="deleteRowHeart" class="btn btn-primary btn-sm">하트삭제</button>
                 </td>
               </tr>

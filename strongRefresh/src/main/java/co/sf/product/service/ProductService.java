@@ -6,6 +6,7 @@ import co.sf.product.vo.ProductVO;
 
 public interface ProductService {
 	//제품 목록
-	List<ProductVO> ProductList();
-	List<ProductVO> ProductListPaging(int page);
+	List<ProductVO> productList();
+	List<ProductVO> productListPaging(int page);
+	int productTotalCnt();
 }
