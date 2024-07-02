@@ -37,7 +37,7 @@
 				<h3 class="footer-heading mb-4">Promo</h3>
 				<a href="#" class="block-6"> <img src="images/hero_1.jpg"
 					alt="Image placeholder" class="img-fluid rounded mb-4">
-					<h3 class="font-weight-light  mb-0">Finding Your Perfect Shoes</h3>
+					<h3 class="font-weight-light  mb-0">Finding Your Perfect Product</h3>
 					<p>Promo from nuary 15 &mdash; 25, 2019</p>
 				</a>
 			</div>
@@ -45,11 +45,9 @@
 				<div class="block-5 mb-5">
 					<h3 class="footer-heading mb-4">Contact Info</h3>
 					<ul class="list-unstyled">
-						<li class="address">203 Fake St. Mountain View, San
-							Francisco, California, USA</li>
-						<li class="phone"><a href="tel://23923929210">+2 392 3929
-								210</a></li>
-						<li class="email">emailaddress@domain.com</li>
+						<li class="address">대구광역시 중구 중앙대로 403, 5층(남일동, 아너스스카이)</li>
+						<li class="phone"><a href="tel://23923929210">Tel:053-421-2460</a></li>
+						<li class="email">strongRefresh@yedam.com</li>
 					</ul>
 				</div>
 
