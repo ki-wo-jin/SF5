@@ -1,5 +1,9 @@
 package co.sf.cart.service;
 
-public interface CartService {
+import java.util.List;
 
+import co.sf.cart.vo.CartVO;
+
+public interface CartService {
+	List<CartVO> cartList(String id);
 }

@@ -1,4 +1,4 @@
-package co.sf.orderDetail.vo;
+package co.sf.order.vo;
 
 import lombok.Data;
 

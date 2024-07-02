@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.sf.cart.web.CartForm;
+import co.sf.cart.web.CartList;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
-import co.sf.heart.web.HeartList;
 import co.sf.heart.web.RemoveHeart;
+import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.orderDetail.web.OrderDetailForm;
 import co.sf.product.web.ProductDetailAjax;
@@ -52,17 +54,17 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 
-		// 찜 화면으로 이동
+		// 찜 화면 - 목록
 		map.put("/heart.do", new HeartForm());
-		// 찜 목록 요청
-		// map.put("/heartList.do", new HeartList());
-
 		// 찜 삭제
-		map.put("/removeHeart.do", new RemoveHeart());
+		map.put("/removeHeart.do", new RemoveHeart());		
 
-		// 카트
-		// map.put("/cart.do", new CartForm());
+		// 카트 화면 - 목록
+		map.put("/cart.do", new CartForm());		
+		// 카트 목록
+		//map.put("/cartList", new CartList());
 
+		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 상세
