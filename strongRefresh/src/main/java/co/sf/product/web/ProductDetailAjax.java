@@ -15,21 +15,21 @@ import co.sf.product.service.ProductService;
 import co.sf.product.service.ProductServiceImpl;
 import co.sf.product.vo.ProductVO;
 
-public class ProductList implements Control {
+public class ProductDetailAjax implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		String page = req.getParameter("page");
-		
-		page = page == null ? "1" : page;
+		String productCode = req.getParameter("code");
+		System.out.println(productCode);
 		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> list = svc.productListPaging(Integer.parseInt(page));
+		List<ProductVO> list = svc.productList(productCode);
+		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
-	
+		
 		resp.getWriter().print(json);
 
 	}

@@ -16,6 +16,8 @@ import co.sf.heart.web.HeartList;
 import co.sf.heart.web.RemoveHeart;
 import co.sf.order.web.OrderForm;
 import co.sf.orderDetail.web.OrderDetailForm;
+import co.sf.product.web.ProductDetailAjax;
+import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
@@ -71,6 +73,10 @@ public class FrontController extends HttpServlet {
 		// 제품 페이지에 제품 출력
 		map.put("/productListJson.do", new ProductList());
 		map.put("/productTotalCnt.do", new ProductTotal());
+		
+		// 제품 상세페이지
+		map.put("/productDetail.do", new ProductDetailForm());
+		map.put("/productDetailAjax.do", new ProductDetailAjax());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());

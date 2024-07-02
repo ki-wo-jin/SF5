@@ -33,14 +33,14 @@ function cloneRow(product = {}) {
 	let template = document.getElementById('clone').cloneNode(true);
 	template.setAttribute('style', 'display: block;');
 	let a = template.querySelector('#a1');
-	a.href = 'productDetailForm.do?code=' + product.productCode;
+	a.href = 'productDetail.do?code=' + product.productCode;
 	template.querySelector('#listImg').setAttribute('src', 'images/' + product.thumImage);
 	let image = template.querySelector('#listImg');
 	image.style.width = '255px';
 	image.style.height = 'auto';
 	template.querySelector('#listName').innerHTML = product.productName;
 	let name = template.querySelector('#listName');
-	name.href = 'productDetailForm.do?code=' + product.productCode;
+	name.href = 'productDetail.do?code=' + product.productCode;
 	template.querySelector('#listPrice').innerHTML = product.price;
 	template.querySelector('#listCategorie').innerHTML = product.categorie;
 	return template;
@@ -53,7 +53,6 @@ function makePagingFnc() {
 	fetch('productTotalCnt.do')
 		.then(result => result.json())
 		.then(result => {
-			console.log(result);
 			createPagingList(result.totalCount);
 		})
 }
@@ -62,10 +61,9 @@ function makePagingFnc() {
 let pagination = document.querySelector('div.site-block-27>ul.pagination');
 function createPagingList(totalCount) {
 	let totalCnt = totalCount;
-	console.log(totalCnt); // 100건/12 => 9page
 	let startPage, endPage;
 	let prev, next;
-	let realEnd = Math.ceil(totalCnt / 12); // 9페이지
+	let realEnd = Math.ceil(totalCnt / 9); // 12페이지
 
 	endPage = Math.ceil(page / 10) * 10; // 10page
 	startPage = endPage - 9;
