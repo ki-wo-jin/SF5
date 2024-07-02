@@ -28,5 +28,11 @@
 	</select>
 	
 	
+	<select id="findId" parameterType="co.sf.user.vo.UserVO">
+		select id, name, join_date
+		from users_f5
+		where phone=#{phone} or email=#{email}
+	</select>
+	
 	
 </mapper>
