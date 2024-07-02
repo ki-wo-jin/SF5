@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.sf.cart.web.CartForm;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
-import co.sf.heart.web.HeartList;
 import co.sf.heart.web.RemoveHeart;
+import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
-import co.sf.orderDetail.web.OrderDetailForm;
+import co.sf.product.web.ProductDetailAjax;
+import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
@@ -51,17 +53,17 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 
-		// 찜 화면으로 이동
+		// 찜 화면 - 목록
 		map.put("/heart.do", new HeartForm());
-		// 찜 목록 요청
-		// map.put("/heartList.do", new HeartList());
-
 		// 찜 삭제
-		map.put("/removeHeart.do", new RemoveHeart());
+		map.put("/removeHeart.do", new RemoveHeart());		
 
-		// 카트
-		// map.put("/cart.do", new CartForm());
+		// 카트 화면 - 목록
+		map.put("/cart.do", new CartForm());		
+		// 카트 목록
+		//map.put("/cartList", new CartList());
 
+		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 상세
@@ -72,6 +74,10 @@ public class FrontController extends HttpServlet {
 		// 제품 페이지에 제품 출력
 		map.put("/productListJson.do", new ProductList());
 		map.put("/productTotalCnt.do", new ProductTotal());
+		
+		// 제품 상세페이지
+		map.put("/productDetail.do", new ProductDetailForm());
+		map.put("/productDetailAjax.do", new ProductDetailAjax());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());

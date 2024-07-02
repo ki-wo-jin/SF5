@@ -8,11 +8,12 @@
 	<select id="selectList" resultType="co.sf.product.vo.ProductVO">
 		select *
 		from product_f5
+		where product_code = #{productCode}
 	</select>
 	
 	<select id ="selectListPaging">
 		select b.*
-		from (select /*+INDEX_DESC(r SYS_C007131)*/ rownum rn, r.*
+		from (select /*+INDEX_DESC(r SYS_C007211)*/ rownum rn, r.*
 		from product_f5 r) b
         <![CDATA[
 		where  b.rn <= (#{page}) * 12
@@ -23,6 +24,6 @@
 	<select id="selectTotalCnt" parameterType="int">
 	    select count(1) from product_f5
 	</select>
-
+	
 
 </mapper>

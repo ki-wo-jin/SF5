@@ -2,11 +2,32 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- <mapper namespace="co.sf.order.mapper.OrderMapper">
- 
-<select id="OrderList" resultType="co.sf.order.vo.OrderVO">
-        
-    </select>
+
+<mapper namespace="co.sf.order.mapper.OrderMapper">
+
+	<select id="cartList" parameterType="string">
+		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, u.point
+		from cart_f5 c join product_f5 p
+					   on c.product_code = p.product_code
+			 		   join users_f5 u
+					   on c.id = u.id
+		where c.id = #{id}
+	</select>
+
+	<insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
+		INSERT INTO
+		order_f5(order_code, id, recipient, phone,
+		address, delivery_message, email)
+		
+		VALUES ( #{orderCode}, #{id}, #{recipient}, #{phone},
+		#{address},	#{deliveryMessage}, #{email})
+	</insert>
+	
+	<delete id="removeproduct" parameterType="co.sf.order.vo.OrderVO">
+		DELETE FROM cart_f5
+		WHERE product_code = #{productCode}
+	</delete>
+	
+	
 
 </mapper>

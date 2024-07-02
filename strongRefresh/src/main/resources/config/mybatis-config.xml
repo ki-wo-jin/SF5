@@ -3,9 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<properties resource="config/db.properties" />
-
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 
@@ -25,8 +23,6 @@
 		<mapper resource="co/sf/cart/mapper/CartMapper.xml" />
 		<mapper resource="co/sf/heart/mapper/HeartMapper.xml" />
 		<mapper resource="co/sf/order/mapper/OrderMapper.xml" />
-		<mapper
-			resource="co/sf/orderDetail/mapper/OrderDetailMapper.xml" />
 		<mapper resource="co/sf/product/mapper/ProductMapper.xml" />
 		<mapper resource="co/sf/qna/mapper/QnaMapper.xml" />
 		<mapper resource="co/sf/review/mapper/ReviewMapper.xml" />
