@@ -11,7 +11,8 @@
 	border: 1px solid #565960;
 	background: #fff;
 	box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.15);
-
+	bottom: 30px;
+	right: 50px;
 }
 
 
@@ -21,6 +22,6 @@
 	margin-top: 10px;
 	left: 25px;
 	bottom: 28px;
-	width: 420px;
-	font-size: small;
+	width: 360px;
+	font-size: smaller;
 }
