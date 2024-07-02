@@ -8,7 +8,8 @@ import co.sf.product.vo.ProductVO;
 
 public interface ProductMapper {
 	//목록
-	List<ProductVO> selectList();
+	List<ProductVO> selectList(@Param("productCode") String productCode);
 	List<ProductVO> selectListPaging(@Param("page") int page);
 	int selectTotalCnt();
+	
 }

@@ -13,8 +13,8 @@ public class ProductServiceImpl implements ProductService {
 	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 
 	@Override
-	public List<ProductVO> productList() {
-		return mapper.selectList();
+	public List<ProductVO> productList(String productCode) {
+		return mapper.selectList(productCode);
 	}
 
 	@Override
