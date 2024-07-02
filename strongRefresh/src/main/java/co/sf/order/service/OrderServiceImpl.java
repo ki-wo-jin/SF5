@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import co.sf.cart.vo.CartVO;
 import co.sf.common.DataSource;
 import co.sf.order.mapper.OrderMapper;
-import co.sf.order.vo.CartVO;
 import co.sf.order.vo.OrderVO;
 
 public class OrderServiceImpl implements OrderService {
@@ -28,13 +28,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public boolean removeproduct(OrderVO ovo) {
-		// TODO Auto-generated method stub
 		return mapper.removeproduct(ovo) == 1;
 	}
 
-	@Override
-	public List<CartVO> cartList(String id) {
-		return mapper.cartList(id);
-	}
 
 }
