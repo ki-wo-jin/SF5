@@ -19,8 +19,7 @@
                                 <th>Total</th>
                             </tr>
                         </thead>
-                        <tbody id="list">
-                        </tbody>
+                        <tbody id="list"></tbody>
                     </table>
                 </div>
                 
@@ -30,7 +29,7 @@
                         <button type="button" class="btn btn-secondary btn-sm"> 삭제하기</button>
                     </div>
                     <div>
-                        <strong> 합계 : <span style="color: black;">KRW 155,000</span></strong>
+                        <strong> 합계 : <span style="color: black;">KRW </span></strong>
                     </div>
                 </div>
                 
@@ -41,7 +40,7 @@
                             <div>
                                 <label><input type="radio" name="deliveryOption" value="sameAsUser" checked> 회원 정보와 동일</label>
                                 <label><input type="radio" name="deliveryOption" value="newAddress"> 새로운 배송지</label>
-                                <button type="button" class="btn btn-primary btn-sm">주소록 보기</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="sample4_execDaumPostcode()">주소록 보기</button>
                             </div>
                         </div>
 
@@ -141,4 +140,5 @@
         </div>
     </div>
 </div>
-<script src="js/orderDetails.js"></script>
+<script src="jsf5/khs/order.js"></script>
+<script src="jsf5/khs/address.js"></script>
