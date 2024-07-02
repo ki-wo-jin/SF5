@@ -55,44 +55,36 @@
                 <th class="product-total">선택</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="wishList">
               <c:forEach var="heart" items="${heartList }">
               <!-- <script>console.log(">>>>>>>>${heart.thumImage}")</script> -->
-              <tr data-id="${heart.productCode }" class="pcode">
-                <td class="product-thumbnail">
-                  <input type="checkbox" id="checkbox">
-                </td>
-                <td class="product-thumbnail">
-                  <img src="images/${heart.thumImage }" alt="Image" class="img-fluid">
-                </td>
-                <td class="product-name">
-                  <h2 class="h5 text-black">${heart.productName }</h2>
-                </td>
-                <td>${heart.price }</td>
-                <td>
-                  <%-- <a href="order.do?${heart.productCode }" class="btn btn-primary" onclick="onClickRowDelete(event)">주문하기</a><br> --%>
-                  <%-- <a href="order.do?productCode=${heart.productCode }" class="btn btn-primary" >주문하기</a><br> --%>
-                  <a href="cart.do?productCode=${heart.productCode }" class="btn btn-primary btn-sm">카트담기</a><br>
-                  <br>
-                  <button type="button" id="deleteRowHeart" class="btn btn-primary btn-sm">하트삭제</button>
-                </td>
-              </tr>
+	              <tr data-id="${heart.productCode }" class="pcode">
+	                <td class="product-thumbnail">
+	                  <input type="checkbox" class="boxs">
+	                </td>
+	                <td class="product-thumbnail">
+	                  <img src="images/${heart.thumImage }" alt="Image" class="img-fluid">
+	                </td>
+	                <td class="product-name">
+	                  <h2 class="h5 text-black">${heart.productName }</h2>
+	                </td>
+	                <td>${heart.price }</td>
+	                <td>
+	                  <%-- <a href="order.do?${heart.productCode }" class="btn btn-primary" onclick="onClickRowDelete(event)">주문하기</a><br> --%>
+	                  <%-- <a href="order.do?productCode=${heart.productCode }" class="btn btn-primary" >주문하기</a><br> --%>
+	                  <a href="cart.do?productCode=${heart.productCode }" class="btn btn-primary btn-sm">카트담기</a><br>
+	                  <br>
+	                  <button type="button" class="deleteRowHeart">하트삭제</button>
+	                  <!-- <button type="button" class="btn btn-primary btn-sm">하트삭제</button> -->
+	                </td>
+	              </tr>
               </c:forEach>
             </tbody>
-<!--             <tfoot>
-            	<tr>
-            		<td>
-	            	  <a href="#" class="btn btn-primary">주문하기</a><br>
-	                  <a href="#" class="btn btn-primary">장바구니담기</a><br>
-	                  <a href="#" class="btn btn-primary btn-sm">X 삭제</a>
-            		</td>
-            	</tr>
-            </tfoot> -->
           </table>
-			    <input type="button" value="선택상품삭제" id="checkDelete">
-			    <input type="button" value="선택상품카트담기" id="checkCartPage">
-			    <input type="button" value="선택상품주문" id="allOrderProduct">
-			    <input type="button" value="관심상품비우기" id="allHeartReset">
+			    <input type="button" value="선택상품삭제" id="checkDelete" class="btn btn-warning btn-sm">
+			    <input type="button" value="선택상품카트담기" id="checkCartPage" class="btn btn-warning btn-sm">
+			    <input type="button" value="선택상품주문" id="allOrderProduct" class="btn btn-warning btn-sm">
+			    <input type="button" value="관심상품비우기" id="allHeartReset" class="btn btn-warning btn-sm">
         </div>
       </form>
     </div>

@@ -188,3 +188,30 @@ function del(tr){
 			}
 		})
 } // end of del();
+
+
+
+//--------------------------------
+
+//  하트 삭제
+let heartBtn = document.querySelectorAll('.deleteRowHeart');
+heartBtn.forEach(ele => {
+	ele.addEventListener('click', onClickRowDelete);
+});
+
+function onClickRowDelete(tr){
+	let delTr = tr.target.parentElement.parentElement;
+	let pcode = delTr.dataset.id;
+	console.log(pcode);
+	let url = 'removeHeart.do?productCode=' + pcode;
+	fetch(url)
+		.then(result => result.json())
+		.then(result => {
+			if (result.result == "OK") {
+				alert(result.message);
+				delTr.remove();
+			} else {
+				alert(result.message);
+			}
+		})
+} // end of onClickRowDelete();
