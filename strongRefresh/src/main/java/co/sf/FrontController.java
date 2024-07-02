@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.CartForm;
-import co.sf.cart.web.CartList;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;

@@ -9,5 +9,5 @@ public class CartVO {
 	private String productName;
 	private String thumImage;
 	private int price;
-	private int point;
+	private int point;	
 }

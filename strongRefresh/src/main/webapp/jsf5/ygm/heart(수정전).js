@@ -14,6 +14,7 @@ fetch('heartList.do')
 		})
 	})
 
+//clone 사용하기
 let temp = document.querySelector('.pcode').cloneNode(true);
 
 
