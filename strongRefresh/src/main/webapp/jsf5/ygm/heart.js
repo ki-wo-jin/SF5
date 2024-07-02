@@ -13,7 +13,7 @@ function onClickRowDelete(tr){
 
 // ▶ 삭제
 function deleteTr(tr){
-	//let pcode = tr.dataset.id;
+	let pcode = tr.dataset.id;
 	let url = 'removeHeart.do?productCode=' + pcode;
 	fetch(url)
 		.then(result => result.json())
@@ -46,9 +46,6 @@ document.getElementById('checkDelete').addEventListener('click', function(){
 
 
 // ▶ 선택 상품 카트 담기
-
-
-// ▶ 선택 상품 주문
 
 
 // ▶ 관심 상품 비우기

@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.sf.common.Control;
 
-public class CartForm implements Control {
+public class CartList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("ygm/cart.tiles").forward(req, resp);
+		// TODO Auto-generated method stub
+
 	}
+
 }

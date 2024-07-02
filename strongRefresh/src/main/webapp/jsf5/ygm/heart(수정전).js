@@ -14,6 +14,10 @@ fetch('heartList.do')
 		})
 	})
 
+let temp = document.querySelector('.pcode').cloneNode(true);
+
+
+
 
 function makeRow(obj = {}) {
 	let tr = document.createElement('tr');
