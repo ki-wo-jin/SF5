@@ -51,15 +51,15 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 
-		// 찜 화면
+		// 찜 화면 - 목록
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());		
 
-		// 카트 화면 이동
+		// 카트 화면 - 목록
 		map.put("/cart.do", new CartForm());		
 		// 카트 목록
-		map.put("/cartList", new CartList());
+		//map.put("/cartList", new CartList());
 
 		
 		// 주문 페이지

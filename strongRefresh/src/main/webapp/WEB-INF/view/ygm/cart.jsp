@@ -36,10 +36,9 @@
               </tr>
             </thead>
             <tbody id="cartList">
-<%--               <c:forEach var="heart" items="${heartList }">
-              <!-- <script>console.log(">>>>>>>>${heart.thumImage}")</script> -->
+               <c:forEach var="cart" items="${cartList }">
 	              <tr data-id="${heart.productCode }" class="pcode">
-	                <td class="product-thumbnail">
+	                <td class="checkbox">
 	                  <input type="checkbox" class="boxs">
 	                </td>
 	                <td class="product-thumbnail">
@@ -56,7 +55,7 @@
 	                  <!-- <button type="button" class="btn btn-primary btn-sm">하트삭제</button> -->
 	                </td>
 	              </tr>
-              </c:forEach> --%>
+              </c:forEach> 
             </tbody>
           </table>
 			    <input type="button" value="선택상품삭제" id="checkDelete" class="btn btn-warning btn-sm">
