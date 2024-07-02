@@ -17,8 +17,7 @@ public class HeartForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 수정 전) ajax로 list 출력
-		//req.getRequestDispatcher("ygm/heart.tiles").forward(req, resp);
-		
+		//req.getRequestDispatcher("ygm/heart.tiles").forward(req, resp);		
 		
 		// 수정 후) jsp로 list 출력
 		HeartService hsvc = new HeartServiceImplements();
