@@ -18,6 +18,7 @@ import co.sf.order.web.OrderForm;
 import co.sf.orderDetail.web.OrderDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
+import co.sf.product.web.ProductTotal;
 import co.sf.qna.web.QnaForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdForm;
@@ -52,16 +53,14 @@ public class FrontController extends HttpServlet {
 		// 찜 화면으로 이동
 		map.put("/heart.do", new HeartForm());
 		// 찜 목록 요청
-		//map.put("/heartList.do", new HeartList());
+		// map.put("/heartList.do", new HeartList());
 
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());
-		
+
 		// 카트
-		//map.put("/cart.do", new CartForm());
-		
-		
-		
+		// map.put("/cart.do", new CartForm());
+
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 상세
@@ -71,7 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productForm.do", new ProductForm());
 		// 제품 페이지에 제품 출력
 		map.put("/productListJson.do", new ProductList());
-
+		map.put("/productTotalCnt.do", new ProductTotal());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());
@@ -80,25 +79,22 @@ public class FrontController extends HttpServlet {
 		// 회원가입
 		map.put("/joinForm.do", new JoinForm());
 		map.put("/join.do", new JoinControl());
-		
-		//아이디 중복체크
-		map.put("/checkIdAjax.do", new CheckIdAjax());
 
+		// 아이디 중복체크
+		map.put("/checkIdAjax.do", new CheckIdAjax());
 
 		// 아이디찾기
 		map.put("/findId.do", new FindIdForm());
 		// 비밀번호찾기
 		map.put("/findPw.do", new FindPwForm());
 
-		
-		
 		// QNA
 		map.put("/qna.do", new QnaForm());
 		// QNA 목록 요청
 		map.put("/qnaList.do", new QnaList());
 		// QNA 상세페이지
 		map.put("/qnaDetail.do", new QnaDetailForm());
-		
+
 		// 리뷰
 		map.put("/review.do", new ReviewForm());
 		// 리뷰 목록 요청

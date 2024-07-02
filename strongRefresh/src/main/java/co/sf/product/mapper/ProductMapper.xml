@@ -19,6 +19,10 @@
 		]]>
 		and b.rn > (#{page} -1) * 12
 	</select>
+	
+	<select id="selectTotalCnt" parameterType="int">
+	    select count(1) from product_f5
+	</select>
 
 
 </mapper>

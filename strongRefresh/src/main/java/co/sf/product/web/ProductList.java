@@ -26,7 +26,7 @@ public class ProductList implements Control {
 		page = page == null ? "1" : page;
 		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> list = svc.ProductListPaging(Integer.parseInt(page));
+		List<ProductVO> list = svc.productListPaging(Integer.parseInt(page));
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
