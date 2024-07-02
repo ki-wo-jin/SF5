@@ -11,7 +11,7 @@
                     <table class="table site-block-order-table mb-5">
                         <thead>
                             <tr>
-                                <th><label><input type = "checkbox" name = "allselect"></label></th>
+                                <th><input type = "checkbox" name = "allselect"></th>
                                 <th>Product</th>
                                 <th>Price</th>
                                 <th>Quantity</th>

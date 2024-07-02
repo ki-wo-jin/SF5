@@ -13,6 +13,9 @@ public class OrderForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		
 		req.getRequestDispatcher("khs/order.tiles").forward(req, resp);
 	}
 
