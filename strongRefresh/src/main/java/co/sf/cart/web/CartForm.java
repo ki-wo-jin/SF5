@@ -16,15 +16,15 @@ public class CartForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		CartService hsvc = new CartServiceImpl();
-
-		// HttpSession session = req.getSession();
-		// String id = (String) session.getAttribute("id");
-		String id = "1"; // test, 완성된 후에는 위에 코드 입력
-		List<CartVO> clist = hsvc.cartList(id);
-
-		req.setAttribute("cartList", clist);
+		/*
+		 * CartService hsvc = new CartServiceImpl();
+		 * 
+		 * // HttpSession session = req.getSession(); // String id = (String)
+		 * session.getAttribute("id"); String id = "1"; // test, 완성된 후에는 위에 코드 입력
+		 * List<CartVO> clist = hsvc.cartList(id);
+		 * 
+		 * req.setAttribute("cartList", clist);
+		 */
 		req.getRequestDispatcher("ygm/cart.tiles").forward(req, resp);
 	}
 }
