@@ -26,6 +26,12 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.addAddress(ovo) == 1;
 	}
 
+	@Override
+	public boolean removeproduct(OrderVO ovo) {
+		// TODO Auto-generated method stub
+		return mapper.removeproduct(ovo) == 1;
+	}
+
 	
 	
 }

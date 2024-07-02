@@ -5,6 +5,17 @@
 
 <mapper namespace="co.sf.order.mapper.OrderMapper">
 
+	<select id="CartList" resultType="co.sf.cart.vo.CartVO">
+	   SELECT 
+       p.product_name AS productName,
+       p.price,
+       c.product_cnt AS quantity,
+       (p.price * c.product_cnt) AS totalPrice
+        FROM cart_f5 c JOIN product_f5 p
+        ON c.product_code = p.product_code
+        WHERE c.id = #{userId}
+	</select>
+	
 	<select id=""></select>
 
 	<insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
@@ -15,5 +26,10 @@
 		VALUES ( #{orderCode}, #{id}, #{recipient}, #{phone},
 		#{address},	#{deliveryMessage}, #{email})
 	</insert>
+	
+	<delete id="removeproduct" parameterType="co.sf.order.vo.OrderVO">
+		DELETE FROM cart_f5
+		WHERE product_code = #{productCode}
+	</delete>
 
 </mapper>

@@ -7,5 +7,8 @@ import co.sf.order.vo.OrderVO;
 public interface OrderService {
 	List<OrderVO> OrderList();
 	
+	boolean removeproduct(OrderVO ovo);
+	
 	boolean addAddress(OrderVO ovo);
+	
 }

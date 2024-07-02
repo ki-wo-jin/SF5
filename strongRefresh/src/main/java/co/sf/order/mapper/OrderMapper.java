@@ -7,6 +7,9 @@ import co.sf.order.vo.OrderVO;
 public interface OrderMapper {
 
 	List<OrderVO> OrderList();
+	
+	int removeproduct(OrderVO ovo);
 
-	int addAddress(OrderVO order);
+	int addAddress(OrderVO ovo);
+	
 }
