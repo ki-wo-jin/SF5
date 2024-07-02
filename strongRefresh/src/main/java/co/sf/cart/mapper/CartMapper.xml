@@ -5,13 +5,11 @@
 
 <mapper namespace="co.sf.cart.mapper.CartMapper">
 	<select id="cartList" parameterType="string">
-		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price,
-		u.point
-		from cart_f5 c
-		join product_f5 p
-		on c.product_code = p.product_code
-		join users_f5 u
-		on c.id = u.id
+		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, u.point
+		from   cart_f5 c join product_f5 p
+			             on c.product_code = p.product_code
+		                 join users_f5 u
+		                 on c.id = u.id
 		where c.id = #{id}
 	</select>
 </mapper>
