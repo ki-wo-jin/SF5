@@ -8,17 +8,22 @@ import co.sf.common.DataSource;
 import co.sf.product.mapper.ProductMapper;
 import co.sf.product.vo.ProductVO;
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
-	
+
 	@Override
-	public List<ProductVO> ProductList() {
+	public List<ProductVO> productList() {
 		return mapper.selectList();
 	}
 
 	@Override
-	public List<ProductVO> ProductListPaging(int page) {
+	public List<ProductVO> productListPaging(int page) {
 		return mapper.selectListPaging(page);
+	}
+
+	@Override
+	public int productTotalCnt() {
+		return mapper.selectTotalCnt();
 	}
 }
