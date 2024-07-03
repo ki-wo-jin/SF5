@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.AddCart;
 import co.sf.cart.web.CartForm;
+import co.sf.cart.web.RemoveCart;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
@@ -61,18 +62,19 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 		
-		// 찜 화면 - 목록 (JSP)
+		// 찜 화면
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());		
 		// 찜 화면에서 카드 담기 클릭시 카트 목록에 담기
-		map.put("/addCart.do", new AddCart());
-		
+		map.put("/addCart.do", new AddCart());		
 		
 		// 카트 화면
 		map.put("/cart.do", new CartForm());
-		// 카트 목록 (AJAX)
-		//map.put("/cartList", new CartList());
+		// 카트 삭제
+		map.put("/removeCart.do", new RemoveCart());
+		
+
 
 		// 주문생성.
 		map.put("/createOrder.do", new CreateOrder());
@@ -81,6 +83,8 @@ public class FrontController extends HttpServlet {
 		// 주문 리스트
 		map.put("/orderdetail.do", new OrderDetailForm());
 
+		
+		
 		// 제품 페이지
 		map.put("/productForm.do", new ProductForm());
 		// 제품 페이지에 제품 출력

@@ -40,7 +40,8 @@ function addCart(e) {
 		.then(result => {
 			if (result.retCode == "OK") {
 				Swal.fire({								//sweetalert2 라이브러리
-					title: "장바구니로 이동하시겠습니까?",
+					title: "상품이 장바구니에 담겼습니다.",
+					text: "장바구니로 이동하시겠습니까?",
 					icon: "warning",
 					showCancelButton: true,
 					confirmButtonColor: "#3085d6",
@@ -89,8 +90,8 @@ document.getElementById('checkCartPage').addEventListener('click', function(){
 				.then(result => {
 					if (result.retCode == "OK") {
 						Swal.fire({								//sweetalert2 라이브러리
-							title: "장바구니로 이동하시겠습니까?",
-							icon: "warning",
+							title: "상품이 장바구니에 담겼습니다.",
+							text: "장바구니로 이동하시겠습니까?",
 							showCancelButton: true,
 							confirmButtonColor: "#3085d6",
 							cancelButtonColor: "#d33",

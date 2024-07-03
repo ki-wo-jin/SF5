@@ -19,8 +19,6 @@ public class RemoveHeart implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		 resp.setContentType("text/json;charset=utf-8");
-		 
 		 String pcode = req.getParameter("productCode");
 		 
 		 HeartService hsvc = new HeartServiceImpl();
