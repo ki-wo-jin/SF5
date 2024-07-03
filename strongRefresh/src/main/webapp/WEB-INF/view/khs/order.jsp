@@ -5,7 +5,7 @@
 	<div class="site-section">
 		<div class="container">
 			<div class="col-md-12">
-				<h6 class="h6 mb-3 text-black">주문 내역</h6>
+				<h6 class="h6 mb-3 text-black"  >주문 내역</h6>
 				<div class="p-3 p-lg-5 border">
 					<table class="table site-block-order-table mb-5">
 						<thead>
@@ -54,20 +54,6 @@
 					</div>
 
 					<div class="form-group">
-						<label for="address" class="text-black">주소</label> <br>
-						<button type="button" class="btn btn-dark btn-sm"
-							onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
-						<br>
-						<br> <input type="text" class="form-control" id="postalCode"
-							name="postalCode" placeholder="우편번호"> <input type="text"
-							class="form-control mt-2" id="address" name="address"
-							placeholder="기본주소"> <span id="guide"
-							style="color: #999; display: none"></span> <input type="text"
-							class="form-control mt-2" id="addressDetail" name="addressDetail"
-							placeholder="나머지주소 (선택입력가능)">
-					</div>
-
-					<div class="form-group">
 						<label for="phone" class="text-black">휴대전화</label>
 						<div class="row">
 							<div class="col-md-3">
@@ -92,6 +78,19 @@
 					</div>
 
 					<div class="form-group">
+						<label for="address" class="text-black">주소</label> <br>
+						<button type="button" class="btn btn-dark btn-sm"
+							onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
+						<br> <br> <input type="text" class="form-control"
+							id="postalCode" name="postalCode" placeholder="우편번호"> <input
+							type="text" class="form-control mt-2" id="address" name="address"
+							placeholder="기본주소"> <span id="guide"
+							style="color: #999; display: none"></span> <input type="text"
+							class="form-control mt-2" id="addressDetail" name="addressDetail"
+							placeholder="나머지주소 (선택입력가능)">
+					</div>
+
+					<div class="form-group">
 						<label for="email" class="text-black">이메일</label>
 						<div class="row">
 							<div class="col-md-5">
@@ -110,6 +109,7 @@
 							</div>
 						</div>
 					</div>
+
 
 					<div class="form-group">
 						<label for="deliveryMessage" class="text-black">배송메시지</label>
@@ -147,10 +147,11 @@
 									<strong id="finalTotal">KRW </strong>
 								</div>
 							</div>
+							<br>
 							<div class="form-group">
-									<button class="btn btn-primary btn-lg py-3 btn-block"
-										onclick="window.location='thankyou.html'">주문하기</button>
-								</div>
+								<button class="btn btn-dark btn-lg py-3 btn-block"
+									onclick="window.location='thankyou.html'">주문하기</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -161,6 +162,4 @@
 </div>
 <script src="jsf5/khs/order.js"></script>
 <script src="jsf5/khs/address.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
+<script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

@@ -25,8 +25,13 @@ import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
+import co.sf.qna.web.QnaDetailForm;
 import co.sf.product.web.heartProductAjax;
 import co.sf.qna.web.QnaForm;
+import co.sf.qna.web.QnaList;
+import co.sf.review.web.ReviewForm;
+import co.sf.review.web.ReviewList;
+import co.sf.review.web.reviewDetailForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
 import co.sf.user.web.FindIdForm;
@@ -34,12 +39,6 @@ import co.sf.user.web.FindPwControl;
 import co.sf.user.web.FindPwForm;
 import co.sf.user.web.JoinControl;
 import co.sf.user.web.JoinForm;
-import co.sf.qna.web.QnaList;
-import co.sf.qna.web.QnaDetailForm;
-import co.sf.qna.web.QnaForm;
-import co.sf.review.web.ReviewList;
-import co.sf.review.web.reviewDetailForm;
-import co.sf.review.web.ReviewForm;
 import co.sf.user.web.LoginControl;
 import co.sf.user.web.LoginForm;
 import co.sf.user.web.LogoutControl;
@@ -81,7 +80,7 @@ public class FrontController extends HttpServlet {
 		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
-		// 주문 상세
+		// 주문 리스트
 		map.put("/orderdetail.do", new OrderDetailForm());
 
 		// 제품 페이지
