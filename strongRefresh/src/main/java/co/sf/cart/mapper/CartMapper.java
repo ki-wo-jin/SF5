@@ -7,7 +7,9 @@ import co.sf.order.vo.OrderDetailVO;
 import co.sf.order.vo.OrderVO;
 
 public interface CartMapper {
-	// ordet page에서 사용
+	//카트 삭제
+	int deleteCart(String ccode);
+	
 	List<CartVO> cartList(String id);
 	
 	CartVO getCartInfo(String cartCode);
