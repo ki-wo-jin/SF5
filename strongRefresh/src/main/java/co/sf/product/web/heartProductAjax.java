@@ -39,29 +39,34 @@ public class heartProductAjax implements Control {
 		Map<String, Object> map = new HashMap<>();
 		Gson gson = new GsonBuilder().create();
 		
-		if(sel == 0 ) {
-			try {
-				if (svc.productToHeart(hvo)) {
-					map.put("retCode", "PLUS");
-					map.put("retVal", hvo);
+		if(id == null || id == "") {
+			map.put("retCode", "ID");
+		} else {
+			if(sel == 0 ) {
+				try {
+					if (svc.productToHeart(hvo)) {
+						map.put("retCode", "PLUS");
+						map.put("retVal", hvo);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					map.put("retCode", "NG");
+					map.put("retVal", "처리중 오류가 발생하였습니다");
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				map.put("retCode", "NG");
-				map.put("retVal", "처리중 오류가 발생하였습니다");
+				
+			} else if (sel > 0) {
+				try {
+					if (svc.remPrdHeart(hvo)) {
+						map.put("retCode", "MINUS");
+						map.put("retVal", hvo);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					map.put("retCode", "NG");
+					map.put("retVal", "처리중 오류가 발생하였습니다");
+				}
 			}
 			
-		} else if (sel >= 0) {
-			try {
-				if (svc.remPrdHeart(hvo)) {
-					map.put("retCode", "MINUS");
-					map.put("retVal", hvo);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				map.put("retCode", "NG");
-				map.put("retVal", "처리중 오류가 발생하였습니다");
-			}
 		}
 		
 		// js에 보내기
