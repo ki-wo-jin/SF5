@@ -28,8 +28,18 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public boolean findId(UserVO uvo) {
-		return mapper.findId(uvo)==1;
+	public UserVO getUser(String id) {
+		return mapper.getUser(id);
+	}
+	
+	@Override
+	public UserVO findId(String info) {
+		return mapper.findId(info);
+	}
+	
+	@Override
+	public UserVO findPw(String info, String name) {
+		return mapper.findPw(info, name);
 	}
 
 	

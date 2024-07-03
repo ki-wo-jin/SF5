@@ -1,9 +1,6 @@
 /**
-findIdService.js
+findPwService.js
 */
-
-//선택된 값에 따라 출력
-//라디오버튼 선택된 값 가져오기 document.querySelector('input[type=radio][name={라디오버튼의 name}]:checked').value;
 
 let radios = document.querySelectorAll('input[type=radio][name=findPath]');
 
@@ -23,6 +20,3 @@ function printPathFunc() {
 	}
 
 }
-
-
-//아이디 확인

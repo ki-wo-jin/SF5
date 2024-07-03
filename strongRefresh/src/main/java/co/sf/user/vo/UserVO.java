@@ -14,6 +14,7 @@ public class UserVO {
 	private String grade;
 	private int totalPayment;
 	private String address;
+	private String joinDate;
 	
 
 }
