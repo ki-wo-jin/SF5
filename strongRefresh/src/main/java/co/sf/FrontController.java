@@ -10,17 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.sf.cart.web.AddCart;
 import co.sf.cart.web.CartForm;
+import co.sf.cart.web.CartList;
 import co.sf.common.Control;
+import co.sf.heart.web.CheckProduct;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
+import co.sf.product.web.cartProductAjax;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
+import co.sf.product.web.heartProductAjax;
 import co.sf.qna.web.QnaForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
@@ -58,15 +63,20 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 
-		// 찜 화면 - 목록
+		// 찜 화면 - 목록 (JSP)
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());		
-
-		// 카트 화면 - 목록
+		// 찜 화면에서 카드 담기 클릭시 카트 목록에 담기
+		map.put("/addCart.do", new AddCart());
+		// 찜 화면에서 카트 담기 클릭 시 중복 체크
+		map.put("/checkProduct", new CheckProduct());
+		
+		
+		// 카트 화면
 		map.put("/cart.do", new CartForm());		
-		// 카트 목록
-		//map.put("/cartList", new CartList());
+		// 카트 목록 (AJAX)
+		map.put("/cartList", new CartList());
 
 		
 		// 주문 페이지
@@ -83,6 +93,10 @@ public class FrontController extends HttpServlet {
 		// 제품 상세페이지
 		map.put("/productDetail.do", new ProductDetailForm());
 		map.put("/productDetailAjax.do", new ProductDetailAjax());
+		// 제품 찜하기
+		map.put("/heartProductAjax.do", new heartProductAjax());
+		// 제품 카트에 담기
+		map.put("/cartProductAjax.do", new cartProductAjax());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());

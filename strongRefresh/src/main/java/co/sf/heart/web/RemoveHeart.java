@@ -13,7 +13,7 @@ import com.google.gson.GsonBuilder;
 
 import co.sf.common.Control;
 import co.sf.heart.service.HeartService;
-import co.sf.heart.service.HeartServiceImplements;
+import co.sf.heart.service.HeartServiceImpl;
 
 public class RemoveHeart implements Control {
 
@@ -23,7 +23,7 @@ public class RemoveHeart implements Control {
 		 
 		 String pcode = req.getParameter("productCode");
 		 
-		 HeartService hsvc = new HeartServiceImplements();
+		 HeartService hsvc = new HeartServiceImpl();
 		 
 		 Map<String, Object> map = new HashMap<String, Object>();
 		 Gson gson = new GsonBuilder().create();
