@@ -1,24 +1,24 @@
-package co.sf.order.web;
+package co.sf.user.web;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
-
-import co.sf.cart.service.CartService;
-import co.sf.cart.service.CartServiceImpl;
-import co.sf.cart.vo.CartVO;
 import co.sf.common.Control;
 
-public class OrderForm implements Control {
+public class LogoutControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("khs/order.tiles").forward(req, resp);
+		// TODO Auto-generated method stub
+		HttpSession session = req.getSession();
+		session.invalidate();
+		
+		resp.sendRedirect("main.do");
+
 	}
 
 }

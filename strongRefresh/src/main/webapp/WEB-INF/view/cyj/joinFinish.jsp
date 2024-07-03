@@ -22,14 +22,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td rowspan="3">등급을 출력${grade }</td>
-					<td>아이디 : ${id }</td>
+					<td rowspan="3">등급을 출력${user.grade }</td>
+					<td>아이디 : ${user.id }</td>
 				</tr>
 				<tr>
-					<td>이름 : ${name }</td>
+					<td>이름 : ${user.name }</td>
 				</tr>
 				<tr>
-					<td>이메일 : ${email }</td>
+					<td>이메일 : ${user.email }</td>
 				</tr>
 			</tbody>
 		</table>

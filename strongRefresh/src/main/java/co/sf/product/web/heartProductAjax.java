@@ -33,36 +33,47 @@ public class heartProductAjax implements Control {
 
 		HeartService svc = new HeartServiceImpl();
 		
-		int sel = svc.getPrdHeart(hvo);
+		int sel = 0;
 		
+		try {
+			sel = svc.getPrdHeart(hvo);
+		} catch (Exception e) {
+			
+		}
 		
 		Map<String, Object> map = new HashMap<>();
 		Gson gson = new GsonBuilder().create();
 		
-		if(sel == 0 ) {
-			try {
-				if (svc.productToHeart(hvo)) {
-					map.put("retCode", "PLUS");
-					map.put("retVal", hvo);
+		if(id != "" && id != null) {
+			if(sel == 0 ) {
+				try {
+					if (svc.productToHeart(hvo)) {
+						map.put("retCode", "PLUS");
+						map.put("retVal", hvo);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					map.put("retCode", "NG");
+					map.put("retVal", "처리중 오류가 발생하였습니다");
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				map.put("retCode", "NG");
-				map.put("retVal", "처리중 오류가 발생하였습니다");
-			}
-			
-		} else if (sel >= 0) {
-			try {
-				if (svc.remPrdHeart(hvo)) {
-					map.put("retCode", "MINUS");
-					map.put("retVal", hvo);
+				
+			} else if (sel > 0) {
+				try {
+					if (svc.remPrdHeart(hvo)) {
+						map.put("retCode", "MINUS");
+						map.put("retVal", hvo);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					map.put("retCode", "NG");
+					map.put("retVal", "처리중 오류가 발생하였습니다");
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				map.put("retCode", "NG");
-				map.put("retVal", "처리중 오류가 발생하였습니다");
 			}
+		} else {
+			map.put("retCode", "ID");
 		}
+			
+		
 		
 		// js에 보내기
 		resp.getWriter().print(gson.toJson(map));

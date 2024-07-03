@@ -8,12 +8,13 @@ import co.sf.order.vo.OrderVO;
 
 public interface OrderMapper {
 
-	List<OrderVO> OrderList();
+	List<OrderVO> OrderList(String id);
 	
-	int removeproduct(OrderVO ovo);
-
 	int addAddress(OrderVO ovo);
 
+	int removeCartItem(OrderDetailVO ovo);
 
-	List<OrderDetailVO> orderDetailList();
+	List<OrderDetailVO> orderDetailList(String id);
+	
+	
 }

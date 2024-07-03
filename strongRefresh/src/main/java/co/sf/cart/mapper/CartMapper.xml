@@ -4,6 +4,15 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="co.sf.cart.mapper.CartMapper">
+	<select id="cartList" parameterType="string" resultType="co.sf.cart.vo.CartVO">
+		select c.cart_code, c.product_code, p.product_name,
+		       p.thum_image, p.price, c.product_cnt, u.point
+		from cart_f5 c
+		join product_f5 p
+		on c.product_code = p.product_code
+		join users_f5 u
+		on c.id = u.id
+	</select>
 	<!-- order page -->
 	<select id="cartList" parameterType="string" resultType="co.sf.cart.vo.CartVO">
 		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, c.product_cnt 
@@ -30,5 +39,27 @@
 		insert into order_detail_f5(order_detail_code, order_code, product_code, product_cnt)
 		values(order_detail_seq.nextval, #{orderCode}, #{productCode}, #{productCnt})
 	</insert>
+	
+	<!-- 카트 상품 수량 계산 -->
+	<select id= "selPrdCart" parameterType = "co.sf.cart.vo.CartVO">
+ 		select product_cnt
+ 		from   cart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}	
+	</select>
+	
+	<!-- 상품 카트 추가 -->
+	<insert id="insPrdCart" parameterType = "co.sf.cart.vo.CartVO">
+ 		insert into cart_f5(cart_code, product_code, product_cnt, id)
+		values(CART_SEQ.nextval, #{productCode}, #{productCnt}, #{id})
+	</insert>
+	
+	<!-- 상품 카트 변경 -->
+	<update id="upPrdCart" parameterType = "co.sf.cart.vo.CartVO">
+		update cart_f5
+		set    product_cnt = #{productCnt}
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}	
+	</update>
 	
 </mapper>

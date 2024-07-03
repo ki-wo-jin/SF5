@@ -38,7 +38,7 @@ public class HeartServiceImpl implements HeartService{
 	
 	@Override
 	public int getPrdHeart(HeartVO hvo) {
-		// TODO 찜 상품코드 가져오기
+		// TODO 찜 갯수 가져오기
 		return mapper.selPrdHeart(hvo);
 	}
 	

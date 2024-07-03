@@ -23,7 +23,6 @@
 					<td>
 						<input type="radio" name="findPath" value="email" checked>이메일
 						<input type="radio" name="findPath" value="phone">휴대폰번호
-						<input type="radio" name="findPath" value="phoneCertification">휴대폰인증
 					</td>
 				</tr>
 				<tr>
@@ -32,18 +31,14 @@
 				</tr>
 				
 				<div class="printFindPath">
-					<tr id="printEmailPath" style="display : block">
+					<tr id="printEmailPath" style="display : table-row">
 						<th>이메일로 찾기</th>
 						<td><input type="text" id="userEmail" name="userEmail"></td>
 					</tr>
 					<tr id="printPhonePath" style="display : none">
 						<th>휴대폰 번호로 찾기</th>
 						<td>
-						<input type="text" id="userFrontPhone" name="userFrontPhone">
-						-
-						<input type="text" id="userMiddlePhone" name="userMiddlePhone">
-						-
-						<input type="text" id="userLastPhone" name="userLastPhone">
+						<input type="text" id="userPhone" name="userPhone">
 						</td>
 					</tr>
 				</div>
@@ -57,6 +52,11 @@
 </body>
 </html>
 
+<script>
+let retCode = '${retCode}';
+if(retCode == "NO") alert("입력하신 정보로 가입 된 회원 아이디는 존재하지 않습니다.");
+</script>
 
+<link rel="stylesheet" href="cssf5/cyj/findIdService.css">
 
 <script src="jsf5/cyj/findIdService.js"></script>

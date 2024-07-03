@@ -24,22 +24,26 @@ import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
+import co.sf.qna.web.QnaDetailForm;
 import co.sf.product.web.heartProductAjax;
 import co.sf.qna.web.QnaForm;
+import co.sf.qna.web.QnaList;
+import co.sf.review.web.ReviewForm;
+import co.sf.review.web.ReviewList;
+import co.sf.review.web.reviewDetailForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
 import co.sf.user.web.FindIdForm;
+import co.sf.user.web.FindPwControl;
 import co.sf.user.web.FindPwForm;
 import co.sf.user.web.JoinControl;
 import co.sf.user.web.JoinForm;
-import co.sf.qna.web.QnaList;
-import co.sf.qna.web.QnaDetailForm;
-import co.sf.qna.web.QnaForm;
-import co.sf.review.web.ReviewList;
-import co.sf.review.web.reviewDetailForm;
-import co.sf.review.web.ReviewForm;
 import co.sf.user.web.LoginControl;
 import co.sf.user.web.LoginForm;
+import co.sf.user.web.LogoutControl;
+import co.sf.user.web.ModifyMember;
+import co.sf.user.web.MyPageForm;
+import co.sf.user.web.TemporaryPwForm;
 import co.sf.web.MainControl;
 
 //front -> 요청 url(*.do) - 실행컨트롤 매칭.
@@ -74,7 +78,7 @@ public class FrontController extends HttpServlet {
 		map.put("/createOrder.do", new CreateOrder());
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
-		// 주문 상세
+		// 주문 리스트
 		map.put("/orderdetail.do", new OrderDetailForm());
 
 		// 제품 페이지
@@ -94,6 +98,8 @@ public class FrontController extends HttpServlet {
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new LoginControl());
+		//로그아웃
+		map.put("/logout.do", new LogoutControl());
 
 		// 회원가입
 		map.put("/joinForm.do", new JoinForm());
@@ -106,6 +112,13 @@ public class FrontController extends HttpServlet {
 		map.put("/findIdResult.do", new FindIdControl());
 		// 비밀번호찾기
 		map.put("/findPw.do", new FindPwForm());
+		map.put("/temporaryPw.do", new TemporaryPwForm());
+		map.put("/findPwResult.do", new FindPwControl());
+		
+		//마이페이지
+		map.put("/mypage.do", new MyPageForm());
+		//회원정보수정
+		map.put("/modifyMember.do", new ModifyMember());
 		
 
 		// QNA
@@ -126,6 +139,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
+		req.setCharacterEncoding("UTF-8");
 		String uri = req.getRequestURI(); // http://localhost/BoardWeb/main.do
 //		System.out.println("URI : " + uri); //BoardWeb/main.do
 		String context = req.getContextPath(); // /BoardWeb -> project name;

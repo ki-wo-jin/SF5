@@ -15,5 +15,12 @@ public interface CartMapper {
 	int insertOrder(OrderVO ovo);
 
 	int insertOrderDetail(OrderDetailVO odo);
-
+	// 상품 -> 카트 확인
+	int selPrdCart(CartVO cvo);
+	
+	// 상품 -> 카트 추가
+	int insPrdCart(CartVO cvo);
+	
+	// 상품 -> 카트 변경
+	int upPrdCart(CartVO cvo);
 }

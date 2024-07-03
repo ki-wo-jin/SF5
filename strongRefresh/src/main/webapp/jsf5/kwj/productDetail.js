@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	function cloneRow(prd = {}) {
 		let template = document.querySelector('#plist').cloneNode(true);
 		template.setAttribute('style', 'display: block;');
-		console.log(prd);
 		template.querySelector('#prdImg').setAttribute('src', 'images/' + prd.thumImage);
 		let prdImg = document.querySelector('#prdImg');
 		prdImg.style.width = '479px';
@@ -74,8 +73,9 @@ function productToHeart(){
 	fetch('heartProductAjax.do?code=' + code)
 		.then(result => result.json())
 		.then(result => {
-			console.log(result);
-	if (result.retCode == 'PLUS') {
+	if (result.retCode == 'ID') {
+		alert('로그인이 필요합니다');
+	} else if (result.retCode == 'PLUS') {
 		alert('상품을 찜했습니다');
 	} else if(result.retCode == 'MINUS'){
 		alert('찜을 해제하였습니다');
@@ -87,11 +87,20 @@ function productToHeart(){
 
 // 카트 함수
 function cart(){
-	let num = document.querySelector('num' + code);
+	let num = document.querySelector('#num' + code).value;
 	
-	fetch('cartProductAjax.do?code=' + code + '&quantity=' + num)
+	fetch('cartProductAjax.do?code=' + code + '&num=' + num)
 		.then(result => result.json())
 		.then(result => {
 			console.log(result);
+	if (result.retCode == 'ID') {
+		alert('로그인이 필요합니다');
+	} else if (result.retCode == 'PLUS') {
+		alert('상품을 카트에 추가했습니다');
+	} else if(result.retCode == 'MINUS'){
+		alert('상품의 갯수를 변경했습니다');
+	} else {
+		alert('오류가 발생하였습니다');
+		}
 	})
 }
