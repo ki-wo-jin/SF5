@@ -17,5 +17,5 @@ public class OrderVO {
 	private int usePoint;
 	private int totalPrice;
 	private String email;
-	
+
 }

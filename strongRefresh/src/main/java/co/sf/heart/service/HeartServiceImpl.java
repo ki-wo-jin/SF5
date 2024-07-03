@@ -32,8 +32,8 @@ public class HeartServiceImpl implements HeartService{
 	}
 	
 	@Override
-	public boolean checkProduct(String pcode) {
-		return mapper.selectProduct(pcode) == 1;
+	public boolean checkProduct(HeartVO hvo) {
+		return mapper.selectProduct(hvo) <= 0;
 	}
 	
 	@Override

@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.AddCart;
 import co.sf.cart.web.CartForm;
-import co.sf.cart.web.CartList;
 import co.sf.common.Control;
-import co.sf.heart.web.CheckProduct;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
+import co.sf.order.web.CreateOrder;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.product.web.cartProductAjax;
@@ -61,23 +60,22 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
-
+		
 		// 찜 화면 - 목록 (JSP)
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());		
 		// 찜 화면에서 카드 담기 클릭시 카트 목록에 담기
 		map.put("/addCart.do", new AddCart());
-		// 찜 화면에서 카트 담기 클릭 시 중복 체크
-		map.put("/checkProduct", new CheckProduct());
 		
 		
 		// 카트 화면
-		map.put("/cart.do", new CartForm());		
+		map.put("/cart.do", new CartForm());
 		// 카트 목록 (AJAX)
-		map.put("/cartList", new CartList());
+		//map.put("/cartList", new CartList());
 
-		
+		// 주문생성.
+		map.put("/createOrder.do", new CreateOrder());
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 리스트
@@ -140,6 +138,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/json;charset=utf-8");
 		req.setCharacterEncoding("UTF-8");
 		String uri = req.getRequestURI(); // http://localhost/BoardWeb/main.do
 //		System.out.println("URI : " + uri); //BoardWeb/main.do

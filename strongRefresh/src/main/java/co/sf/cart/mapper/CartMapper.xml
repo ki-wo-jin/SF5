@@ -14,8 +14,8 @@
 		on c.id = u.id
 	</select>
 	<!-- order page -->
-	<select id="cartList" parameterType="string">
-		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, u.point
+	<select id="cartList" parameterType="string" resultType="co.sf.cart.vo.CartVO">
+		select c.cart_code, c.product_code, p.product_name, p.thum_image, p.price, c.product_cnt 
 		from   cart_f5 c join product_f5 p
 			             on c.product_code = p.product_code
 		                 join users_f5 u
@@ -23,6 +23,22 @@
 		where c.id = #{id}
 	</select>
 	
+	<select id="getCartInfo" parameterType="string">
+		select *
+		from cart_f5
+		where cart_code = #{cartCode}
+	</select>
+	
+	<insert id="insertOrder" parameterType="co.sf.order.vo.OrderVO">  
+	    insert into order_f5 (order_code, id, recipient, order_date, order_status, phone, address, delivery_message, use_point, total_price, email)
+        values(#{orderCode}, #{id}, '김현식', sysdate, '주문대기', '010-111', '주소1111', 'message', 10, 100, 'le@lws.co')
+	</insert>
+	<!-- 'P202406-001', 'user01', '김현식', sysdate, '주문완료', '010-111', '주소1111', '잘배송', 10, 1000, 'le@lws.co' -->
+	<!-- values(#{orderCode}, #{id}, #{recipient}, sysdate, '주문대기', #{phone}, #{address}, #{deliveryMessage}, #{deliveryMessage}, #{totalPrice}, #{email}) -->
+	<insert id="insertOrderDetail" parameterType="co.sf.order.vo.OrderDetailVO">
+		insert into order_detail_f5(order_detail_code, order_code, product_code, product_cnt)
+		values(order_detail_seq.nextval, #{orderCode}, #{productCode}, #{productCnt})
+	</insert>
 	
 	<!-- 카트 상품 수량 계산 -->
 	<select id= "selPrdCart" parameterType = "co.sf.cart.vo.CartVO">

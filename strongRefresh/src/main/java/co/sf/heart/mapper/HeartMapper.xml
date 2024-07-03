@@ -28,12 +28,20 @@
 		insert into cart_f5
 		values (cart_seq.nextval, #{productCode}, 1, #{id})
 	</insert>
+ 	<!-- 상품 상세페이지에서 찜 확인 -->
+ 	<select id="selPrdHeart" parameterType = "co.sf.heart.vo.HeartVO">
+ 		select count(*) CNT
+ 		from   heart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}
+ 	</select>
  	
  	<!-- cart 중복 체크, 경민 -->
-	<select id="selectProduct" parameterType="string">
+	<select id="selectProduct" parameterType="co.sf.heart.vo.HeartVO">
 		select count(1)
 		from cart_f5
 		where product_code = #{productCode}
+		and    id = #{id}
 	</select>
   
  
