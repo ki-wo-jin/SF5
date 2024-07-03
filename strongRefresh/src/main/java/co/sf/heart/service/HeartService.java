@@ -2,11 +2,8 @@ package co.sf.heart.service;
 
 import java.util.List;
 
-<<<<<<< HEAD
 import co.sf.cart.vo.CartVO;
-=======
 import co.sf.heart.vo.HeartVO;
->>>>>>> refs/heads/master
 import co.sf.product.vo.ProductVO;
 
 public interface HeartService {

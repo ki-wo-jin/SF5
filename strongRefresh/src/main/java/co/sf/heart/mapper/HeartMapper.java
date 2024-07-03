@@ -4,11 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-<<<<<<< HEAD
 import co.sf.cart.vo.CartVO;
-=======
 import co.sf.heart.vo.HeartVO;
->>>>>>> refs/heads/master
 import co.sf.product.vo.ProductVO;
 
 public interface HeartMapper {
