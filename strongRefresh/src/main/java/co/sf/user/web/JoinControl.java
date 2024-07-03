@@ -36,26 +36,17 @@ public class JoinControl implements Control {
 		uvo.setPhone(frontPhone+"-"+middlePhone+"-"+lastPhone);
 		uvo.setEmail(email);
 		
-		req.setAttribute("name", uvo.getName());
-		req.setAttribute("id", uvo.getId());
-		req.setAttribute("email", uvo.getEmail());
-		req.setAttribute("grade", uvo.getGrade());
-		
-		
 		UserService uvc = new UserServiceImpl();
 		
 
 		if(uvc.addMember(uvo)) {
+			UserVO user = uvc.getUser(uvo.getId());
+			req.setAttribute("user", user);
 			req.getRequestDispatcher("cyj/joinFinish.tiles").forward(req, resp);
 		} else {
 			req.getRequestDispatcher("cyj/joinForm.tiles").forward(req, resp);
 		}
-		
-		
 
-		
-		
-		
 	}
 
 }
