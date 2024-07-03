@@ -1,7 +1,6 @@
 package co.sf.product.web;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +14,7 @@ import com.google.gson.GsonBuilder;
 
 import co.sf.common.Control;
 import co.sf.heart.service.HeartService;
-import co.sf.heart.service.HeartServiceImplements;
+import co.sf.heart.service.HeartServiceImpl;
 import co.sf.heart.vo.HeartVO;
 
 public class heartProductAjax implements Control {
@@ -32,7 +31,7 @@ public class heartProductAjax implements Control {
 		hvo.setProductCode(productCode);
 		hvo.setId(id);
 
-		HeartService svc = new HeartServiceImplements();
+		HeartService svc = new HeartServiceImpl();
 		
 		int sel = svc.getPrdHeart(hvo);
 		

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  <!-- heart.jsp -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.all.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.min.css" rel="stylesheet">
+
   <style>
     #container {
       width: 1000px;
@@ -44,10 +47,9 @@
 	                </td>
 	                <td>${heart.price }</td>
 	                <td>	                  
-	                  <a href="cart.do?productCode=${heart.productCode }" class="btn btn-primary btn-sm">카트담기</a><br>
+	                  <a onclick="addCart(event)" class="btn btn-primary btn-sm">카트담기</a><br>
 	                  <br>
-	                  <button type="button" class="deleteRowHeart">하트삭제</button>
-	                  <!-- <button type="button" class="btn btn-primary btn-sm">하트삭제</button> -->
+	                  <button type="button" class="deleteRowHeart btn btn-primary btn-sm">하트삭제</button>
 	                </td>
 	              </tr>
               </c:forEach>
@@ -60,5 +62,4 @@
       </form>
     </div>
   </div>
-
 <script src="jsf5/ygm/heart.js"></script>
