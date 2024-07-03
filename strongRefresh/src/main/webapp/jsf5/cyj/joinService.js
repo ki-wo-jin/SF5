@@ -55,6 +55,8 @@ document.getElementById('checkPw').addEventListener('change', function() {
 	
 	if(userPw!=checkPw){
 		document.querySelector('#printCheckPw').innerHTML="비밀번호가 일치하지 않습니다.";
+	} else {
+		document.querySelector('#printCheckPw').innerHTML="";
 	}
 	
 });
