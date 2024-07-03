@@ -18,6 +18,7 @@ public interface HeartService {
 	
 	//찜에서 카트 담기 중복 체크 - 경민
 	boolean checkProduct(String pcode);
+	
 	// 상품 -> 찜 확인
 	int getPrdHeart(HeartVO hvo);
 	
