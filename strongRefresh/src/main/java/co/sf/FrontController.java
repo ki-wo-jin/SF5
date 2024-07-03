@@ -19,11 +19,13 @@ import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
+import co.sf.product.web.cartProductAjax;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
+import co.sf.product.web.heartProductAjax;
 import co.sf.qna.web.QnaForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
@@ -86,6 +88,10 @@ public class FrontController extends HttpServlet {
 		// 제품 상세페이지
 		map.put("/productDetail.do", new ProductDetailForm());
 		map.put("/productDetailAjax.do", new ProductDetailAjax());
+		// 제품 찜하기
+		map.put("/heartProductAjax.do", new heartProductAjax());
+		// 제품 카트에 담기
+		map.put("/cartProductAjax.do", new cartProductAjax());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());

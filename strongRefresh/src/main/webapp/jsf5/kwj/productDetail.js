@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
 			result.forEach(ele => {
 				document.querySelector('#hlist').appendChild(makeRow(ele));
 				document.querySelector('#clist').appendChild(cloneRow(ele));
+				
+				// 찜하기
+				document.querySelector('#saveBtn' + code).addEventListener('click', productToHeart);
+				// 카드에 담기
+				document.querySelector('#addBtn' + code).addEventListener('click', cart);
 			})
 
 			// 화면에 출력된 요소가 출력된 후에 이벤트 등록
@@ -53,8 +58,40 @@ document.addEventListener("DOMContentLoaded", function() {
 		template.querySelector('#prdContent').innerHTML = prd.productContent;
 		template.querySelector('#price').innerHTML = prd.price + ' &#8361';
 		template.querySelector('#size').innerHTML = prd.productSize;
-
+		template.querySelector('div.mb-5 input').setAttribute('id', 'num' + code);
+		template.querySelector('div.row > div.col-md-6 > p > button:nth-of-type(1)').setAttribute('id', 'saveBtn' + code);
+		template.querySelector('div.row > div.col-md-6 > p > button:nth-of-type(2)').setAttribute('id', 'addBtn' + code);
 		return template;
 	}
 
 })
+
+
+
+// 찜하기 함수
+function productToHeart(){
+	
+	fetch('heartProductAjax.do?code=' + code)
+		.then(result => result.json())
+		.then(result => {
+			console.log(result);
+	if (result.retCode == 'PLUS') {
+		alert('상품을 찜했습니다');
+	} else if(result.retCode == 'MINUS'){
+		alert('찜을 해제하였습니다');
+	} else {
+		alert('오류가 발생하였습니다');
+		}
+	})
+}
+
+// 카트 함수
+function cart(){
+	let num = document.querySelector('num' + code);
+	
+	fetch('cartProductAjax.do?code=' + code + '&quantity=' + num)
+		.then(result => result.json())
+		.then(result => {
+			console.log(result);
+	})
+}
