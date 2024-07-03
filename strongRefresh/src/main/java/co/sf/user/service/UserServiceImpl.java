@@ -1,5 +1,7 @@
 package co.sf.user.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import co.sf.common.DataSource;
@@ -25,5 +27,20 @@ public class UserServiceImpl implements UserService {
 		return mapper.checkIdAjax(id)==1;
 	}
 	
+	@Override
+	public UserVO getUser(String id) {
+		return mapper.getUser(id);
+	}
+	
+	@Override
+	public UserVO findId(String info) {
+		return mapper.findId(info);
+	}
+	
+	@Override
+	public UserVO findPw(String info, String name) {
+		return mapper.findPw(info, name);
+	}
+
 	
 }

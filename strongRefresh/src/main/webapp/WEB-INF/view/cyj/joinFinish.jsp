@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +22,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td rowspan="3">등급을 출력</td>
-					<td>아이디</td>
+					<td rowspan="3">등급을 출력${user.grade }</td>
+					<td>아이디 : ${user.id }</td>
 				</tr>
 				<tr>
-					<td>이름</td>
+					<td>이름 : ${user.name }</td>
 				</tr>
 				<tr>
-					<td>이메일</td>
+					<td>이메일 : ${user.email }</td>
 				</tr>
 			</tbody>
 		</table>
@@ -37,3 +39,10 @@
 
 </body>
 </html>
+
+
+
+<script>
+
+
+</script>

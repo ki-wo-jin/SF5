@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <header class="site-navbar" role="banner">
 
@@ -25,7 +26,18 @@
 				<div class="col-6 col-md-4 order-3 order-md-3 text-right">
 					<div class="site-top-icons">
 						<ul>
-							<li><a href="loginForm.do"><span class="icon icon-person"></span></a></li>
+						
+							<!-- 로그인 값 없으면 로그인페이지로 -->
+							<c:choose>
+								<c:when test="${empty id }">
+									<li><a href="loginForm.do"><span class="icon icon-person"></span></a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="mypage.do"><span class="icon icon-person"></span></a></li>
+								</c:otherwise>
+							</c:choose>
+							
+							
 							<li><a href="heart.do"><span class="icon icon-heart-o"></span></a></li>
 							<li><a href="cart.do" class="site-cart"> <span
 									class="icon icon-shopping_cart"></span> <span class="count">2</span>

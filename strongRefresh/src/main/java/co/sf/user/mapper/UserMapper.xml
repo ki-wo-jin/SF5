@@ -26,6 +26,27 @@
 		from users_f5
 		where id=#{id}
 	</select>
+
+	
+	<select id="getUser" parameterType="String">
+		select *
+		from users_f5
+		where id=#{id}
+	</select>
+	
+	
+	<select id="findId" parameterType="String">
+		select *
+		from users_f5
+		where phone=#{info} or email=#{info}
+	</select>
+	
+	<select id="findPw" resultType="co.sf.user.vo.UserVO">
+		select count(1)
+		from users_f5
+		where phone=#{info} or email=#{info}
+		and name=#{name}
+	</select>
 	
 	
 	

@@ -5,7 +5,7 @@
   
  <mapper namespace="co.sf.heart.mapper.HeartMapper">
  
- 	<!-- 찜 목록 조회 쿼리 -->
+ 	<!-- 찜 목록 조회 쿼리 경민-->
  	<select id="heartList" resultType="co.sf.product.vo.ProductVO" parameterType="string">
 	 	select p.thum_image,
 	           p.product_name,
@@ -16,16 +16,47 @@
 	    where  id = #{userId}
  	</select>
  	
- 	<!-- 찜 삭제 -->
+ 	<!-- 찜 삭제 경민-->
  	<delete id="deleteHeart" parameterType="co.sf.product.vo.ProductVO">
  		delete
  		from   heart_f5
  		where  product_code = #{productCode}
+ 	</delete> 	
+ 	
+	<!-- heart page 경민 -->
+	<insert id="insertCart" parameterType="co.sf.cart.vo.CartVO">
+		insert into cart_f5
+		values (cart_seq.nextval, #{productCode}, 1, #{id})
+	</insert>
+ 	
+ 	<!-- cart 중복 체크, 경민 -->
+	<select id="selectProduct" parameterType="string">
+		select count(1)
+		from cart_f5
+		where product_code = #{productCode}
+	</select>
+  
+ 
+ 	<!-- 상품 상세페이지에서 찜 확인 -->
+ 	<select id="selPrdHeart" parameterType = "string">
+ 		select count(*) CNT
+ 		from   heart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}
+ 	</select>
+ 
+ 	<!-- 상품 상세페이지에서 찜 추가 -->
+ 	<insert id="productToHeart" parameterType="co.sf.heart.vo.HeartVO">
+ 		insert into heart_f5(product_code, id)
+		values(#{productCode}, #{id})
+ 	</insert>
+ 	
+ 	 <!-- 상품 상세페이지에서 찜 삭제 -->
+ 	<delete id="delPrdHeart" parameterType="co.sf.heart.vo.HeartVO">
+ 		delete
+ 		from   heart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}
  	</delete>
  	
- 	
- 
- 
- 
- 
  </mapper>

@@ -38,13 +38,15 @@ public class JoinControl implements Control {
 		
 		UserService uvc = new UserServiceImpl();
 		
+
 		if(uvc.addMember(uvo)) {
+			UserVO user = uvc.getUser(uvo.getId());
+			req.setAttribute("user", user);
 			req.getRequestDispatcher("cyj/joinFinish.tiles").forward(req, resp);
 		} else {
 			req.getRequestDispatcher("cyj/joinForm.tiles").forward(req, resp);
 		}
-		
-		
+
 	}
 
 }

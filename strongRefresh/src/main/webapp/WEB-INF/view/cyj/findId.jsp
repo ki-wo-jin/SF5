@@ -16,15 +16,47 @@
 	</ul>
 	
 	<form name="findIdFrm" action="findIdResult.do" method="post">
-	
-	<fieldset>
-		<legend>아이디 찾기</legend>
-		
-	</fieldset>
-	
+		<table>
+			<p>아이디찾기</p>
+				<tr>
+					<th>인증방법</th>
+					<td>
+						<input type="radio" name="findPath" value="email" checked>이메일
+						<input type="radio" name="findPath" value="phone">휴대폰번호
+					</td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><input type="text" id="userName" name="userName"></td>
+				</tr>
+				
+				<div class="printFindPath">
+					<tr id="printEmailPath" style="display : table-row">
+						<th>이메일로 찾기</th>
+						<td><input type="text" id="userEmail" name="userEmail"></td>
+					</tr>
+					<tr id="printPhonePath" style="display : none">
+						<th>휴대폰 번호로 찾기</th>
+						<td>
+						<input type="text" id="userPhone" name="userPhone">
+						</td>
+					</tr>
+				</div>
+
+		</table>
+		<button type="submit">확인</button>
 	</form>
 
 </div>
 
 </body>
 </html>
+
+<script>
+let retCode = '${retCode}';
+if(retCode == "NO") alert("입력하신 정보로 가입 된 회원 아이디는 존재하지 않습니다.");
+</script>
+
+<link rel="stylesheet" href="cssf5/cyj/findIdService.css">
+
+<script src="jsf5/cyj/findIdService.js"></script>
