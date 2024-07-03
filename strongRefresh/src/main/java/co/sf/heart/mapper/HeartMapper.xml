@@ -23,9 +23,26 @@
  		where  product_code = #{productCode}
  	</delete>
  	
+ 	<!-- 상품 상세페이지에서 찜 확인 -->
+ 	<select id="selPrdHeart" parameterType = "string">
+ 		select count(*) CNT
+ 		from   heart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}
+ 	</select>
  	
- 
- 
- 
- 
+ 	<!-- 상품 상세페이지에서 찜 추가 -->
+ 	<insert id="productToHeart" parameterType="co.sf.heart.vo.HeartVO">
+ 		insert into heart_f5(product_code, id)
+		values(#{productCode}, #{id})
+ 	</insert>
+ 	
+ 	 <!-- 상품 상세페이지에서 찜 삭제 -->
+ 	<delete id="delPrdHeart" parameterType="co.sf.heart.vo.HeartVO">
+ 		delete
+ 		from   heart_f5
+ 		where  product_code = #{productCode}
+ 		and    id = #{id}
+ 	</delete>
+ 	
  </mapper>
