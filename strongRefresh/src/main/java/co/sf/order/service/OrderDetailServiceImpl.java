@@ -16,9 +16,16 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
-	public List<OrderDetailVO> orderDetailList() {
+	public List<OrderDetailVO> orderDetailList(String id) {
 		// TODO Auto-generated method stub
-		return mapper.orderDetailList();
+		return mapper.orderDetailList(id);
 	}
 
+	@Override
+	public boolean removeCartItem(OrderDetailVO ovo) {
+		// TODO Auto-generated method stub
+		return mapper.removeCartItem(ovo) == 1;
+	}
+
+	
 }

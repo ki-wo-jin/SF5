@@ -8,5 +8,12 @@ public class OrderDetailVO {
 	private String orderCode;
 	private String productCode;
 	private int productCnt;
+	
+	private int cartCode;
+	private String productName;
+	private String thumImage;
+	private int price;
+	private int point;	
+	private String id;
 
 }

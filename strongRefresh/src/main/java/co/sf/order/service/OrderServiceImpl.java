@@ -17,8 +17,8 @@ public class OrderServiceImpl implements OrderService {
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
-	public List<OrderVO> OrderList() {
-		return mapper.OrderList();
+	public List<OrderVO> OrderList(String id) {
+		return mapper.OrderList(id);
 	}
 
 	@Override
@@ -26,10 +26,6 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.addAddress(ovo) == 1;
 	}
 
-	@Override
-	public boolean removeproduct(OrderVO ovo) {
-		return mapper.removeproduct(ovo) == 1;
-	}
-
+	
 
 }
