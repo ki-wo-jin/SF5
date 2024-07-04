@@ -44,6 +44,7 @@ import co.sf.user.web.JoinForm;
 import co.sf.user.web.LoginControl;
 import co.sf.user.web.LoginForm;
 import co.sf.user.web.LogoutControl;
+import co.sf.user.web.ModifyControl;
 import co.sf.user.web.ModifyMember;
 import co.sf.user.web.MyPageForm;
 import co.sf.user.web.TemporaryPwForm;
@@ -129,6 +130,7 @@ public class FrontController extends HttpServlet {
 		map.put("/mypage.do", new MyPageForm());
 		//회원정보수정
 		map.put("/modifyMember.do", new ModifyMember());
+		map.put("/modify.do", new ModifyControl());
 		
 
 		// QNA

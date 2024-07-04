@@ -27,7 +27,6 @@ public class LoginControl implements Control {
 		
 		if(uvo != null) {
 			HttpSession session = req.getSession();
-			
 			session.setAttribute("id", id);
 			resp.sendRedirect("main.do");
 //			req.getRequestDispatcher("main.do").forward(req, resp);

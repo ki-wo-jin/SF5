@@ -21,6 +21,9 @@ public interface UserMapper {
 	
 	//비밀번호 찾기 - 휴대폰 또는 비밀번호와 이름으로
 	UserVO findPw(@Param("info") String info, @Param("name") String name);
-
+	
+	//회원정보변경
+	int modifyMember(UserVO uvo);
+	
 	
 }

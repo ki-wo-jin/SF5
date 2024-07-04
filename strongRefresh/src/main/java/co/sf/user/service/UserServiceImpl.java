@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserService {
 	public UserVO findPw(String info, String name) {
 		return mapper.findPw(info, name);
 	}
+	
+	@Override
+	public boolean modifyMember(UserVO uvo) {
+		return mapper.modifyMember(uvo)==1;
+	}
 
 	
 }
