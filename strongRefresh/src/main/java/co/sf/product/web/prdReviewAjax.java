@@ -1,4 +1,4 @@
-package co.sf.review.web;
+package co.sf.product.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,21 +15,23 @@ import co.sf.review.service.ReviewService;
 import co.sf.review.service.ReviewServiceImpl;
 import co.sf.review.vo.ReviewVO;
 
-public class ReviewList implements Control {
+public class prdReviewAjax implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO 리뷰 리스트
+		// TODO 제품 하단의 리뷰 리스트
 		
 		resp.setContentType("text/json;charset=utf-8");
+		String productCode = req.getParameter("code");
 		
 		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewList();
+		List<ReviewVO> list = svc.prdReviewList(productCode);
+		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
 		
-		resp.getWriter().print(json);		
+		resp.getWriter().print(json);
 	}
 
 }

@@ -25,7 +25,6 @@ public class ProductDetailAjax implements Control {
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> list = svc.productList(productCode);
 		
-		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
 		

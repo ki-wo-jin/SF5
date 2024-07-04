@@ -2,22 +2,41 @@
 	pageEncoding="UTF-8"%>
 <!-- qnaForm.jsp -->
 
-<h2>QnA List</h2>
+<div class="container">
+	<h3>QnA</h3>
 
-<table border="1">
-	<!-- <caption>QnA 목록</caption> -->
-	<thead>
-		<tr>
-			<th scope="col">NO</th>
-			<th scope="col">CATEGORY</th>
-			<th scope="col">SUBJECT</th>
-			<th scope="col">WRITER</th>
-			<th scope="col">DATE</th>
-			<th scope="col">HIT</th>
-		</tr>
-	</thead>
-	<tbody class="qnaList">
-	</tbody>
-</table>
+	<div class="row mb-5">
+		<form class="col-md-12">
+			<div class="site-blocks-table">
+				<table class="table table-bordered">
+					<thead id="bpList">
+						<tr>
+							<th class="qNo">no.</th>
+							<th class="qCate">categories</th>
+							<th class="qSub">subject</th>
+							<th class="qWriter">writer</th>
+							<th class="qDate">date</th>
+							<th class="qHit">hit</th>
+						</tr>
+						<tr id="qnaList" style="display: none;">
+							<td class="no2"></td>
+							<td class="cate2"></td>
+							<td class="sub2"><a></a></td>
+							<td class="writer2"></td>
+							<td class="date2"></td>
+							<td class="hit2"></td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<table>
+				<tbody>
+					<tr></tr>
+				</tbody>
+			</table>
+			<input type="button" id="qWriteBtn" value="Write"> 
+		</form>
+	</div>
+</div>
 
-<script src="jsf5/kwj/qna.js"></script>
+<script defer src="jsf5/kwj/qna.js"></script>

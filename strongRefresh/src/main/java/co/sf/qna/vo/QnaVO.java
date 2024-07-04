@@ -13,6 +13,8 @@ String productCode;
 String orderCode;
 String qnaPw;
 String qnaContent;
+String qnaCategory;
 Date qnaDate;
+int clickCnt;
 
 }

@@ -104,3 +104,71 @@ function cart(){
 		}
 	})
 }
+
+// 상품 리뷰 생성
+
+fetch('prdReview.do?code=' + code)
+	.then(result => result.json())
+	.then(result => {
+		result.forEach(ele => {
+			document.querySelector('#apList').appendChild(cloneRow2(ele));
+			
+			})
+		})
+
+function cloneRow2(review = {}) {
+	let template = document.querySelector('#reviewList').cloneNode(true);
+	template.setAttribute('style', "display: '';");
+	let reviewImg = template.querySelector('tr td.kImg img')
+	reviewImg.setAttribute('src', 'images/' + review.reviewImage);
+	reviewImg.style.width = '110px';
+	reviewImg.style.height = 'auto';
+	template.querySelector('tr td.sub a').innerHTML = review.reviewSubject;
+	template.querySelector('tr td.sub a').setAttribute('href', '');
+	template.querySelector('tr td.writer').innerHTML = review.id;
+	template.querySelector('tr td.date').innerHTML = review.reviewDate;
+	template.querySelector('tr td.star').innerHTML = review.star;
+	return template;
+}
+
+// 상품 QnA 생성
+
+fetch('prdQnA.do?code=' + code)
+	.then(result => result.json())
+	.then(result => {
+		result.forEach(ele => {
+			document.querySelector('#bpList').appendChild(cloneRow3(ele));
+			
+			})
+		})
+		
+
+function cloneRow3(qna = {}) {
+	let template = document.querySelector('#qnaList').cloneNode(true);
+	template.setAttribute('style', "display: '';");
+	template.querySelector('tr td.cate2').innerHTML = qna.qnaCategory;
+	template.querySelector('tr td.sub2 a').innerHTML = qna.qnaSubject;
+	template.querySelector('tr td.sub2 a').setAttribute('href', '');
+	template.querySelector('tr td.writer2').innerHTML = qna.id;
+	template.querySelector('tr td.date2').innerHTML = qna.qnaDate;
+	template.querySelector('tr td.hit2').innerHTML = qna.clickCnt;
+	return template;
+}
+
+// 버튼 클릭시 이동 (파라미터 포함)
+
+document.querySelector('#rListBtn').addEventListener('click', function(){
+	location.href='review.do';
+})
+
+document.querySelector('#qListBtn').addEventListener('click', function(){
+	location.href='qna.do';
+})
+
+// 버튼 클릭시 리뷰 모달창 작성
+
+
+
+// 버튼 클릭시 qna 모탈창 작성
+
+

@@ -49,5 +49,15 @@
 	</select>
 	
 	
+	<update id="modifyMember" parameterType="co.sf.user.vo.UserVO">
+	update users_f5
+	set pw=#{pw},
+	    email=#{email},
+	    phone=#{phone},
+	    address=#{address}
+	where id=#{id}
+	</update>
+	
+	
 	
 </mapper>

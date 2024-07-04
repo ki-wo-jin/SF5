@@ -2,23 +2,43 @@
 	pageEncoding="UTF-8"%>
 <!-- reviewForm.jsp -->
 
-<h2>Review List</h2>
+<div class="container">
+	<h3>REVIEW</h3>
 
-<table border="1">
-	<!-- <caption>리뷰 목록</caption> -->
-	<thead>
-		<tr>
-			<th scope="col">NO</th>
-			<th scope="col">PRODUCT</th>
-			<th scope="col">SUBJECT</th>
-			<th scope="col">WRITER</th>
-			<th scope="col">DATE</th>
-			<th scope="col">HIT</th>
-			<th scope="col">GRADE</th>
-		</tr>
-	</thead>
-	<tbody class="reviewList">
-	</tbody>
-</table>
+	<div class="row mb-5">
+		<form class="col-md-12">
+			<div class="site-blocks-table">
+				<table class="table table-bordered">
+					<thead id="apList">
+						<tr>
+							<th class="rNo">no.</th>
+							<th class="rImg">image</th>
+							<th class="rSub">subject</th>
+							<th class="rWriter">writer</th>
+							<th class="rDate">date</th>
+							<th class="rHit">star</th>
+						</tr>
+						<tr id="reviewList" style="display: none;">
+							<td class="no"></td>
+							<td class="kImg">
+								<img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+							</td>
+							<td class="sub"><a></a></td>
+							<td class="writer"></td>
+							<td class="date"></td>
+							<td class="star"></td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<table>
+				<tbody>
+					<tr></tr>
+				</tbody>
+			</table>
+			<input type="button" id="rWriteBtn" value="Write"> 
+		</form>
+	</div>
+</div>
 
-<script src="jsf5/kwj/review.js"></script>
+<script defer src="jsf5/kwj/review.js"></script>

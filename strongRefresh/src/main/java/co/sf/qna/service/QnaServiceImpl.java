@@ -32,5 +32,10 @@ public class QnaServiceImpl implements QnaService{
 	public boolean editQna(QnaVO qvo) {
 		return mapper.updateQna(qvo) == 1;
 	}
+	@Override
+	public List<QnaVO> prdQnaList(String productCode) {
+		// TODO 상품 상세 QnA 출력
+		return mapper.prdQnaList(productCode);
+	}
 
 }

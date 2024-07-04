@@ -10,5 +10,7 @@ public interface QnaMapper {
 	int selectQna(String qnaSubject);
 	int deleteQna(String qnaSubject);
 	int updateQna(QnaVO qvo);
+	
+	List<QnaVO> prdQnaList(String productCode);
 
 }
