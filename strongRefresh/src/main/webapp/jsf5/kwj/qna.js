@@ -2,34 +2,27 @@
  * qna.js
  */
 
-// QnA 목록 출력
-let fields = ['productCode', 'id'];
-let qnaList = document.querySelector('.qnaList');
+// 상품 QnA 생성
 
 fetch('qnaList.do')
 	.then(result => result.json())
 	.then(result => {
-		console.log(result);
 		result.forEach(ele => {
-			qnaList.appendChild(makeRow(ele));
+			document.querySelector('#bpList').appendChild(cloneRow3(ele));
+			
+			})
 		})
-	})
+		
 
-function makeRow(obj = {}) {
-	let tr = document.createElement('tr');
-	
-	let td = document.createElement('td');
-	let input = document.createElement('input');
-	input.setAttribute('type', 'checkbox');
-	
-	td.appendChild(input);
-	tr.appendChild(td);
-	
-	fields.forEach(field => {
-		td = document.createElement('td');
-		td.innerHTML = obj[field];
-		tr.appendChild(td);
-	})	
-	
-	return tr;
+function cloneRow3(qna = {}) {
+	let template = document.querySelector('#qnaList').cloneNode(true);
+	template.setAttribute('style', "display: '';");
+	template.querySelector('tr td.no2').innerHTML = qna.qnaCode;
+	template.querySelector('tr td.cate2').innerHTML = qna.qnaCategory;
+	template.querySelector('tr td.sub2 a').innerHTML = qna.qnaSubject;
+	template.querySelector('tr td.sub2 a').setAttribute('href', '');
+	template.querySelector('tr td.writer2').innerHTML = qna.id;
+	template.querySelector('tr td.date2').innerHTML = qna.qnaDate;
+	template.querySelector('tr td.hit2').innerHTML = qna.clickCnt;
+	return template;
 }
