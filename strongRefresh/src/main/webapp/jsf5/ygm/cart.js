@@ -72,13 +72,46 @@ function onClickAllHeartReset() {
 } // end
 
 
-// ▶ 수량 버튼 클릭 시 DB에 저장
+// ▶ 수량 버튼 클릭 시 DB에 저장 & 총 가격 계산
 let cnts = document.querySelectorAll('.counter');
-cnts.forEach(cnt => {
+cnts.forEach(cnt => {	
 	cnt.addEventListener('change', function() {
-		//console.log("살려줘");
-		//console.log(cnt.parentElement.parentElement.dataset.id);
-		//console.log(cnt.value);
+		
+		let cartList = document.getElementById('cartList');
+		let total = 0;
+		let price = 0;
+		Array.from(cartList.children).forEach(cart => {
+			price = cart.children[2].innerHTML;
+			let quantity = cart.children[3].children[0].value;
+			total += price * quantity;
+			
+		})
+		//console.log(total);
+		//console.log(price);
+		
+		let charge = 0;
+		if(total >= 50000) {
+			charge = 0;
+		} else {
+			charge = 3000;
+		}
+		
+		let tbody = document.getElementById('totalContainer');
+		let oldTr = document.getElementById('oldTr');
+		console.log(tbody);
+		let newTr = document.createElement('tr');
+		let td = document.createElement('td');
+		td.innerHTML = 'KRW ' + total + ' + KRW ' + charge + ' = KRW ' + (charge + total);
+		newTr.appendChild(td);
+		//tbody.replaceWith(newTr, oldTr);
+		tbody.replaceChild(newTr, oldTr);
+		
+		//parentNode.replaceChild(newNode, oldNode);
+		
+		
+		
+		//location.reload(true); //-- 동기 전체 페이지 새로고침
+
 		let changeCnt = cnt.value;
 		let code = cnt.parentElement.parentElement.dataset.id;
 		let url = 'changeCnt.do?cartCode=' + code + '&changeCnt=' + changeCnt;
@@ -123,7 +156,6 @@ function buyAll() {
 }
 
 
-//TODO
 // ▶ 선택 상품 주문하기
 document.getElementById('buySelectBtn').addEventListener('click', buySelect);
 
