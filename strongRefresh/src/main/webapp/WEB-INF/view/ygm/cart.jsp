@@ -64,7 +64,7 @@ th{
 									<tr data-id="${cart.cartCode }" class="cartCode">
 										<td class="checkbox"><input type="checkbox" class="boxs"></td>
 										<td class="product-thumbnail product-name"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"><h2 class="h5 text-black" style="font-size: 16px">${cart.productName }</h2></td>
-										<td>${cart.price}원</td>
+										<td id="price">${cart.price}</td>
 										
 										<td><input type="number" min="0" max="10" value="${cart.productCnt }" class="counter"></td>
 										
@@ -72,7 +72,7 @@ th{
 										<p id='result'>${cart.productCnt }</p>
 										<input type='button' onclick='count("minus")' value='-'/></td> --%>
 										
-										<td><c:out value="${cart.price >= 50000 ? '무료배송' : '3,000원'}" /></td>
+										<td><c:out value="${cart.price >= 50000 ? '무료배송' : '3000'}" /></td>
 										<td>
 											<button type="button" class="deleteCartRow btn btn-sm">X</button>
 										</td>
@@ -88,16 +88,21 @@ th{
 					<table>
 						<thead>
 							<tr>
-								<th>총 상품금액</th>
-								<th>총 배송비</th>
+								<th>총 상품금액&emsp; &emsp; &emsp;</th>
+								<th>총 배송비&emsp; &emsp; &emsp;&emsp;</th>
 								<th>결제예정금액</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td>KRW 10,000</td>
-								<td>+ KRW 0</td>
-								<td>= KRW 10,000</td>
+						<tbody id="totalContainer">
+							<tr id="oldTr">
+								<c:set var="total" value="0" />
+								<c:forEach var="cart" items="${cartList}" varStatus="status">
+									<c:set var= "total" value="${total + (cart.price * cart.productCnt)}"/>
+								</c:forEach>									
+								<td>KRW ${total}</td>
+								<c:set var="charge" value="${total >= 50000 ? 0 : 3000}" />
+								<td>+ KRW ${charge}</td>
+								<td>= KRW ${total + charge}</td>
 							</tr>
 						</tbody>
 					</table><br>
