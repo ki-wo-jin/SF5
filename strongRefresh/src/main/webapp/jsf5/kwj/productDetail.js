@@ -74,7 +74,7 @@ function productToHeart(){
 		.then(result => result.json())
 		.then(result => {
 	if (result.retCode == 'ID') {
-		alert('로그인 해주세요');
+		alert('로그인이 필요합니다');
 	} else if (result.retCode == 'PLUS') {
 		alert('상품을 찜했습니다');
 	} else if(result.retCode == 'MINUS'){
@@ -94,7 +94,7 @@ function cart(){
 		.then(result => {
 			console.log(result);
 	if (result.retCode == 'ID') {
-		alert('로그인 해주세요');
+		alert('로그인이 필요합니다');
 	} else if (result.retCode == 'PLUS') {
 		alert('상품을 카트에 추가했습니다');
 	} else if(result.retCode == 'MINUS'){

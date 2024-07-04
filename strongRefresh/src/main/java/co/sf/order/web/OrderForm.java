@@ -18,16 +18,6 @@ public class OrderForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("uid");
-		id = "";
-
-		CartService svc = new CartServiceImpl();
-		List<CartVO> list = svc.cartList(id);
-
-		Gson gson = new Gson();
-        String cartListJson = gson.toJson(list);
-        req.setAttribute("cartListJson", cartListJson);
-
 		req.getRequestDispatcher("khs/order.tiles").forward(req, resp);
 	}
 

@@ -31,35 +31,31 @@
                 <th class="product-price">Price</th>
                 <th class="product-quantity">Quantity</th>
                 <th class="product-charge">Charge</th>
-                <th class="product-total">Total</th>
                 <th class="product-delete">Delete</th>
               </tr>
             </thead>
             <tbody id="cartList">
-               <%-- <c:forEach var="cart" items="${cartList }">
-	              <tr data-id="${heart.productCode }" class="pcode">
+              <c:forEach var="cart" items="${cartList }">
+	              <tr data-id="${cart.cartCode }" class="cartCode">
 	                <td class="checkbox">
 	                  <input type="checkbox" class="boxs">
 	                </td>
-	                <td class="product-thumbnail">
-	                  <img src="images/${heart.thumImage }" alt="Image" class="img-fluid">
+	                <td class="product-thumbnail product-name">
+	                  <img src="images/${cart.thumImage }" alt="Image" class="img-fluid">
+	                  <h2 class="h5 text-black">${cart.productName }</h2>	                  
 	                </td>
-	                <td class="product-name">
-	                  <h2 class="h5 text-black">${heart.productName }</h2>
-	                </td>
-	                <td>${heart.price }</td>
-	                <td>	                  
-	                  <a href="cart.do?productCode=${heart.productCode }" class="btn btn-primary btn-sm">카트담기</a><br>
-	                  <br>
-	                  <button type="button" class="deleteRowHeart">하트삭제</button>
-	                  <!-- <button type="button" class="btn btn-primary btn-sm">하트삭제</button> -->
+	                <td>${cart.price}원</td>
+	                <td> <input type="number" value="${cart.productCnt }">  </td>
+	                <td><c:out value="${cart.price >= 50000 ? '무료배송' : '3,000원'}" /></td>
+	                <td>
+	                  <button type="button" class="deleteCartRow btn btn-sm">X</button>
 	                </td>
 	              </tr>
-              </c:forEach> --%>
+              </c:forEach> 
             </tbody>
           </table>
 			    <input type="button" value="선택상품삭제" id="checkDelete" class="btn btn-warning btn-sm">
-			    <input type="button" value="장바구니비우기" id="allHeartReset" class="btn btn-warning btn-sm">
+			    <input type="button" value="장바구니비우기" id="resetCart" class="btn btn-warning btn-sm">
         </div>
 	    <table>
         <thead>

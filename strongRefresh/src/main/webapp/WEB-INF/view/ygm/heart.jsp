@@ -45,9 +45,9 @@
 	                <td class="product-name">
 	                  <h2 class="h5 text-black">${heart.productName }</h2>
 	                </td>
-	                <td>${heart.price }</td>
+	                <td>${heart.price }원</td>
 	                <td>	                  
-	                  <a onclick="addCart(event)" class="btn btn-primary btn-sm">카트담기</a><br>
+	                  <a onclick="addCart(event)" class="btn btn-primary btn-sm" style="color: white">카트담기</a><br>
 	                  <br>
 	                  <button type="button" class="deleteRowHeart btn btn-primary btn-sm">하트삭제</button>
 	                </td>

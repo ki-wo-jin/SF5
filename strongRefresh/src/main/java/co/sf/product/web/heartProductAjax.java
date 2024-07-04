@@ -33,15 +33,18 @@ public class heartProductAjax implements Control {
 
 		HeartService svc = new HeartServiceImpl();
 		
-		int sel = svc.getPrdHeart(hvo);
+		int sel = 0;
 		
+		try {
+			sel = svc.getPrdHeart(hvo);
+		} catch (Exception e) {
+			
+		}
 		
 		Map<String, Object> map = new HashMap<>();
 		Gson gson = new GsonBuilder().create();
 		
-		if(id == null || id == "") {
-			map.put("retCode", "ID");
-		} else {
+		if(id != "" && id != null) {
 			if(sel == 0 ) {
 				try {
 					if (svc.productToHeart(hvo)) {
@@ -66,8 +69,11 @@ public class heartProductAjax implements Control {
 					map.put("retVal", "처리중 오류가 발생하였습니다");
 				}
 			}
-			
+		} else {
+			map.put("retCode", "ID");
 		}
+			
+		
 		
 		// js에 보내기
 		resp.getWriter().print(gson.toJson(map));
