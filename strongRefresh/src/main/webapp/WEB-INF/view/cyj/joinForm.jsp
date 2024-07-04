@@ -8,7 +8,7 @@
 	<h2>Join us</h2>
 
 
-	<form name="joinFrm" action="join.do" method="post">
+	<form name="joinFrm" action="join.do" method="post" onsubmit="return sendit()">
 
 		<table class="joinTable">
 
@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<th>아이디<span>*</span></th>
-				<td><input type=text id="userId" name="userId"><span id="checkId"></span> (영문소문자/숫자, 4~16자)</td>
+				<td><input type=text id="userId" name="userId"><span id="checkId"></span> (영문소문자 4~16자)</td>
 			</tr>
 			<tr>
 				<th>비밀번호<span>*</span></th>
