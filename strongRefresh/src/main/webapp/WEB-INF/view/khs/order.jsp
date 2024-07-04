@@ -50,7 +50,7 @@
 					<div class="form-group">
 						<label for="recipient" class="text-black">받으시는 분</label> <input
 							type="text" class="form-control" id="recipient" name="recipient"
-							value="">
+							value="" required>
 					</div>
 
 					<div class="form-group">
@@ -84,21 +84,30 @@
 						<br> <br> <input type="text" class="form-control"
 							id="postalCode" name="postalCode" placeholder="우편번호"> <input
 							type="text" class="form-control mt-2" id="address" name="address"
-							placeholder="기본주소"> <span id="guide"
-							style="color: #999; display: none"></span> <input type="text"
+							placeholder="기본주소">
+							 <span id="guide" style="color: #999; display: none"></span>
+							 <input type="text"
 							class="form-control mt-2" id="addressDetail" name="addressDetail"
-							placeholder="나머지주소 (선택입력가능)">
+							placeholder="상세주소">
+							<input type="text"
+							class="form-control mt-2" id="reference" name="reference"
+							placeholder="참고항목">
 					</div>
 
 					<div class="form-group">
 						<label for="email" class="text-black">이메일</label>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-3">
 								<input type="text" class="form-control" id="emailUser"
 									name="emailUser" value="">
 							</div>
-							<div class="col-md-5">
+							<div class="col-md-3">
+								<input type="text" class="form-control" id="domain-txt"
+									name="domain-txt" value="">
+							</div>
+							<div class="col-md-3">
 								<select id="emailDomain" class="form-control">
+									<option value="type">직접입력</option>
 									<option value="naver.com">naver.com</option>
 									<option value="daum.net">daum.net</option>
 									<option value="nate.com">nate.com</option>
@@ -150,14 +159,16 @@
 							<br>
 							<div class="form-group">
 								<button class="btn btn-dark btn-lg py-3 btn-block"
-									onclick="window.location='thankyou.html'">주문하기</button>
+									id = "payment">주문하기</button>
 							</div>
+							
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
+		
 	</div>
 </div>
 <script src="jsf5/khs/order.js"></script>
