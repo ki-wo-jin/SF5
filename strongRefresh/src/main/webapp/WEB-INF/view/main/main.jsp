@@ -93,7 +93,7 @@
 					<div class="item">
 						<div class="block-4 text-center">
 							<figure class="block-4-image">
-								<img src="images/shoe_1.jpg" alt="Image placeholder"
+								<img src="images/shoe_2.jpg" alt="Image placeholder"
 									class="img-fluid">
 							</figure>
 							<div class="block-4-text p-4">
@@ -138,7 +138,7 @@
 					<div class="item">
 						<div class="block-4 text-center">
 							<figure class="block-4-image">
-								<img src="images/shoe_1.jpg" alt="Image placeholder"
+								<img src="images/shoe_2.jpg" alt="Image placeholder"
 									class="img-fluid">
 							</figure>
 							<div class="block-4-text p-4">

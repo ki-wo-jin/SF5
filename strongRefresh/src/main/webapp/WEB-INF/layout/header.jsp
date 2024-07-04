@@ -62,32 +62,57 @@
 		role="navigation">
 		<div class="container">
 			<ul class="site-menu js-clone-nav d-none d-md-block">
-				<li><a href="shop.html">new</a></li>
-				<li class="has-children active"><a href="productForm.do">shop all</a>
+			
+				<li><a href="#">NEW</a></li>
+
+				<li class="has-children active"><a href="productForm.do">BEST</a>
 					<ul class="dropdown">
-						<li class="has-children"><a href="#">best things</a>
+						<li><a href="#">All Whites</a>
+						<li><a href="#">All Blacks</a>
+					</ul>
+				</li>
+					
+				<li class="has-children active"><a href="about.html">ALL</a>
+					<ul class="dropdown">
+						<li class="has-children"><a href="#">ALL</a>
 							<ul class="dropdown">
-								<li><a href="#">Menu One</a></li>
-								<li><a href="#">Menu Two</a></li>
-								<li><a href="#">Menu Three</a></li>
+								<li><a href="#">outers</a></li>
+								<li><a href="#">tees</a></li>
+								<li><a href="#">tops</a></li>
+								<li><a href="#">boleros</a></li>
+								<li><a href="#">knits</a></li>
+								<li><a href="#">bottoms</a></li>
+								<li><a href="#">dresses</a></li>
+								<li><a href="#">bags</a></li>
+								<li><a href="#">shoes</a></li>
 							</ul>
-						<li class="has-children"><a href="#">best things</a>
+						<li class="has-children"><a href="#">UNISEX</a>
 							<ul class="dropdown">
-								<li><a href="#">Menu One</a></li>
-								<li><a href="#">Menu Two</a></li>
-								<li><a href="#">Menu Three</a></li>
+								<li><a href="#">outers</a></li>
+								<li><a href="#">tees</a></li>
+								<li><a href="#">tops</a></li>
+								<li><a href="#">knits</a></li>
+								<li><a href="#">bottoms</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><a href="#">best things</a>
+						<li class="has-children"><a href="#">HOME</a>
 							<ul class="dropdown">
-								<li><a href="#">Menu One</a></li>
-								<li><a href="#">Menu Two</a></li>
-								<li><a href="#">Menu Three</a></li>
+								<li><a href="#">bras</a></li>
+								<li><a href="#">underwear</a></li>
+								<li><a href="#">lounges</a></li>
 							</ul>
-					</ul></li>
-				<li><a href="about.html">album</a></li>
-				<li><a href="#">info</a></li>
-				<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">ALBUM</a></li>
+				
+				<li class="has-children active"><a href="#">INFO</a>
+					<ul class="dropdown">
+						<li><a href="#">Q&A</a>
+						<li><a href="#">REVIEW</a>
+					</ul>
+				</li>
+				
 			</ul>
 		</div>
 	</nav>
