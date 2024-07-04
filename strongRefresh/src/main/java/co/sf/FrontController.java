@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.AddCart;
 import co.sf.cart.web.CartForm;
+import co.sf.cart.web.ChangeCnt;
 import co.sf.cart.web.RemoveCart;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
@@ -73,11 +74,14 @@ public class FrontController extends HttpServlet {
 		map.put("/cart.do", new CartForm());
 		// 카트 삭제
 		map.put("/removeCart.do", new RemoveCart());
+		// 카트 수량 변경
+		map.put("/changeCnt.do", new ChangeCnt());
 		
 
 
 		// 주문생성.
 		map.put("/createOrder.do", new CreateOrder());
+		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 리스트

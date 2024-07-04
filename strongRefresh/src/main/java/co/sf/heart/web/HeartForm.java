@@ -17,30 +17,18 @@ public class HeartForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 수정 전) ajax로 list 출력
-		//req.getRequestDispatcher("ygm/heart.tiles").forward(req, resp);		
-		
-		// 수정 후) jsp로 list 출력
+
 		HeartService hsvc = new HeartServiceImpl();
 
-		//수정 전과 후 둘 다 같은 부분
 		HttpSession session = req.getSession();
-		String id = "1"; // test, 완성된 후에는 위에 코드 입력
-		session.setAttribute("id", id);
-		// String id = (String) session.getAttribute("id");
-		List<ProductVO> hlist = hsvc.heartList(id);
 		
-		//System.out.println(hlist.get(0).getThumImage());   // test
-		//System.out.println(hlist.get(0).getProductName()); // test
-		//System.out.println(hlist.get(0).getPrice());       // test
+		String id = (String) session.getAttribute("id");
+		
+		if (id != null) {
+			List<ProductVO> hlist = hsvc.heartList(id);
+			req.setAttribute("heartList", hlist);
+		}
 
-		// 수정 전) ajax로 list 출력 : 찜 화면으로 이동
-		//Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		//String json = gson.toJson(hlist);
-		//resp.getWriter().print(json);
-		
-		// 수정 후) jsp로 list 출력
-		req.setAttribute("heartList", hlist);
 		req.getRequestDispatcher("ygm/heart.tiles").forward(req, resp);
 	}
 

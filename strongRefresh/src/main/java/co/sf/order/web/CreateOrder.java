@@ -2,11 +2,17 @@ package co.sf.order.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import co.sf.cart.service.CartService;
 import co.sf.cart.service.CartServiceImpl;
@@ -14,27 +20,40 @@ import co.sf.cart.vo.CartVO;
 import co.sf.common.Control;
 import co.sf.order.vo.OrderDetailVO;
 import co.sf.order.vo.OrderVO;
+import co.sf.user.service.UserService;
+import co.sf.user.service.UserServiceImpl;
+import co.sf.user.vo.UserVO;
 
 public class CreateOrder implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		resp.setContentType("text/json;charset=utf-8");
+
 		// 장바구니에서 카트번호를 선택한 값을 code=45&code=49&code=83
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
 		String[] cartAry = req.getParameterValues("code");
 		// 상품1, 상품2,....
 
 		CartService svc = new CartServiceImpl();
 		// OrderVO 하나 , OrderDetail 여러개.
 		// 주문번호 만들기.
-		String orderNo = "P202406-003";
+		String orderNo = svc.getNewOrderNo();
 
 		OrderVO ovo = new OrderVO();
 		ovo.setOrderCode(orderNo);
-		ovo.setId("1");
-//		ovo.setAddress(req.getParameter("address"));
-//		ovo.setDeliveryMessage(req.getParameter("msg"));
-		// 더 작업하기.
+
+		UserService usvc = new UserServiceImpl();
+		UserVO user = usvc.getUser(id);
+
+		ovo.setId(user.getId());
+		ovo.setRecipient(user.getName());
+		ovo.setPhone(user.getPhone());
+		ovo.setAddress(user.getAddress());
+		ovo.setTotalPrice(0);
+		ovo.setEmail(user.getEmail());
 
 		List<OrderDetailVO> detailList = new ArrayList<>();
 
@@ -47,13 +66,20 @@ public class CreateOrder implements Control {
 
 			detailList.add(detail);
 		}
-
+		Map<String, Object> map = new HashMap<>();
 		if (svc.createOrder(ovo, detailList)) {
 			System.out.println("OK");
+			// {"retCode": "OK"}
+			map.put("retCode", "OK");
+			map.put("orderCode", orderNo);
+
 		} else {
 			System.out.println("NG");
+			map.put("retCode", "NG");
 
 		}
+		Gson gson = new GsonBuilder().create();
+		resp.getWriter().print(gson.toJson(map));
 
 	}
 
