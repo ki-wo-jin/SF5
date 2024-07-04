@@ -27,6 +27,8 @@ import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.product.web.heartProductAjax;
+import co.sf.product.web.prdQnAAjax;
+import co.sf.product.web.prdReviewAjax;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
 import co.sf.review.web.ReviewForm;
@@ -99,6 +101,10 @@ public class FrontController extends HttpServlet {
 		map.put("/heartProductAjax.do", new heartProductAjax());
 		// 제품 카트에 담기
 		map.put("/cartProductAjax.do", new cartProductAjax());
+		// 제품 리뷰
+		map.put("/prdReview.do", new prdReviewAjax());
+		// 제품 QNA
+		map.put("/prdQnA.do", new prdQnAAjax());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());

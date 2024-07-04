@@ -1,50 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- 상품페이지(product) -->
 
+<!-- 상품페이지(product) -->
 <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop All</strong></div>
         </div>
       </div>
     </div>
-
     <div class="site-section">
       <div class="container">
 
         <div class="row mb-5">
-          <div class="col-md-9 order-2">
-
-            <div class="row">
-              <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">Shop All</h2></div>
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="col-md-3 order-1 mb-5 mb-md-0">
+            <div class="border p-4 rounded mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1"><a href="#" class="d-flex"><span>아직</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>미정</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>카테고리</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>넣어주셈</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>신발</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>모자</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>상의</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>하의</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(0)</span></a></li>
+              </ul>
             </div>
+
+          </div>
+          <div class="col-md-9 order-2">
+          
             
             <!-- 리스트 예시 -->
             <div class="row mb-5" id = "list" >
@@ -63,6 +60,7 @@
             </div>
             <!-- 리스트 예시 끝 -->
             
+            <!-- 페이징 시작 -->
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
                 <div class="site-block-27">
@@ -78,57 +76,11 @@
                 </div>
               </div>
             </div>
+			<!-- 페이징 끝 -->
+			
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="site-section site-blocks-2">
-                <div class="row justify-content-center text-center mb-5">
-                  <div class="col-md-7 site-section-heading pt-4">
-                    <h2>Categories</h2>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/women.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Women</h3>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/children.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Children</h3>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/men.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Men</h3>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              
-            </div>
-          </div>
-        </div>
-        
+		        
       </div>
     </div>
 
