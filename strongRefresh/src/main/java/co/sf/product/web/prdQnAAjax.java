@@ -1,4 +1,4 @@
-package co.sf.review.web;
+package co.sf.product.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,25 +11,27 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.sf.common.Control;
-import co.sf.review.service.ReviewService;
-import co.sf.review.service.ReviewServiceImpl;
-import co.sf.review.vo.ReviewVO;
+import co.sf.qna.service.QnaService;
+import co.sf.qna.service.QnaServiceImpl;
+import co.sf.qna.vo.QnaVO;
 
-public class ReviewList implements Control {
+public class prdQnAAjax implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO 리뷰 리스트
+		// TODO 상품의 QnA 리스트
 		
 		resp.setContentType("text/json;charset=utf-8");
+		String productCode = req.getParameter("code");
 		
-		ReviewService svc = new ReviewServiceImpl();
-		List<ReviewVO> list = svc.reviewList();
+		QnaService svc = new QnaServiceImpl();
+		List<QnaVO> list = svc.prdQnaList(productCode);
+		
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
 		
-		resp.getWriter().print(json);		
+		resp.getWriter().print(json);
 	}
 
 }

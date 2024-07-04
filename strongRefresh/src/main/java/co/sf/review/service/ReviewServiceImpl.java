@@ -32,5 +32,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public boolean editReview(ReviewVO rvo) {
 		return mapper.updateReview(rvo) == 1;
 	}
+	
+	@Override
+	public List<ReviewVO> prdReviewList(String productCode) {
+		// TODO 상품 상세 리뷰 리스트
+		return mapper.prdReviewList(productCode);
+	}
 
 }

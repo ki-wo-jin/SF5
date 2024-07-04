@@ -24,5 +24,7 @@ public interface UserService {
 	//비밀번호 찾기
 	UserVO findPw(String info, String name);
 	
+	//정보수정
+	boolean modifyMember(UserVO uvo);
 	
 }

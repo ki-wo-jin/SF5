@@ -6,9 +6,9 @@
  <mapper namespace="co.sf.qna.mapper.QnaMapper">
 
 	<select id="qnaList" resultType ="co.sf.qna.vo.QnaVO">
-		select qna_code, qna_category, qna_subject, id, qna_date, click_cnt
+		select *
 		from   qna_f5
-        order by qna_code
+        order by qna_code desc
 	</select>
 	
 	<insert id="insertQna" parameterType="co.sf.qna.vo.QnaVO">
@@ -33,5 +33,11 @@
 		       qna_content = #{qnaContent}
 		where  qna_code = #{qnaCode}
 	</update>
+	
+	<select id="prdQnaList" resultType ="co.sf.qna.vo.QnaVO">
+		select *
+		from   qna_f5
+        where  product_code = #{productCode}
+	</select>
 	
 </mapper>
