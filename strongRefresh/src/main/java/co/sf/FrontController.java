@@ -17,16 +17,18 @@ import co.sf.common.Control;
 import co.sf.heart.web.CheckProduct;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
+import co.sf.order.web.AddAddress;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
-import co.sf.product.web.cartProductAjax;
+import co.sf.order.web.Thankyou;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
 import co.sf.product.web.ProductList;
 import co.sf.product.web.ProductTotal;
-import co.sf.qna.web.QnaDetailForm;
+import co.sf.product.web.cartProductAjax;
 import co.sf.product.web.heartProductAjax;
+import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
 import co.sf.review.web.ReviewForm;
@@ -77,12 +79,18 @@ public class FrontController extends HttpServlet {
 		// 카트 목록 (AJAX)
 		map.put("/cartList", new CartList());
 
-		
+	
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
 		// 주문 리스트
 		map.put("/orderdetail.do", new OrderDetailForm());
-
+		// 주문하기 = > 
+		// 새로운 배송지
+		map.put("/addAddress.do", new AddAddress());
+		// 주문성공 페이지
+		map.put("/thankyou.do", new Thankyou());
+		
+		
 		// 제품 페이지
 		map.put("/productForm.do", new ProductForm());
 		// 제품 페이지에 제품 출력
