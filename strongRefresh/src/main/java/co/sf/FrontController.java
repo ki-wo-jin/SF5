@@ -31,6 +31,7 @@ import co.sf.product.web.cartProductAjax;
 import co.sf.product.web.heartProductAjax;
 import co.sf.product.web.prdQnAAjax;
 import co.sf.product.web.prdReviewAjax;
+import co.sf.product.web.srcPrd;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
@@ -117,6 +118,8 @@ public class FrontController extends HttpServlet {
 		map.put("/prdReview.do", new prdReviewAjax());
 		// 제품 QNA
 		map.put("/prdQnA.do", new prdQnAAjax());
+		// 제품 검색
+		map.put("/srcPrd.do", new srcPrd());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());
