@@ -42,21 +42,22 @@
           </div>
           <div class="col-md-9 order-2">
 
-
             <!-- 리스트 예시 -->
             <div class="row mb-5" id="list">
+            <c:forEach var="prd" items="${list }">
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a id="a1"><img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid" id="listImg"></a>
+                    <a id="a1"><img src="images/${prd.thumImage }" alt="Image placeholder" class="img-fluid" id="listImg"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a id="listName">Tank Top</a></h3>
-                    <p class="mb-0" id="listCategorie">t-shirt</p>
-                    <p class="text-primary font-weight-bold" id="listPrice">$50</p>
+                    <h3><a id="listName">${prd.productName }</a></h3>
+                    <p class="mb-0" id="listCategorie">${prd.categorie }</p>
+                    <p class="text-primary font-weight-bold" id="listPrice">${prd.price }원</p>
                   </div>
                 </div>
               </div>
+            </c:forEach>
             </div>
             <!-- 리스트 예시 끝 -->
 
@@ -84,4 +85,4 @@
       </div>
     </div>
 
-    <script src="jsf5/jju/productAjax.js"></script>
+    <!-- <script src="jsf5/jju/productAjax.js"></script> -->

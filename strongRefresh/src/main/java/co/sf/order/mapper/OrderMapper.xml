@@ -7,19 +7,18 @@
 
 
 	<insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
-		INSERT INTO
-		order_f5(order_code, id, recipient, phone,
-		address, delivery_message,
-		email)
-
-		VALUES ( #{orderCode}, #{id}, #{recipient}, #{phone},
-		#{address},
-		#{deliveryMessage}, #{email})
+		INSERT INTO order_f5 ( order_code, id, recipient, order_date, order_status,
+		phone, address, delivery_message, use_point, total_price, email)
+		
+		VALUES (#{orderCode}, #{id}, #{recipient}, #{order_status}, #{phone},
+		#{address},	#{deliveryMessage},	#{usePoint}, #{totalPrice},	#{email})
 	</insert>
 
 
-	<delete id="removeCartItem" parameterType="int" >
-		DELETE FROM cart_f5 WHERE cart_code = #{cartCode}
+	<delete id="removeCartItem" parameterType="int">
+		DELETE FROM
+		cart_f5
+		WHERE cart_code = #{cartCode}
 	</delete>
 
 

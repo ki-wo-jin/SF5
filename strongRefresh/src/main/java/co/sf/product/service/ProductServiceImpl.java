@@ -32,4 +32,9 @@ public class ProductServiceImpl implements ProductService {
 	public List<CategoryVO> categoryList() {
 		return mapper.categoryList();
 	}
+
+	@Override
+	public List<ProductVO> productListPagingCategory(int page, String category) {
+		return mapper.selectProductPaging(page, category);
+	}
 }
