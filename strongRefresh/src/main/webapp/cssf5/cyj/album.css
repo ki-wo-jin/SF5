@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Hesom';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Hesom.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.album{
+    display: block;
+    unicode-bidi: isolate;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+  padding: 0;
+}
+
+#albumText h2{
+	padding : 10px;
+	margin-bottom : 0;
+	font-family: 'Hesom';
+  	font-size: x-large;
+	
+}
+
+.album ul{
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+  padding-left: 0;
+}
+
+.album li{
+  position: relative;
+  display: inline-block;
+  width: 30.33%;
+  margin: 0px 1% 40px;
+  font-size: 12px;
+  color: #a8a8a8;
+  line-height: 18px;
+  vertical-align: top;
+  text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+.album-thumb img{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 32px;
+  border: 0;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.imgLink{
+  display: inline-block;
+}
+
+.cont{
+  display: inline-block;
+  margin: 12px 0 16px;
+  max-height: 32px;
+  font-size: 11px;
+  color: #000;
+  line-height: 16px;
+  font-family: 'HelveticaNue', 'Helvetica', Arial, sans-serif;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
