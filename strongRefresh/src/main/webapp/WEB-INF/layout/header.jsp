@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<style>
+
+@font-face {
+    font-family: 'KCCMurukmuruk';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCMurukmuruk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header {
+	font-family: 'KCCMurukmuruk';
+}
+</style>
 <header class="site-navbar" role="banner">
 	<div class="site-navbar-top">
 		<div class="container">
@@ -94,7 +107,7 @@
 					</ul>
 				</li>
 
-				<li><a href="#">ALBUM</a></li>
+				<li><a href="albumForm.do">ALBUM</a></li>
 
 				<li class="has-children active"><a href="#">INFO</a>
 					<ul class="dropdown">
@@ -110,6 +123,10 @@
 		document.querySelectorAll('ul.site-menu a').forEach(site => {
 			console.log(site.getAttribute('href'));
 			let param = site.getAttribute('href');
+			if (param == 'albumForm.do') {
+				e.preventDefault();
+				return;
+			}
 			site.addEventListener('click', function (e) {
 				e.preventDefault();
 				location.href = 'productForm.do?category=' + param;

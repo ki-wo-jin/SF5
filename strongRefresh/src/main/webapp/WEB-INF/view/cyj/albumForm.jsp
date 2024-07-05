@@ -5,10 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="cssf5/cyj/album.css">
+
 </head>
 <body>
 
 <div class=album>
+
+<div id=albumText>
+<h2>Album</h2>
+</div>
 
 <ul>
 	<li class="album-thumb">
