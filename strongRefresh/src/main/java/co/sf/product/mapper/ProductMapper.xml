@@ -44,5 +44,18 @@
       ]]>
       and   b.rn > (#{page} - 1) * 12
 	</select>
+	
+	<select id="selectPrdNamePaging">
+	    select b.*
+			from (select rownum rn, a.*
+      			from (select *
+                  from product_f5_v p
+                  where product_name like NVL(#{productName}, product_name)
+                  order by 1) a ) b
+      <![CDATA[
+      where b.rn <= (#{page} * 12)
+      ]]>
+      and   b.rn > (#{page} - 1) * 12
+	</select>
 
 </mapper>
