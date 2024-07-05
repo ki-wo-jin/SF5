@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.sf.common.DataSource;
 import co.sf.product.mapper.ProductMapper;
+import co.sf.product.vo.CategoryVO;
 import co.sf.product.vo.ProductVO;
 
 public class ProductServiceImpl implements ProductService {
@@ -18,12 +19,17 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> productListPaging(int page) {
-		return mapper.selectListPaging(page);
+	public List<ProductVO> productListPaging(int page, String category) {
+		return mapper.selectListPaging(page, category);
 	}
 
 	@Override
 	public int productTotalCnt() {
 		return mapper.selectTotalCnt();
+	}
+
+	@Override
+	public List<CategoryVO> categoryList() {
+		return mapper.categoryList();
 	}
 }

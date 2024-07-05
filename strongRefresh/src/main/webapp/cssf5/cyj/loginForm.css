@@ -15,11 +15,13 @@ body{
     height: 350px;
     padding: 40px;
     box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .login-wrapper > h2{
     font-size: 24px;
-    color: #6A24FE;
+    color:  #7971ea;
     margin-bottom: 20px;
 }
 #login-form > input{
@@ -37,6 +39,10 @@ body{
 #login-form > input[type="submit"]{
     color: #fff;
     font-size: 16px;
-    background-color: #6A24FE;
+    background-color:  #7971ea;
     margin-top: 20px;
+}
+ul {
+    list-style: none;
+    text-align: center;
 }
