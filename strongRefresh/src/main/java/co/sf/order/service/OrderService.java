@@ -8,7 +8,7 @@ import co.sf.order.vo.OrderVO;
 
 public interface OrderService {
 	List<OrderVO> OrderList(String id);
-	
+
 	boolean addAddress(OrderVO ovo);
-	
+
 }
