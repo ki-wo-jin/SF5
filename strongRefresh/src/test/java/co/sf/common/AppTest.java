@@ -19,7 +19,7 @@ public class AppTest {
 		
 		//경민
 		CartVO cart = new CartVO();
-		cart.setCartCode(0);
+		cart.setCartCode("0");
 		cart.setProductCode("900");
 		cart.setProductCnt(1);
 		cart.setId("1");
