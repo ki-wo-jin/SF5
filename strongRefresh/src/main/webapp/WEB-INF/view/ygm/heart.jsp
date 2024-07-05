@@ -11,13 +11,16 @@
 <style>
 body {
 	font-family: "바탕", Batang;
+
 }
 
 #container {
 	width: 1000px;
 	margin: auto;
 	text-align: center;
+
 }
+
 h6{
 	font-family: "바탕", Batang;
 	color: rgb(88, 88, 88);
@@ -28,6 +31,7 @@ h6{
 table {
 	margin-left: auto;
 	margin-right: auto;
+	font-size: 15px;
 }
 
 p {
@@ -45,6 +49,7 @@ p {
 	background-color: rgb(193, 224, 214);
 	color: rgb(74, 72, 72);
 }
+
 </style>
 
 <div class="container">
@@ -58,10 +63,10 @@ p {
 							<thead>
 								<tr>
 									<th class="product-thumbnail"><input type="checkbox" id="checkbox"></th>
-									<th class="product-name">이미지</th>
-									<th class="product-price">상품정보</th>
-									<th class="product-quantity">판매가</th>
-									<th class="product-total">선택</th>
+									<th style="font-size: 16px;" class="product-name">image</th>
+									<th style="font-size: 16px;" class="product-price">information</th>
+									<th style="font-size: 16px;" class="product-quantity">price</th>
+									<th style="font-size: 16px;" class="product-total">select</th>
 								</tr>
 							</thead>
 
@@ -71,13 +76,13 @@ p {
 									<tr data-id="${heart.productCode }" class="pcode">
 										<td class="product-thumbnail"><input type="checkbox" class="boxs"></td>
 										<td class="product-thumbnail"><img src="images/${heart.thumImage }" alt="Image"	class="img-fluid"></td>
-										<td class="product-name"> <h2 class="h5 text-black" style="font-size: 16px">${heart.productName } ${heart.productSize } ${heart.color }</h2></td>
+										<td class="product-name"> <h2 class="h5 text-black" style="font-size: 15px">${heart.productName }&emsp;${heart.productSize }&emsp;${heart.color }</h2></td>
 										<%-- <td class="product-size"> ${heart.productSize }</td> --%>
-										<td>${heart.price }원</td>
+										<td>KRW ${heart.price }</td>
 										<td id="sideBtn">
-											<a onclick="addCart(event)" class="btn btn-sm">카트담기</a><br>
+											<a onclick="addCart(event)" class="btn btn-sm" style="font-size: 13px;">카트담기</a><br>
 											<br>
-											<button type="button" class="deleteRowHeart btn btn-sm">하트삭제</button>
+											<button type="button" class="deleteRowHeart btn btn-sm" style="font-size: 14px;">하트삭제</button>
 										</td>
 									</tr>
 								</c:forEach>
