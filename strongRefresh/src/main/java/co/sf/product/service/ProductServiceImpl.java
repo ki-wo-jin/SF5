@@ -24,8 +24,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int productTotalCnt() {
-		return mapper.selectTotalCnt();
+	public int productTotalCnt(String category) {
+		return mapper.selectTotalCnt(category);
 	}
 
 	@Override
@@ -36,5 +36,10 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVO> productListPagingCategory(int page, String category) {
 		return mapper.selectProductPaging(page, category);
+	}
+
+	@Override
+	public List<ProductVO> prdNameListPaging(int page, String productName) {
+		return mapper.selectPrdNamePaging(page, productName);
 	}
 }

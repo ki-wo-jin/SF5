@@ -32,12 +32,14 @@ import co.sf.product.web.cartProductAjax;
 import co.sf.product.web.heartProductAjax;
 import co.sf.product.web.prdQnAAjax;
 import co.sf.product.web.prdReviewAjax;
+import co.sf.product.web.srcPrd;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
 import co.sf.review.web.ReviewForm;
 import co.sf.review.web.ReviewList;
 import co.sf.review.web.reviewDetailForm;
+import co.sf.user.web.AlbumForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
 import co.sf.user.web.FindIdForm;
@@ -69,6 +71,7 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 		
+		
 		// 찜 화면
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
@@ -77,17 +80,15 @@ public class FrontController extends HttpServlet {
 		map.put("/addCart.do", new AddCart());		
 		
 		// 카트 화면
-		map.put("/cart.do", new CartForm());		
-	
+		map.put("/cart.do", new CartForm());	
 		// 카트 삭제
 		map.put("/removeCart.do", new RemoveCart());
 		// 카트 수량 변경
 		map.put("/changeCnt.do", new ChangeCnt());
-		
-
-
-		// 주문생성.
+		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
+		
+		
 		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
@@ -119,6 +120,8 @@ public class FrontController extends HttpServlet {
 		map.put("/prdReview.do", new prdReviewAjax());
 		// 제품 QNA
 		map.put("/prdQnA.do", new prdQnAAjax());
+		// 제품 검색
+		map.put("/srcPrd.do", new srcPrd());
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());
@@ -145,6 +148,8 @@ public class FrontController extends HttpServlet {
 		//회원정보수정
 		map.put("/modifyMember.do", new ModifyMember());
 		map.put("/modify.do", new ModifyControl());
+		//앨범
+		map.put("/albumForm.do", new AlbumForm());	
 		
 
 		// QNA

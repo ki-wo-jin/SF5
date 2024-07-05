@@ -1,4 +1,4 @@
-package co.sf.product.web;
+package co.sf.user.web;
 
 import java.io.IOException;
 
@@ -7,19 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sf.common.Control;
-import co.sf.product.service.ProductService;
-import co.sf.product.service.ProductServiceImpl;
 
-public class ProductTotal implements Control {
+public class AlbumForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ProductService svc = new ProductServiceImpl();
-		int totalCnt = svc.productTotalCnt("test");
-		// {"totalCount": 2}
-		resp.getWriter().print("{\"totalCount\": " + totalCnt + "}");
-
+		req.getRequestDispatcher("cyj/albumForm.tiles").forward(req, resp);
 	}
 
 }
