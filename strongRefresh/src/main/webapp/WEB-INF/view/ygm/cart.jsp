@@ -65,11 +65,12 @@
 							<thead>
 								<tr>
 									<th class="product-thumbnail"><input type="checkbox" id="checkbox"></th>
-									<th class="product-name">Product</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-charge">Charge</th>
-									<th class="product-delete">Delete</th>
+									<th class="product-name">image</th>
+									<th class="product-information">information</th>
+									<th class="product-price">price</th>
+									<th class="product-quantity">quantity</th>
+									<th class="product-charge">charge</th>
+									<th class="product-delete">delete</th>
 								</tr>
 							</thead>
 							<tbody id="cartList">

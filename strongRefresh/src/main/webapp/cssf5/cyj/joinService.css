@@ -3,6 +3,9 @@
 .joinTable{
 	position: relative;
 }
+.modifyTable {
+	position: relative;
+}
 
 .pwCondition {
 	z-index: 2;
@@ -14,8 +17,6 @@
 	bottom: 30px;
 	right: 50px;
 }
-
-
 
 .pwConditionText {
 	color:red;
