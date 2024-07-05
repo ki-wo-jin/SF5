@@ -14,7 +14,9 @@
 	<select id ="selectListPaging">
 		select b.*
 		from (select /*+INDEX_DESC(r SYS_C007211)*/ rownum rn, r.*
-		from product_f5 r) b
+		from product_f5 r
+		where rowid in (select max(rowid)from product_f5 group by product_name)
+		 and  categorie like upper(#{category})) b
         <![CDATA[
 		where  b.rn <= (#{page}) * 12
 		]]>
@@ -25,5 +27,22 @@
 	    select count(1) from product_f5
 	</select>
 	
+	<select id="categoryList">
+	    select *
+	    from product_category_order_v
+	</select>
+	
+	<select id="selectProductPaging">
+	    select b.*
+			from (select rownum rn, a.*
+      			from (select *
+                  from product_f5_v p
+                  where categorie = NVL(#{category}, categorie)
+                  order by 1) a ) b
+      <![CDATA[
+      where b.rn <= (#{page} * 12)
+      ]]>
+      and   b.rn > (#{page} - 1) * 12
+	</select>
 
 </mapper>

@@ -7,7 +7,7 @@ let code = param.get('code');
 
 document.addEventListener("DOMContentLoaded", function() {
 
-	fetch('productDetailAjax.do?code=' + code)
+	fetch('productDetailAjax.do?code=' + code + '&category=' + category)
 		.then(result => result.json())
 		.then(result => {
 			result.forEach(ele => {
@@ -165,10 +165,5 @@ document.querySelector('#qListBtn').addEventListener('click', function(){
 	location.href='qna.do';
 })
 
-// 버튼 클릭시 리뷰 모달창 작성
-
-
-
-// 버튼 클릭시 qna 모탈창 작성
 
 
