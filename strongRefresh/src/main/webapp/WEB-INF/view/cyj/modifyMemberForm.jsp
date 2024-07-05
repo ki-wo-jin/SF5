@@ -73,7 +73,6 @@
 						<option value="019">019</option>
 				</select>
 				<c:choose>
-<<<<<<< HEAD
 				<c:when test="${user.phone.length() > 9}">
 				- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone.substring(4,8) }"> -
 					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone.substring(9) }">
