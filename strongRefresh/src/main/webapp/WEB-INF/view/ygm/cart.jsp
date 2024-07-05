@@ -35,6 +35,10 @@ p {
 th{
 	color: gray;
 }
+
+#delTr td{
+	color: rgb(219, 133, 133);
+}
 </style>
 
 
@@ -68,10 +72,6 @@ th{
 										
 										<td><input type="number" min="0" max="10" value="${cart.productCnt }" class="counter"></td>
 										
-<%-- 										<td><input type='button' onclick='count("plus")' value='+'/>
-										<p id='result'>${cart.productCnt }</p>
-										<input type='button' onclick='count("minus")' value='-'/></td> --%>
-										
 										<td><c:out value="${cart.price >= 50000 ? '무료배송' : '3000'}" /></td>
 										<td>
 											<button type="button" class="deleteCartRow btn btn-sm">X</button>
@@ -88,13 +88,14 @@ th{
 					<table>
 						<thead>
 							<tr>
-								<th>총 상품금액&emsp; &emsp; &emsp;</th>
-								<th>총 배송비&emsp; &emsp; &emsp;&emsp;</th>
+							<!-- &emsp; -->
+								<th>총 상품금액&emsp;&emsp;&emsp;</th>
+								<th>총 배송비&emsp;&emsp;&emsp;</th>
 								<th>결제예정금액</th>
 							</tr>
 						</thead>
 						<tbody id="totalContainer">
-							<tr id="oldTr">
+							<%-- <tr id="oldTr">
 								<c:set var="total" value="0" />
 								<c:forEach var="cart" items="${cartList}" varStatus="status">
 									<c:set var= "total" value="${total + (cart.price * cart.productCnt)}"/>
@@ -103,7 +104,7 @@ th{
 								<c:set var="charge" value="${total >= 50000 ? 0 : 3000}" />
 								<td>+ KRW ${charge}</td>
 								<td>= KRW ${total + charge}</td>
-							</tr>
+							</tr> --%>
 						</tbody>
 					</table><br>
 					<div id="buyBtn">

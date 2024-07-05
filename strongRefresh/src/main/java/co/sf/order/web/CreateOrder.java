@@ -35,6 +35,11 @@ public class CreateOrder implements Control {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		String[] cartAry = req.getParameterValues("code");
+		
+		//TODO
+		String totalPrice = req.getParameter("totalPrice");
+		//--
+		
 		// 상품1, 상품2,....
 
 		CartService svc = new CartServiceImpl();
@@ -52,7 +57,7 @@ public class CreateOrder implements Control {
 		ovo.setRecipient(user.getName());
 		ovo.setPhone(user.getPhone());
 		ovo.setAddress(user.getAddress());
-		ovo.setTotalPrice(0);
+		ovo.setTotalPrice(Integer.parseInt(totalPrice)); //TODO
 		ovo.setEmail(user.getEmail());
 
 		List<OrderDetailVO> detailList = new ArrayList<>();
