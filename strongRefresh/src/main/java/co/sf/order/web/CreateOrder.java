@@ -34,14 +34,11 @@ public class CreateOrder implements Control {
 		// 장바구니에서 카트번호를 선택한 값을 code=45&code=49&code=83
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
-		String[] cartAry = req.getParameterValues("code");
-		
-		//TODO
-		String totalPrice = req.getParameter("totalPrice");
-		//--
-		
 		// 상품1, 상품2,....
-
+		String[] cartAry = req.getParameterValues("code");		
+		//cart.js에서 totalPrice 값 받아오기
+		String totalPrice = req.getParameter("totalPrice");
+		
 		CartService svc = new CartServiceImpl();
 		// OrderVO 하나 , OrderDetail 여러개.
 		// 주문번호 만들기.
@@ -59,6 +56,9 @@ public class CreateOrder implements Control {
 		ovo.setAddress(user.getAddress());
 		ovo.setTotalPrice(Integer.parseInt(totalPrice)); //TODO
 		ovo.setEmail(user.getEmail());
+		
+		//값이 들어갔는지 확인하기.
+		System.out.println(ovo);
 
 		List<OrderDetailVO> detailList = new ArrayList<>();
 

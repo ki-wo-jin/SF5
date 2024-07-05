@@ -90,7 +90,7 @@ th{
 							<tr>
 							<!-- &emsp; -->
 								<th>총 상품금액&emsp;&emsp;&emsp;</th>
-								<th>총 배송비&emsp;&emsp;&emsp;</th>
+								<th> 총 배송비&emsp;&emsp;&emsp;</th>
 								<th>결제예정금액</th>
 							</tr>
 						</thead>

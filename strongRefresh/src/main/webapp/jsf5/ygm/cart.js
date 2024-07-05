@@ -147,6 +147,7 @@ function buyAll() {
 	let totalPrice = total + charge;
 	//---	
 	
+	console.log(totalPrice);
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		let code = box.parentElement.parentElement.dataset.id;
 		console.log(code);		
@@ -224,6 +225,58 @@ function buySelect() {
 			}
 		})	
 }
+
+
+
+
+/*document.getElementById('buySelectBtn').addEventListener('click', buySelect);
+
+function buySelect() {
+	let param = "?";
+	let totalCnt = document.querySelectorAll('.boxs').length;
+	
+	//---TODO
+	let cartList = document.getElementById('cartList');
+	let total = 0;
+	let price = 0;
+	Array.from(cartList.children).forEach(cart => {
+		price = cart.children[2].innerHTML;
+		let quantity = cart.children[3].children[0].value;
+		total += price * quantity;
+	})		
+	let charge = 0;
+	if(total >= 50000) charge = 0;
+	else charge = 3000;
+	let totalPrice = total + charge;
+	//---	
+	
+	
+	document.querySelectorAll('.boxs').forEach((box, idx) => {
+		if (box.checked){
+			let code = box.parentElement.parentElement.dataset.id;
+			param += "code=" + code;
+			if (totalCnt != (idx + 1)) {
+				param += "&";
+			}
+		}
+	})
+	
+	//---TODO
+	param += "&totalPrice=" + totalPrice;
+	console.log(totalPrice);
+	//---
+	
+	let url = 'createOrder.do' + param;
+	fetch(url)
+		.then(result => result.json())
+		.then(result => {
+			if (result.retCode == "OK") {
+				location.href = 'order.do?orderCode=' + result.orderCode;
+			} else {
+				alert(result.retCode);
+			}
+		})	
+}*/
 
 /*document.getElementById('buySelectBtn').addEventListener('click', buySelect);
 function buySelect() {	
