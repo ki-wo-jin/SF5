@@ -11,10 +11,9 @@ function viewtotal(){
 	let price = 0;
 	Array.from(cartList.children).forEach(cart => {
 		//price = Number(cart.children[2].innerHTML);
-		price = cart.children[2].innerHTML;
+		price = cart.children[2].innerHTML.split(" ");
 		let quantity = cart.children[3].children[0].value;
-		total += price * quantity;
-		console.log(typeof(total));
+		total += price[1] * quantity;
 	})
 	
 	let charge = 0;
@@ -29,7 +28,7 @@ function viewtotal(){
 	    td.innerHTML += tds[i];
 	    tr.appendChild(td);
 		tr.setAttribute('id', 'delTr');
-		tbody.appendChild(newTr);
+		tbody.appendChild(tr);
 		td = document.createElement('td');
 	}
 }
@@ -139,9 +138,9 @@ function buyAll() {
 	let total = 0;
 	let price = 0;
 	Array.from(cartList.children).forEach(cart => {
-		price = cart.children[2].innerHTML;
+		price = cart.children[2].innerHTML.split(" ");
 		let quantity = cart.children[3].children[0].value;
-		total += price * quantity;
+		total += Number(price[1] * quantity);
 	})		
 	let charge = 0;
 	if(total >= 50000) charge = 0;
@@ -151,7 +150,7 @@ function buyAll() {
 	
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		let code = box.parentElement.parentElement.dataset.id;
-		console.log(code);		
+		//console.log(code);		
 		param += "code=" + code;
 		if (totalCnt != (idx + 1)) {
 			param += "&";
@@ -185,9 +184,9 @@ document.getElementById('buySelectBtn').addEventListener('click', function() {
 	
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		if (box.checked){
-			price = Number(box.parentElement.parentElement.children[2].innerHTML);
+			price = box.parentElement.parentElement.children[2].innerHTML.split(" ");
 			quantity = box.parentElement.parentElement.children[3].children[0].value;
-			total += price * quantity;
+			total += Number(price[1] * quantity);
 			
 			let code = box.parentElement.parentElement.dataset.id;
 			param += "code=" + code;
@@ -199,7 +198,7 @@ document.getElementById('buySelectBtn').addEventListener('click', function() {
 		fetch(url)
 			.then(result => result.json())
 			.then(result => {
-				console.log(result);
+				//console.log(result);
 				if (result.retCode == "OK") {
 					location.href = 'order.do?orderCode=' + result.orderCode;
 				} else {

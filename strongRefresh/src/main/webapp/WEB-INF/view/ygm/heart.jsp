@@ -59,7 +59,7 @@ p {
 								<tr>
 									<th class="product-thumbnail"><input type="checkbox" id="checkbox"></th>
 									<th class="product-name">이미지</th>
-									<th class="product-price">상품명</th>
+									<th class="product-price">상품정보</th>
 									<th class="product-quantity">판매가</th>
 									<th class="product-total">선택</th>
 								</tr>
@@ -69,14 +69,10 @@ p {
 								<c:forEach var="heart" items="${heartList }">
 									<!-- <script>console.log(">>>>>>>>${heart.thumImage}")</script> -->
 									<tr data-id="${heart.productCode }" class="pcode">
-										<td class="product-thumbnail"><input type="checkbox"
-											class="boxs"></td>
-										<td class="product-thumbnail"><img
-											src="images/${heart.thumImage }" alt="Image"
-											class="img-fluid"></td>
-										<td class="product-name">
-											<h2 class="h5 text-black" style="font-size: 16px">${heart.productName }</h2>
-										</td>
+										<td class="product-thumbnail"><input type="checkbox" class="boxs"></td>
+										<td class="product-thumbnail"><img src="images/${heart.thumImage }" alt="Image"	class="img-fluid"></td>
+										<td class="product-name"> <h2 class="h5 text-black" style="font-size: 16px">${heart.productName } ${heart.productSize } ${heart.color }</h2></td>
+										<%-- <td class="product-size"> ${heart.productSize }</td> --%>
 										<td>${heart.price }원</td>
 										<td id="sideBtn">
 											<a onclick="addCart(event)" class="btn btn-sm">카트담기</a><br>

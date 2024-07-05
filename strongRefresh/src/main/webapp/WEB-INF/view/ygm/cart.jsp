@@ -81,7 +81,7 @@
 										
 										<td><input type="number" min="0" max="10" value="${cart.productCnt }" class="counter"></td>
 										
-										<td><c:out value="${cart.price >= 50000 ? '무료배송' : '3000'}" /></td>
+										<td><c:out value="${cart.price >= 50000 ? '무료배송' : 'KRW 3,000'}" /></td>
 										<td>
 											<button type="button" class="deleteCartRow btn btn-sm">X</button>
 										</td>
