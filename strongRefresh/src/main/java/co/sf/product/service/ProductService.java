@@ -16,4 +16,7 @@ public interface ProductService {
 	List<CategoryVO> categoryList();
 	List<ProductVO> productListPagingCategory(int page, String category);
 	
+	// 이름 출력
+	List<ProductVO> prdNameListPaging(int page, String productName);
+	
 }
