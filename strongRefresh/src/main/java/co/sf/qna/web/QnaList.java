@@ -21,12 +21,12 @@ public class QnaList implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		
-		QnaService qsvc = new QnaServiceImpl();
-		
-		List<QnaVO> qlist = qsvc.qnaList();
+		QnaService svc = new QnaServiceImpl();
+		List<QnaVO> list = svc.qnaList();
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(qlist);
+		String json = gson.toJson(list);
+		
 		resp.getWriter().print(json);		
 
 	}

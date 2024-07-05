@@ -1,5 +1,7 @@
 package co.sf.cart.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -22,10 +24,15 @@ public class CartServiceImpl implements CartService {
 	public List<CartVO> cartList(String id) {
 		return mapper.cartList(id);
 	}
-	
+
 	@Override
 	public boolean removeCart(String ccode) {
 		return mapper.deleteCart(ccode) == 1;
+	}
+
+	@Override
+	public boolean changeCnt(CartVO cvo) {
+		return mapper.updateCnt(cvo) == 1;
 	}
 
 	@Override
@@ -43,6 +50,7 @@ public class CartServiceImpl implements CartService {
 		}
 		return true;
 	}
+
 	public int checkPrdCart(CartVO cvo) {
 		// TODO 카트 상품 갯수 가져오기
 		return mapper.selPrdCart(cvo);
@@ -58,6 +66,18 @@ public class CartServiceImpl implements CartService {
 	public boolean upPrdCart(CartVO cvo) {
 		// TODO 상품 -> 카트 변경
 		return mapper.upPrdCart(cvo) == 1;
+	}
+
+	@Override
+	public String getNewOrderNo() {
+		// TODO Auto-generated method stub
+		// P202407
+		int newSeq = mapper.selectNewOrderNo(); // 2
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+		String yyyymm = sdf.format(new Date()); // P202407- 0011
+		yyyymm = "P" + yyyymm + "-" + ("00" + newSeq).substring(("00" + newSeq).length() - 3);
+
+		return yyyymm;
 	}
 
 }

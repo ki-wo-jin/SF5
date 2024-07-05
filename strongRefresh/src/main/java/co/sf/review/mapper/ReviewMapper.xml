@@ -6,10 +6,9 @@
  <mapper namespace="co.sf.review.mapper.ReviewMapper">
 
 	<select id="reviewList" resultType ="co.sf.review.vo.ReviewVO">
-		select r.review_code, p.thum_image + p.product_name, r.id, r.review_date, r.click_cnt, r.star
-		from review_f5 r, product_f5 p
-        where r.product_code = p.product_code
-        order by r.review_code
+		select *
+		from   review_f5
+		order by review_code desc
 	</select>
 	
 	<insert id="insertReview" parameterType="co.sf.review.vo.ReviewVO">
@@ -34,6 +33,12 @@
 		       review_content = #{reviewContent}
 		where  review_code = #{reviewCode}
 	</update>
-
+	
+	<!-- 상품 리뷰 리스트 -->
+	<select id="prdReviewList" resultType="co.sf.review.vo.ReviewVO">
+		select *
+		from   review_f5
+		where  product_code = #{productCode}
+	</select>
 </mapper>
 
