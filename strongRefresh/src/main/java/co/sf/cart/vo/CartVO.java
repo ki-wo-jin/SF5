@@ -12,4 +12,7 @@ public class CartVO {
 	private int point;	
 	private String id;
 	private int productCnt;
+	/*
+	 * private String productSize; private String color;
+	 */
 }

@@ -73,6 +73,7 @@
 						<option value="019">019</option>
 				</select>
 				<c:choose>
+<<<<<<< HEAD
 				<c:when test="${user.phone.length() > 9}">
 				- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone.substring(4,8) }"> -
 					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone.substring(9) }">
@@ -82,6 +83,14 @@
 					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone}">
 				</c:otherwise>
 				</c:choose> 
+				<c:when test="${user.phone.length()>9 }">
+					- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone.substring(4,8) }"> -
+					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone.substring(9) }">
+				</c:when>
+				<c:otherwise>
+					- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone }"> -
+					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone }">
+				</c:otherwise>
 				</td>
 			</tr>
 			
@@ -99,9 +108,12 @@
 	
 </div>
 
+
+<link rel="stylesheet" href="cssf5/cyj/joinService.css">
+
 <script src="jsf5/cyj/addressService.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
+<script src="jsf5/cyj/joinService.js"></script>
 <script src="jsf5/cyj/modifyMemberService.js"></script>
 
 <script>
@@ -115,3 +127,5 @@ if(retCode=="OK") {
 	}
 	
 </script>
+
+

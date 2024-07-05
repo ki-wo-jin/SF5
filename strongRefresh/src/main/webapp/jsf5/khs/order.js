@@ -1,18 +1,23 @@
-// order.js
+window.addEventListener('beforeunload', function() {
+    sessionStorage.removeItem('selectedCartItems');
+});
 
-function cartitems() {
-    // 세션 스토리지에서 선택된 카트 항목 가져오기
-    const selectedItems = JSON.parse(sessionStorage.getItem('selectedCartItems')) || [];
+document.addEventListener('DOMContentLoaded', function() {
+    const orderCode = new URLSearchParams(window.location.search).get('orderCode');
+    if (orderCode) {
+        fetchOrderDetails(orderCode);
+    }
+});
 
-    // 선택된 카트 항목의 정보를 가져오기 위해 서버에 요청
-    fetch('/createOrder.do?action=getCartItems&code=' + selectedItems.join('&code='))
+function fetchOrderDetails(orderCode) {
+    fetch('/orderDetails.do?orderCode=' + orderCode)
         .then(response => response.json())
-        .then(cartItems => {
-            console.log(cartItems);
+        .then(orderDetails => {
+            console.log(orderDetails);
             const tbody = document.getElementById('list');
             tbody.innerHTML = ''; 
 
-            cartItems.forEach(item => {
+            orderDetails.forEach(item => {
                 const totalPrice = item.price * item.productCnt;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
@@ -33,20 +38,6 @@ function cartitems() {
         .catch(error => console.error('Error:', error));
 }
 
-// 총합 계산 기능
-function calculateTotal() {
-    const rows = document.querySelectorAll('#list tr');
-    let total = 0;
-    rows.forEach(row => {
-        const totalPrice = parseInt(row.querySelector('.totalPrice').textContent);
-        total += totalPrice;
-    });
-    document.getElementById('totalPrice').textContent = `KRW ${total}`;
-    document.getElementById('orderTotal').textContent = `KRW ${total}`;
-    document.getElementById('finalTotal').textContent = `KRW ${total}`;
-}
-
-// 주문하기 
 document.getElementById('payment').addEventListener('click', async function() {
     const recipient = document.getElementById('recipient').value;
     const phone1 = document.getElementById('phone1').value;
@@ -90,8 +81,7 @@ document.getElementById('payment').addEventListener('click', async function() {
             alert('주문이 완료되었습니다.');
             const params = new URLSearchParams();
             params.append('orderCode', result.orderCode);
-            selectedItems.forEach((item, index) => params.append('cartItem' + index, item));
-            window.location.href = 'order.do?' + params.toString();
+            window.location.href = 'thankyou.do';
         } else {
             alert('주문 처리에 실패했습니다.');
         }
@@ -101,37 +91,15 @@ document.getElementById('payment').addEventListener('click', async function() {
     }
 });
 
-// 이메일 직접 입력 기능
-const domainListEl = document.querySelector('#emailDomain');
-const domainInputEl = document.querySelector('#domain-txt');
-domainListEl.addEventListener('change', (event) => {
-  if(event.target.value !== "type") {
-    domainInputEl.value = event.target.value;
-    domainInputEl.disabled = true;
-  } else { 
-    domainInputEl.value = "";
-    domainInputEl.disabled = false;
-  }
-});
 
-// 새로운 배송지 선택 시 입력 창 초기화
-document.querySelectorAll('input[name="deliveryOption"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-        if (this.value === 'newAddress') {
-            document.getElementById('recipient').value = '';
-            document.getElementById('phone1').value = '';
-            document.getElementById('phone2').value = '';
-            document.getElementById('phone3').value = '';
-            document.getElementById('postalCode').value = '';
-            document.getElementById('address').value = '';
-            document.getElementById('addressDetail').value = '';
-            document.getElementById('reference').value = '';
-            document.getElementById('emailUser').value = '';
-            document.getElementById('domain-txt').value = '';
-            document.getElementById('emailDomain').value = 'type';
-            document.getElementById('deliveryMessage').value = '';
-        }
+function calculateTotal() {
+    const rows = document.querySelectorAll('#list tr');
+    let total = 0;
+    rows.forEach(row => {
+        const totalPrice = parseInt(row.querySelector('.totalPrice').textContent);
+        total += totalPrice;
     });
-});
-
-document.addEventListener('DOMContentLoaded', cartitems);
+    document.getElementById('totalPrice').textContent = `KRW ${total}`;
+    document.getElementById('orderTotal').textContent = `KRW ${total}`;
+    document.getElementById('finalTotal').textContent = `KRW ${total}`;
+}
