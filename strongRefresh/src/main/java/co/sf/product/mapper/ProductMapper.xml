@@ -25,6 +25,11 @@
 	
 	<select id="selectTotalCnt" parameterType="int">
 	    select count(1) from product_f5
+	    <choose>
+	      <when test="category == ''.toString() ">
+	      </when>
+	      <when test=""></when>
+	    </choose>
 	</select>
 	
 	<select id="categoryList">
