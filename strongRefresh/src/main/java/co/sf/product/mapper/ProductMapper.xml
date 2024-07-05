@@ -7,7 +7,7 @@
 
 	<select id="selectList" resultType="co.sf.product.vo.ProductVO">
 		select *
-		from product_f5
+		from product_f5_v
 		where product_code = #{productCode}
 	</select>
 	

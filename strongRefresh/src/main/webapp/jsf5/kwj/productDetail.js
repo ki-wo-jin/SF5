@@ -5,9 +5,10 @@ let query = window.location.search;
 let param = new URLSearchParams(query);
 let code = param.get('code');
 
+
 document.addEventListener("DOMContentLoaded", function() {
 
-	fetch('productDetailAjax.do?code=' + code + '&category=' + category)
+	fetch('productDetailAjax.do?code=' + code)
 		.then(result => result.json())
 		.then(result => {
 			result.forEach(ele => {
@@ -56,8 +57,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		template.querySelector('#prdName').innerHTML = prd.productName;
 		template.querySelector('#prdContent').innerHTML = prd.productContent;
 		template.querySelector('#price').innerHTML = prd.price + ' &#8361';
-		template.querySelector('#size').innerHTML = prd.productSize;
 		template.querySelector('div.mb-5 input').setAttribute('id', 'num' + code);
+		//color랑 size값 부여
+		template.querySelector('div.row > div.col-md-6 > div.mb-1.d-flex:nth-of-type(1) select.col-md-5').setAttribute('id', 'color' + code);
+		template.querySelector('div.row > div.col-md-6 > div.mb-1.d-flex:nth-of-type(2) select.col-md-5').setAttribute('id', 'size' + code);
+		
 		template.querySelector('div.row > div.col-md-6 > p > button:nth-of-type(1)').setAttribute('id', 'saveBtn' + code);
 		template.querySelector('div.row > div.col-md-6 > p > button:nth-of-type(2)').setAttribute('id', 'addBtn' + code);
 		return template;
@@ -70,7 +74,10 @@ document.addEventListener("DOMContentLoaded", function() {
 // 찜하기 함수
 function productToHeart(){
 	
-	fetch('heartProductAjax.do?code=' + code)
+	let color = document.querySelector('#color' + code).value;
+	let size = document.querySelector('#size' + code).value;
+	
+	fetch('heartProductAjax.do?code=' + code + color + size)
 		.then(result => result.json())
 		.then(result => {
 	if (result.retCode == 'ID') {
@@ -87,9 +94,13 @@ function productToHeart(){
 
 // 카트 함수
 function cart(){
+	
+	let color = document.querySelector('#color' + code).value;
+	let size = document.querySelector('#size' + code).value;
+	
 	let num = document.querySelector('#num' + code).value;
 	
-	fetch('cartProductAjax.do?code=' + code + '&num=' + num)
+	fetch('cartProductAjax.do?code=' + code + color + size + '&num=' + num)
 		.then(result => result.json())
 		.then(result => {
 			console.log(result);
@@ -166,4 +177,4 @@ document.querySelector('#qListBtn').addEventListener('click', function(){
 })
 
 
-
+//  
