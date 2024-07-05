@@ -1,4 +1,5 @@
 // ▶ total price 보여주기
+viewtotal();
 function viewtotal(){
 	let delTr = document.getElementById('delTr');
 	if(delTr != null){
@@ -9,9 +10,11 @@ function viewtotal(){
 	let total = 0;
 	let price = 0;
 	Array.from(cartList.children).forEach(cart => {
+		//price = Number(cart.children[2].innerHTML);
 		price = cart.children[2].innerHTML;
 		let quantity = cart.children[3].children[0].value;
 		total += price * quantity;
+		console.log(typeof(total));
 	})
 	
 	let charge = 0;
@@ -19,18 +22,17 @@ function viewtotal(){
 	else charge = 3000;
 			
 	let tbody = document.getElementById('totalContainer');
-	let newTr = document.createElement('tr');
+	let tr = document.createElement('tr');
 	let td = document.createElement('td');		
 	let tds = ['KRW ' + total, ' + KRW ' + charge, ' = KRW ' + (charge + total)];
 	for (i = 0; i < tds.length; i++) {		
 	    td.innerHTML += tds[i];
-	    newTr.appendChild(td);
-		newTr.setAttribute('id', 'delTr');
+	    tr.appendChild(td);
+		tr.setAttribute('id', 'delTr');
 		tbody.appendChild(newTr);
 		td = document.createElement('td');
 	}
 }
-viewtotal();
 
 
 // ▶ 카트 삭제
@@ -132,7 +134,7 @@ function buyAll() {
 	let param = "?";
 	let totalCnt = document.querySelectorAll('.boxs').length;	
 	
-	//---TODO
+	//---totalPrice 넘겨주기
 	let cartList = document.getElementById('cartList');
 	let total = 0;
 	let price = 0;
@@ -145,9 +147,8 @@ function buyAll() {
 	if(total >= 50000) charge = 0;
 	else charge = 3000;
 	let totalPrice = total + charge;
-	//---	
+	//---
 	
-	console.log(totalPrice);
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		let code = box.parentElement.parentElement.dataset.id;
 		console.log(code);		
@@ -157,9 +158,8 @@ function buyAll() {
 		}
 	})
 	
-	//---TODO
+	//---totalPrice 넘겨주기
 	param += "&totalPrice=" + totalPrice;
-	console.log(totalPrice);
 	//---
 	
 	
@@ -177,42 +177,40 @@ function buyAll() {
 
 
 // ▶ 선택 상품 주문하기
-document.getElementById('buySelectBtn').addEventListener('click', buySelect);
-
-function buySelect() {
+document.getElementById('buySelectBtn').addEventListener('click', function() {
 	let param = "?";
-	let totalCnt = document.querySelectorAll('.boxs').length;
-	
-	//---TODO
-	let cartList = document.getElementById('cartList');
 	let total = 0;
 	let price = 0;
-	Array.from(cartList.children).forEach(cart => {
-		price = cart.children[2].innerHTML;
-		let quantity = cart.children[3].children[0].value;
-		total += price * quantity;
-	})		
-	let charge = 0;
-	if(total >= 50000) charge = 0;
-	else charge = 3000;
-	let totalPrice = total + charge;
-	//---	
-	
+	let quantity = 0;
 	
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		if (box.checked){
+			price = Number(box.parentElement.parentElement.children[2].innerHTML);
+			quantity = box.parentElement.parentElement.children[3].children[0].value;
+			total += price * quantity;
+			
 			let code = box.parentElement.parentElement.dataset.id;
 			param += "code=" + code;
-			if (totalCnt != (idx + 1)) {
+			if (box.length != (idx + 1)) {
 				param += "&";
 			}
 		}
 	})
 	
-	//---TODO
+	//console.log('가격' + price);
+	//console.log('수량' + quantity);
+	
+	
+	let charge = 0;
+	if(total >= 50000) {
+		charge = 0;
+	} else {
+		charge = 3000;
+	}
+	let totalPrice = total + charge;	
+	//console.log('총가격' + totalPrice);
+	
 	param += "&totalPrice=" + totalPrice;
-	console.log(totalPrice);
-	//---
 	
 	let url = 'createOrder.do' + param;
 	fetch(url)
@@ -224,82 +222,4 @@ function buySelect() {
 				alert(result.retCode);
 			}
 		})	
-}
-
-
-
-
-/*document.getElementById('buySelectBtn').addEventListener('click', buySelect);
-
-function buySelect() {
-	let param = "?";
-	let totalCnt = document.querySelectorAll('.boxs').length;
-	
-	//---TODO
-	let cartList = document.getElementById('cartList');
-	let total = 0;
-	let price = 0;
-	Array.from(cartList.children).forEach(cart => {
-		price = cart.children[2].innerHTML;
-		let quantity = cart.children[3].children[0].value;
-		total += price * quantity;
-	})		
-	let charge = 0;
-	if(total >= 50000) charge = 0;
-	else charge = 3000;
-	let totalPrice = total + charge;
-	//---	
-	
-	
-	document.querySelectorAll('.boxs').forEach((box, idx) => {
-		if (box.checked){
-			let code = box.parentElement.parentElement.dataset.id;
-			param += "code=" + code;
-			if (totalCnt != (idx + 1)) {
-				param += "&";
-			}
-		}
-	})
-	
-	//---TODO
-	param += "&totalPrice=" + totalPrice;
-	console.log(totalPrice);
-	//---
-	
-	let url = 'createOrder.do' + param;
-	fetch(url)
-		.then(result => result.json())
-		.then(result => {
-			if (result.retCode == "OK") {
-				location.href = 'order.do?orderCode=' + result.orderCode;
-			} else {
-				alert(result.retCode);
-			}
-		})	
-}*/
-
-/*document.getElementById('buySelectBtn').addEventListener('click', buySelect);
-function buySelect() {	
-	let param = "?";
-	let totalCnt = document.querySelectorAll('.boxs').length;
-	document.querySelectorAll('.boxs').forEach((box, idx) => {
-		if (box.checked){
-			let code = box.parentElement.parentElement.dataset.id;
-			param += "code=" + code;
-			if (totalCnt != (idx + 1)) {
-				param += "&";
-			}
-		
-		let url = 'createOrder.do' + param;
-		fetch(url)
-			.then(result => result.json())
-			.then(result => {
-				if (result.retCode == "OK") {
-					location.href = 'order.do?orderCode=' + result.orderCode;
-				} else {
-					alert(result.retCode);
-				}
-			})
-		}
-	})
-}*/
+});

@@ -18,6 +18,12 @@ body {
 	margin: auto;
 	text-align: center;
 }
+h6{
+	font-family: "바탕", Batang;
+	color: rgb(88, 88, 88);
+	font-weight: 600;
+	letter-spacing: -0.0001em;
+}
 
 table {
 	margin-left: auto;
@@ -37,12 +43,12 @@ p {
 
 #sideBtn a, button{
 	background-color: rgb(193, 224, 214);
-	color: rgb(63, 63, 63);
+	color: rgb(74, 72, 72);
 }
 </style>
 
 <div class="container">
-	<h3>HEART</h3>
+	<h6>WISH LIST</h6>
 	<c:choose>
 		<c:when test="${!empty id}"> <!-- 로그인이 되어있을 때 -->
 			<div class="row mb-5">

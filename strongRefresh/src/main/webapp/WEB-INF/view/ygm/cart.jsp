@@ -3,52 +3,61 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- heart.jsp -->
 <style>
-body {
-	font-family: "바탕", Batang;
-}
-#container {
-	width: 1000px;
-	margin: auto;
-	text-align: center;	
-}
-
-table {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-p {
-	color: rgb(226, 119, 119);
-	margin: 100px 100px;
-}
-
-#buyBtn {
-	text-align: center;
-}
-
-#checkBtn input{
-	padding: 5px 10px;
-	background: rgb(235, 169, 169);
-	color: white;
-}
-
-th{
-	color: gray;
-}
-
-#delTr td{
-	color: rgb(219, 133, 133);
-}
+	body {
+		font-family: "바탕", Batang;
+	}
+	
+	#container {
+		width: 1000px;
+		margin: auto;
+		text-align: center;	
+	}
+	
+	h6{
+		font-family: "바탕", Batang;
+		color: rgb(88, 88, 88);
+		font-weight: 600;
+		letter-spacing: -0.0001em;
+	}
+	
+	table {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#cartList{
+		font-size: 15px;
+	}
+	
+	p {
+		color: rgb(226, 119, 119);
+		margin: 100px 100px;
+		text-align: center;
+	}
+	
+	#buyBtn {
+		text-align: center;
+	}
+	
+	#checkBtn input{
+		padding: 5px 10px;
+		background: rgb(235, 169, 169);
+		color: white;
+	}
+	
+	th{
+		color: gray;
+	}
+	
+	#delTr td{
+		color: rgb(219, 133, 133);
+	}
 </style>
 
-
-
-
 <div class="container">
-	<h3>CART</h3>
+	<h6>CART</h6>
 	<c:choose>
 		<c:when test="${!empty id}">
-
 			<div class="row mb-5">
 				<form class="col-md-12" method="post">
 					<div class="site-blocks-table">
@@ -67,8 +76,8 @@ th{
 								<c:forEach var="cart" items="${cartList }">
 									<tr data-id="${cart.cartCode }" class="cartCode">
 										<td class="checkbox"><input type="checkbox" class="boxs"></td>
-										<td class="product-thumbnail product-name"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"><h2 class="h5 text-black" style="font-size: 16px">${cart.productName }</h2></td>
-										<td id="price">${cart.price}</td>
+										<td class="product-thumbnail product-name"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"><h2 class="h5 text-black" style="font-size: 15px">${cart.productName }</h2></td>
+										<td id="price">KRW ${cart.price}</td>
 										
 										<td><input type="number" min="0" max="10" value="${cart.productCnt }" class="counter"></td>
 										
@@ -88,7 +97,6 @@ th{
 					<table>
 						<thead>
 							<tr>
-							<!-- &emsp; -->
 								<th>총 상품금액&emsp;&emsp;&emsp;</th>
 								<th> 총 배송비&emsp;&emsp;&emsp;</th>
 								<th>결제예정금액</th>
@@ -115,7 +123,7 @@ th{
 			</div>
 		</c:when>
 		<c:otherwise>
-			<p style="text-align: center;">로그인을 해주세요.</p>
+			<p>로그인을 해주세요.</p>
 		</c:otherwise>
 	</c:choose>
 </div>
