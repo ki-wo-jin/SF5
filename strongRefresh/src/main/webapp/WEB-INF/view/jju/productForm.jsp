@@ -48,7 +48,7 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a id="a1"><img src="images/${prd.thumImage }" alt="Image placeholder" class="img-fluid" id="listImg"></a>
+                    <a id="a1" href="productDetail.do?code=${prd.productCode}"><img src="images/${prd.thumImage }" alt="Image placeholder" class="img-fluid" id="listImg"></a>
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a id="listName">${prd.productName }</a></h3>
@@ -60,19 +60,32 @@
             </c:forEach>
             </div>
             <!-- 리스트 예시 끝 -->
-
+<p>${paging }</p>
             <!-- 페이징 시작 -->
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
                 <div class="site-block-27">
                   <ul class="pagination">
+
+                    <c:if test="productForm.do?category=${category }&page=${paging.startPage-1 }">
                     <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
+                    </c:if>
+
+                    <c:forEach var="pg" begin="${paging.startPage }" end="${paging.endPage }">
+                      <c:choose>
+                        <c:when test="${paging.page == pg }">
+                          <li class="active"><span>${pg }</span></li>
+                        </c:when>
+                        <c:otherwise>
+                          <li><a href="productForm.do?category=${category }&page=${pg }">${pg }</a></li>
+                        </c:otherwise>
+                      </c:choose>
+                    </c:forEach>
+
+                    <c:if test="${paging.next }">
+                    <li><a href="productForm.do?category=${category }&page=${paging.endPage+1 }">&gt;</a></li>
+                    </c:if>
+
                   </ul>
                 </div>
               </div>

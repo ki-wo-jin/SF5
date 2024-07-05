@@ -16,4 +16,7 @@ public class OrderDetailVO {
 	private int point;	
 	private String id;
 
+	private String recipient;
+	private int totalPrice;
+	private String orderStatus;
 }

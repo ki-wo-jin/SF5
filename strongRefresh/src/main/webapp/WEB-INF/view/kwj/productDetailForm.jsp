@@ -33,8 +33,24 @@
 					ratione dolore.</p>
 				<strong class="text-primary h4" id="price">$50.00</strong>
 				<div class="mb-1 d-flex">
-					<span class="d-inline-block text-black" id="size"> Extra
-						Large</span>
+					<p style='width: 5%;'>color</p>
+					<div class="col-md-8">
+						<select class="col-md-5">
+							<option value="BL">Black</option>
+							<option value="BE">Beige</option>
+							<option value="WH">White</option>
+						</select>
+					</div>
+				</div>
+				<div class="mb-1 d-flex">
+					<p style='width: 5%;'>size</p>
+					<div  class="col-md-8">
+						<select class="col-md-5">
+							<option value="S">90 (S)</option>
+							<option value="M">95 (M)</option>
+							<option value="L">100(L)</option>
+						</select>
+					</div>
 				</div>
 				<div class="mb-5">
 					<div class="input-group mb-3" style="max-width: 120px;">
@@ -53,8 +69,7 @@
 				</div>
 				<p>
 					<button class="buy-now btn btn-sm btn-primary" type="button">찜</button>
-					<button class="buy-now btn btn-sm btn-primary" type="button">카트에
-						담기</button>
+					<button class="buy-now btn btn-sm btn-primary" type="button">카트에 담기</button>
 				</p>
 			</div>
 		</div>

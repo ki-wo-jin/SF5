@@ -20,6 +20,10 @@
    <!-- <level value="trace"/> --> <!-- 모두 보여주기 -->
     <level value="debug"/> <!-- 필요한 것만 보여줌 -->
   </logger>
+  <logger name="co.sf.product.mapper.ProductMapper">
+   <!-- <level value="trace"/> --> <!-- 모두 보여주기 -->
+    <level value="debug"/> <!-- 필요한 것만 보여줌 -->
+  </logger>
   <root level="error">
     <appender-ref ref="stdout"/>
   </root>
