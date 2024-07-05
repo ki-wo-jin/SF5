@@ -12,6 +12,7 @@ public class ProductForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		req.getRequestDispatcher("jju/productForm.tiles").forward(req, resp);
 	}
 

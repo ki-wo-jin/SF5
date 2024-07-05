@@ -14,7 +14,9 @@
 	<select id ="selectListPaging">
 		select b.*
 		from (select /*+INDEX_DESC(r SYS_C007211)*/ rownum rn, r.*
-		from product_f5 r) b
+		from product_f5 r
+		where rowid in (select max(rowid)from product_f5 group by product_name)
+		 and  categorie like upper(#{category})) b
         <![CDATA[
 		where  b.rn <= (#{page}) * 12
 		]]>
@@ -23,6 +25,11 @@
 	
 	<select id="selectTotalCnt" parameterType="int">
 	    select count(1) from product_f5
+	</select>
+	
+	<select id="categoryList">
+	    select *
+	    from product_category_order_v
 	</select>
 	
 
