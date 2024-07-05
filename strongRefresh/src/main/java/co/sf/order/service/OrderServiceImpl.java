@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import co.sf.cart.vo.CartVO;
 import co.sf.common.DataSource;
 import co.sf.order.mapper.OrderMapper;
 import co.sf.order.vo.OrderVO;
@@ -25,7 +24,5 @@ public class OrderServiceImpl implements OrderService {
 	public boolean addAddress(OrderVO ovo) {
 		return mapper.addAddress(ovo) == 1;
 	}
-
-	
 
 }

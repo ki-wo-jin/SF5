@@ -1,9 +1,11 @@
-/*
- * order.js
- */
+// order.js
 
 function cartitems() {
-    fetch('/orderdetail.do?id=1') 
+    // 세션 스토리지에서 선택된 카트 항목 가져오기
+    const selectedItems = JSON.parse(sessionStorage.getItem('selectedCartItems')) || [];
+
+    // 선택된 카트 항목의 정보를 가져오기 위해 서버에 요청
+    fetch('/createOrder.do?action=getCartItems&code=' + selectedItems.join('&code='))
         .then(response => response.json())
         .then(cartItems => {
             console.log(cartItems);
@@ -14,7 +16,6 @@ function cartitems() {
                 const totalPrice = item.price * item.productCnt;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td><input type="checkbox" class="selectItem" name="selectItem" value="${item.productCode}"></td>
                     <td>
                         <img src="images/${item.thumImage}" alt="${item.productName}" width="50">
                         ${item.productName}
@@ -27,56 +28,16 @@ function cartitems() {
                 tbody.appendChild(tr);
             });
 
-            // 개별 선택 시 총합 계산 기능 추가
-            document.querySelectorAll('.selectItem').forEach(checkbox => {
-                checkbox.addEventListener('change', calculateTotal);
-            });
-
             calculateTotal(); // 초기 총합 계산
         })
         .catch(error => console.error('Error:', error));
 }
 
-// 전체 선택/해제 기능
-function toggleSelectAll() {
-    const selectAllCheckbox = document.getElementById('selectAll');
-    const checkboxes = document.querySelectorAll('.selectItem');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = selectAllCheckbox.checked;
-    });
-    calculateTotal();
-}
-
-// 선택한 상품 삭제 기능
-async function deleteSelected() {
-    const checkboxes = document.querySelectorAll('.selectItem:checked');
-
-    for (const checkbox of checkboxes) {
-        const cartCode = checkbox.value;
-        try {
-            const response = await fetch('removeCart.do?cartCode=' + cartCode, {
-                method: 'DELETE'
-            });
-            const result = await response.text();
-            if (result === "success") {
-                checkbox.closest('tr').remove();
-            } else {
-                console.error('삭제 실패 : ', cartCode);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
-    calculateTotal();
-}
-
-
 // 총합 계산 기능
 function calculateTotal() {
-    const checkboxes = document.querySelectorAll('.selectItem:checked');
+    const rows = document.querySelectorAll('#list tr');
     let total = 0;
-    checkboxes.forEach(checkbox => {
-        const row = checkbox.closest('tr');
+    rows.forEach(row => {
         const totalPrice = parseInt(row.querySelector('.totalPrice').textContent);
         total += totalPrice;
     });
@@ -103,17 +64,20 @@ document.getElementById('payment').addEventListener('click', async function() {
     const email = `${emailUser}@${emailDomain}`;
     const fullAddress = `${postalCode} ${address} ${addressDetail} ${reference}`;
 
+    const selectedItems = JSON.parse(sessionStorage.getItem('selectedCartItems')) || [];
+
     const orderData = {
         recipient: recipient,
         phone: phone,
         address: fullAddress,
         email: email,
         deliveryMessage: deliveryMessage,
-        totalPrice: document.getElementById('totalPrice').textContent.replace('KRW ', '')
+        totalPrice: document.getElementById('totalPrice').textContent.replace('KRW ', ''),
+        cartItems: selectedItems
     };
 
     try {
-        const response = await fetch('addOrder.do', {
+        const response = await fetch('createOrder.do', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -121,13 +85,15 @@ document.getElementById('payment').addEventListener('click', async function() {
             body: JSON.stringify(orderData)
         });
 
-        const result = await response.text();
-        if (result === 'success') {
+        const result = await response.json();
+        if (result.retCode === 'OK') {
             alert('주문이 완료되었습니다.');
-            window.location.href = 'thankyou.do';
+            const params = new URLSearchParams();
+            params.append('orderCode', result.orderCode);
+            selectedItems.forEach((item, index) => params.append('cartItem' + index, item));
+            window.location.href = 'order.do?' + params.toString();
         } else {
             alert('주문 처리에 실패했습니다.');
-            window.location.href = 'thankyou.do';
         }
     } catch (error) {
         console.error('Error:', error);
@@ -136,17 +102,17 @@ document.getElementById('payment').addEventListener('click', async function() {
 });
 
 // 이메일 직접 입력 기능
-const domainListEl = document.querySelector('#emailDomain')
-const domainInputEl = document.querySelector('#domain-txt')
+const domainListEl = document.querySelector('#emailDomain');
+const domainInputEl = document.querySelector('#domain-txt');
 domainListEl.addEventListener('change', (event) => {
   if(event.target.value !== "type") {
-    domainInputEl.value = event.target.value
-    domainInputEl.disabled = true
+    domainInputEl.value = event.target.value;
+    domainInputEl.disabled = true;
   } else { 
-    domainInputEl.value = ""
-    domainInputEl.disabled = false
+    domainInputEl.value = "";
+    domainInputEl.disabled = false;
   }
-})
+});
 
 // 새로운 배송지 선택 시 입력 창 초기화
 document.querySelectorAll('input[name="deliveryOption"]').forEach(radio => {
@@ -167,7 +133,5 @@ document.querySelectorAll('input[name="deliveryOption"]').forEach(radio => {
         }
     });
 });
-
-
 
 document.addEventListener('DOMContentLoaded', cartitems);

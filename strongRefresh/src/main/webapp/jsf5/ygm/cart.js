@@ -194,6 +194,18 @@ document.getElementById('buySelectBtn').addEventListener('click', function() {
 			if (box.length != (idx + 1)) {
 				param += "&";
 			}
+		
+		let url = 'createOrder.do' + param;
+		fetch(url)
+			.then(result => result.json())
+			.then(result => {
+				console.log(result);
+				if (result.retCode == "OK") {
+					location.href = 'order.do?orderCode=' + result.orderCode;
+				} else {
+					alert(result.retCode);
+				}
+			})
 		}
 	})
 	
