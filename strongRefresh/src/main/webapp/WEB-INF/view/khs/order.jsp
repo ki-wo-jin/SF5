@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="site-wrap">
 	<div class="site-section">
 		<div class="container">
 			<div class="col-md-12">
-				<h6 class="h6 mb-3 text-black"  >주문 내역</h6>
+				<h6 class="h6 mb-3 text-black">주문 내역</h6>
 				<div class="p-3 p-lg-5 border">
 					<table class="table site-block-order-table mb-5">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="selectAll"
-									onclick="toggleSelectAll()"></th>
 								<th>Product</th>
 								<th>Price</th>
 								<th>Quantity</th>
@@ -24,11 +23,6 @@
 				</div>
 
 				<div class="d-flex justify-content-between mb-4">
-					<div>
-						<strong><b>선택 상품을</b></strong>
-						<button type="button" class="btn btn-dark btn-sm"
-							onclick="deleteSelected()">❌삭제하기</button>
-					</div>
 					<div>
 						<strong>합계 : <span style="color: black;" id="totalPrice">KRW
 						</span></strong>
@@ -159,7 +153,7 @@
 							<br>
 							<div class="form-group">
 								<button class="btn btn-dark btn-lg py-3 btn-block"
-									id = "payment">주문하기</button>
+									id="payment">주문하기</button>
 							</div>
 							
 						</div>

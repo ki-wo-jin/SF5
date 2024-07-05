@@ -175,6 +175,7 @@ function buySelect() {
 		fetch(url)
 			.then(result => result.json())
 			.then(result => {
+				console.log(result);
 				if (result.retCode == "OK") {
 					location.href = 'order.do?orderCode=' + result.orderCode;
 				} else {
