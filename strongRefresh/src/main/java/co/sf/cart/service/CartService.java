@@ -35,4 +35,5 @@ public interface CartService {
 	// 신규주문번호.
 	String getNewOrderNo();
 
+
 }

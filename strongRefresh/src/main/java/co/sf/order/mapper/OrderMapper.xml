@@ -5,31 +5,27 @@
 
 <mapper namespace="co.sf.order.mapper.OrderMapper">
 
-	<!-- 주문 정보 추가 -->
-	<insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
-		INSERT INTO order_f5 (order_code, id, recipient, phone, address, total_price, email)
-		VALUES (#{orderCode}, #{id}, #{recipient}, #{phone}, #{address}, #{totalPrice}, #{email})
-	</insert>
+    <!-- 주문 정보 추가 -->
+    <insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
+        INSERT INTO order_f5 (order_code, id, recipient, phone, address, total_price, email)
+        VALUES (#{orderCode}, #{id}, #{recipient}, #{phone}, #{address}, #{totalPrice}, #{email})
+    </insert>
 
-	<!-- 카트 항목 삭제 -->
-	<delete id="removeCartItem" parameterType="co.sf.order.vo.OrderDetailVO">
-		DELETE FROM cart_f5
-		WHERE cart_code = #{cartCode}
-	</delete>
+    <!-- 카트 항목 삭제 -->
+    <delete id="removeCartItem" parameterType="co.sf.order.vo.OrderDetailVO">
+        DELETE FROM cart_f5
+        WHERE cart_code = #{cartCode}
+    </delete>
 
-	<!-- 주문 목록 조회 -->
-	<select id="OrderList" parameterType="string" resultType="co.sf.order.vo.OrderVO">
-		SELECT * FROM order_f5
-		WHERE id = #{id}
-	</select>
-
-	<!-- 주문 상세 목록 조회 -->
-	<select id="orderDetailList" parameterType="string" resultType="co.sf.order.vo.OrderDetailVO">
-		SELECT od.*, p.product_name, p.thum_image, p.price
-		FROM order_detail_f5 od
-		JOIN product_f5 p ON od.product_code = p.product_code
-		WHERE od.order_code = #{orderCode}
-	</select>
-	
-
+    <!-- 주문 상세 목록 조회 -->
+    <select id="orderDetailList" parameterType="string" resultType="co.sf.order.vo.OrderDetailVO">
+        SELECT o.order_code AS orderCode, o.recipient AS recipient, 
+               SUM(od.product_cnt * p.price) AS totalPrice, o.order_status AS orderStatus,
+               p.product_name AS productName, p.thum_image AS thumImage
+        FROM order_f5 o
+        JOIN order_detail_f5 od ON o.order_code = od.order_code
+        JOIN product_f5 p ON od.product_code = p.product_code
+        WHERE o.id = #{id}
+        GROUP BY o.order_code, o.recipient, o.order_status, p.product_name, p.thum_image
+    </select>
 </mapper>

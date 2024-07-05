@@ -21,6 +21,7 @@ import co.sf.order.web.AddAddress;
 import co.sf.order.web.CreateOrder;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
+import co.sf.order.web.OrderHistory;
 import co.sf.order.web.Thankyou;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
@@ -97,7 +98,8 @@ public class FrontController extends HttpServlet {
 		map.put("/addAddress.do", new AddAddress());
 		// 주문성공 페이지
 		map.put("/thankyou.do", new Thankyou());
-
+		// 주문조회 페이지
+		map.put("/orderHistory.do", new OrderHistory());
 		
 		
 		// 제품 페이지
