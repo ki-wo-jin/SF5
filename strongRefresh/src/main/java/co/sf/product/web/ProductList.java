@@ -21,11 +21,15 @@ public class ProductList implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		String page = req.getParameter("page");
+		String category = req.getParameter("category");
+		category = category == null ? "" : category;
 		
 		page = page == null ? "1" : page;
 		
+		category = '%' + category +'%';
+		
 		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> list = svc.productListPaging(Integer.parseInt(page));
+		List<ProductVO> list = svc.productListPaging(Integer.parseInt(page), category);
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
