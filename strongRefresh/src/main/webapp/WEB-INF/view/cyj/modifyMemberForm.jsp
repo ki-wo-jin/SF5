@@ -73,6 +73,15 @@
 						<option value="019">019</option>
 				</select>
 				<c:choose>
+				<c:when test="${user.phone.length() > 9}">
+				- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone.substring(4,8) }"> -
+					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone.substring(9) }">
+				</c:when>
+				<c:otherwise>
+				- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone }"> -
+					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone}">
+				</c:otherwise>
+				</c:choose> 
 				<c:when test="${user.phone.length()>9 }">
 					- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone.substring(4,8) }"> -
 					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone.substring(9) }">
@@ -81,7 +90,6 @@
 					- <input type="text" id="middlePhone" name="middlePhone" value="${user.phone }"> -
 					<input type="text" id="lastPhone" name="lastPhone" value="${user.phone }">
 				</c:otherwise>
-				</c:choose>
 				</td>
 			</tr>
 			

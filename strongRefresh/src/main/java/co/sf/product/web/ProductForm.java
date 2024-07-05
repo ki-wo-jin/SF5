@@ -24,10 +24,11 @@ public class ProductForm implements Control {
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> list = svc.productListPagingCategory(Integer.parseInt(page), category);
 		int totalCnt = svc.productTotalCnt(category);
-		System.out.println(totalCnt);
 
 		PageDTO pageDTO = new PageDTO(Integer.parseInt(page), totalCnt);
-
+		
+		
+		
 		req.setAttribute("list", list);
 		req.setAttribute("paging", pageDTO);
 		req.setAttribute("category", category);
