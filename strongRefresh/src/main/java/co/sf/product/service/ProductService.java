@@ -9,7 +9,7 @@ public interface ProductService {
 	//제품 목록
 	List<ProductVO> productList(String productCode);
 	List<ProductVO> productListPaging(int page, String category);
-	int productTotalCnt();
+	int productTotalCnt(String category);
 	
 	
 	// 카테고리 출력.

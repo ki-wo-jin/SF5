@@ -16,7 +16,7 @@ public class ProductTotal implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ProductService svc = new ProductServiceImpl();
-		int totalCnt = svc.productTotalCnt();
+		int totalCnt = svc.productTotalCnt("test");
 		// {"totalCount": 2}
 		resp.getWriter().print("{\"totalCount\": " + totalCnt + "}");
 
