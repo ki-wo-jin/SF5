@@ -10,52 +10,72 @@
 		from product_f5_v
 		where product_code = #{productCode}
 	</select>
-	
-	<select id ="selectListPaging">
+
+	<select id="selectListPaging">
 		select b.*
 		from (select /*+INDEX_DESC(r SYS_C007211)*/ rownum rn, r.*
-		from product_f5 r
-		where rowid in (select max(rowid)from product_f5 group by product_name)
-		 and  categorie like upper(#{category})) b
-        <![CDATA[
+		      from product_f5 r
+		      where rowid in (select max(rowid)from product_f5
+		      group by product_name)
+		and categorie like upper(#{category})) b
+    <![CDATA[
 		where  b.rn <= (#{page}) * 12
 		]]>
 		and b.rn > (#{page} -1) * 12
 	</select>
-	
-	<select id="selectTotalCnt" parameterType="int">
-	    select count(1) from product_f5
+
+	<select id="selectTotalCnt" parameterType="string" resultType="int">
+		select count(1) from product_f5_v
+		<where>
+			<choose>
+				<when test="category == '' ">
+					1 = 1
+				</when>
+				<when test="category == 'ALL'.toString() ">
+					categorie in ('BAGS','BOLEROS','BOTTOMS','DRESSES','KNITS','OUTERS','SETS','SHOES','TEES','TOPS')
+				</when>
+				<when test="category == 'UNISEX'.toString() ">
+					categorie in ('UBOTTOMS','UKNITS','UOUTERS','UTEES','UTOPS')
+				</when>
+				<when test="category == 'HOME'.toString() ">
+					categorie in ('BRAS','LOUNGES','UNDERWEAR')
+				</when>
+				<otherwise>
+					categorie = #{category}
+				</otherwise>
+			</choose>
+		</where>
 	</select>
-	
+
 	<select id="categoryList">
-	    select *
-	    from product_category_order_v
+		select *
+		from product_category_order_v
 	</select>
-	
+
 	<select id="selectProductPaging">
-	    select b.*
-			from (select rownum rn, a.*
-      			from (select *
-                  from product_f5_v p
-                  where categorie = NVL(#{category}, categorie)
-                  order by 1) a ) b
+		select b.*
+		from (select rownum rn, a.*
+		from (select *
+		from product_f5_v p
+		where categorie = NVL(#{category}, categorie)
+		order by 1) a ) b
       <![CDATA[
       where b.rn <= (#{page} * 12)
       ]]>
-      and   b.rn > (#{page} - 1) * 12
+		and b.rn > (#{page} - 1) * 12
 	</select>
-	
+
 	<select id="selectPrdNamePaging">
-	    select b.*
-			from (select rownum rn, a.*
-      			from (select *
-                  from product_f5_v p
-                  where product_name like NVL(#{productName}, product_name)
-                  order by 1) a ) b
+		select b.*
+		from (select rownum rn, a.*
+		      from (select *
+		            from product_f5_v p
+		            where product_name like NVL(#{productName}, product_name)
+		            order by 1) a ) b
       <![CDATA[
       where b.rn <= (#{page} * 12)
       ]]>
-      and   b.rn > (#{page} - 1) * 12
+		and b.rn > (#{page} - 1) * 12
 	</select>
 
 </mapper>

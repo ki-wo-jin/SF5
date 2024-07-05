@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sf.common.Control;
+import co.sf.common.PageDTO;
 import co.sf.product.service.ProductService;
 import co.sf.product.service.ProductServiceImpl;
 import co.sf.product.vo.ProductVO;
@@ -22,8 +23,14 @@ public class ProductForm implements Control {
 
 		ProductService svc = new ProductServiceImpl();
 		List<ProductVO> list = svc.productListPagingCategory(Integer.parseInt(page), category);
+		int totalCnt = svc.productTotalCnt(category);
+		System.out.println(totalCnt);
+
+		PageDTO pageDTO = new PageDTO(Integer.parseInt(page), totalCnt);
 
 		req.setAttribute("list", list);
+		req.setAttribute("paging", pageDTO);
+		req.setAttribute("category", category);
 
 		req.getRequestDispatcher("jju/productForm.tiles").forward(req, resp);
 	}

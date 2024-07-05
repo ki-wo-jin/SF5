@@ -22,11 +22,10 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> productListPaging(int page, String category) {
 		return mapper.selectListPaging(page, category);
 	}
-	
 
 	@Override
-	public int productTotalCnt() {
-		return mapper.selectTotalCnt();
+	public int productTotalCnt(String category) {
+		return mapper.selectTotalCnt(category);
 	}
 
 	@Override

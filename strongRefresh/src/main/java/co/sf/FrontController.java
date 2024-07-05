@@ -70,6 +70,7 @@ public class FrontController extends HttpServlet {
 		// 메인 홈페이지
 		map.put("/main.do", new MainControl());
 		
+		
 		// 찜 화면
 		map.put("/heart.do", new HeartForm());
 		// 찜 삭제
@@ -78,17 +79,15 @@ public class FrontController extends HttpServlet {
 		map.put("/addCart.do", new AddCart());		
 		
 		// 카트 화면
-		map.put("/cart.do", new CartForm());		
-	
+		map.put("/cart.do", new CartForm());	
 		// 카트 삭제
 		map.put("/removeCart.do", new RemoveCart());
 		// 카트 수량 변경
 		map.put("/changeCnt.do", new ChangeCnt());
-		
-
-
-		// 주문생성.
+		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
+		
+		
 		
 		// 주문 페이지
 		map.put("/order.do", new OrderForm());
