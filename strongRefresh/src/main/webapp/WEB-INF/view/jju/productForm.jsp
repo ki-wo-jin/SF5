@@ -17,25 +17,50 @@
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+              
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>outers</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>tees</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>tops</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>beleros</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>knits</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>bottoms</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>dresses</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>bags</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>shoes</span>
-                    <span class="text-black ml-auto">(0)</span></a></li>
+				<c:choose>
+					<c:when test="${category == 'BRAS' || category == 'UNDERWEAR' || category == 'LOUNGES'}">
+		                <li class="mb-1"><a href="#" class="d-flex"><span>bras</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>underwear</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>lounges</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+					</c:when>
+					<c:when test="${category == 'UOUTERS' || category == 'UTEES' || category == 'UTOPS' || category == 'UKNITS' || category == 'UBOTTOMS'}">
+		                <li class="mb-1"><a href="#" class="d-flex"><span>u-outers</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>u-tees</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>u-tops</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>u-knits</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>u-bottoms</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+					</c:when>
+					<c:otherwise>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>outers</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>tees</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>tops</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>boleros</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>knits</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>bottoms</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>dresses</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>bags</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="#" class="d-flex"><span>shoes</span>
+		                <span class="text-black ml-auto">(0)</span></a></li>
+					</c:otherwise>
+				</c:choose>
               </ul>
             </div>
 
@@ -60,7 +85,7 @@
             </c:forEach>
             </div>
             <!-- 리스트 예시 끝 -->
-<p>${paging }</p>
+<!--  <p>${paging }</p> -- >
             <!-- 페이징 시작 -->
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">

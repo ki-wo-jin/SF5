@@ -8,6 +8,7 @@ function onClickRowDelete(tr) {
 	let delTr = tr.target.parentElement.parentElement;
 	console.log(delTr);
 	deleteTr(delTr);
+	alert('선택하신 상품이 wish list에서 삭제되었습니다.');
 } // end of onClickRowDelete();
 
 
@@ -19,7 +20,7 @@ function deleteTr(tr) {
 		.then(result => result.json())
 		.then(result => {
 			if (result.result == "OK") {
-				alert(result.message);
+				//alert(result.message);				
 				tr.remove();
 			} else {
 				alert(result.message);
@@ -73,6 +74,7 @@ document.getElementById('checkDelete').addEventListener('click', function() {
 			deleteTr(selectTr);
 		}
 	})
+	alert('선택하신 상품이 wish list에서 삭제되었습니다.');
 }) // end of 선택 상품 삭제.
 
 
