@@ -39,6 +39,7 @@ import co.sf.qna.web.QnaList;
 import co.sf.review.web.ReviewForm;
 import co.sf.review.web.ReviewList;
 import co.sf.review.web.reviewDetailForm;
+import co.sf.user.web.Album1;
 import co.sf.user.web.AlbumForm;
 import co.sf.user.web.CheckIdAjax;
 import co.sf.user.web.FindIdControl;
@@ -149,8 +150,10 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyMember.do", new ModifyMember());
 		map.put("/modify.do", new ModifyControl());
 		//앨범
-		map.put("/albumForm.do", new AlbumForm());	
-		
+		map.put("/albumForm.do", new AlbumForm());
+			//앨범- LUMOLDEMO SUMMER 24 SPECIAL DROP
+			map.put("/album1.do", new Album1());
+			
 
 		// QNA
 		map.put("/qna.do", new QnaForm());

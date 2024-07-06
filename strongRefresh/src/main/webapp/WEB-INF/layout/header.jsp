@@ -2,6 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <style>
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'KCCMurukmuruk';
@@ -12,6 +18,7 @@
 
 header {
 	font-family: 'KCCMurukmuruk';
+	font-size: x-large;
 }
 </style>
 <header class="site-navbar" role="banner">
