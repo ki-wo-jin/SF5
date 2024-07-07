@@ -16,6 +16,9 @@ public interface CartService {
 
 	// 카트 수량 변경
 	boolean changeCnt(CartVO cvo);
+	
+	// 카트 수량 표시
+	int getCartCnt(String id);
 
 	// 상품 -> 카트 확인
 	int checkPrdCart(CartVO cvo);

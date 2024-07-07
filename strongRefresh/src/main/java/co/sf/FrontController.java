@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.AddCart;
+import co.sf.cart.web.CartCntIcon;
 import co.sf.cart.web.CartForm;
 import co.sf.cart.web.ChangeCnt;
 import co.sf.cart.web.RemoveCart;
@@ -86,6 +87,8 @@ public class FrontController extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCart());
 		// 카트 수량 변경
 		map.put("/changeCnt.do", new ChangeCnt());
+		// 카트 수량 아이콘에 출력
+		map.put("/cartCntIcon.do", new CartCntIcon());
 		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
 		

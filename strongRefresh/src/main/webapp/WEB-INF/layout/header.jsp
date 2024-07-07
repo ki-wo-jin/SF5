@@ -53,9 +53,12 @@ header {
 
 
 							<li><a href="heart.do"><span class="icon icon-heart-o"></span></a></li>
-							<li><a href="cart.do" class="site-cart"> <span class="icon icon-shopping_cart"></span> <span
-										class="count">2</span>
-								</a></li>
+							<li>
+								<a href="cart.do" class="site-cart">
+								<span class="icon icon-shopping_cart" id="carticon"></span>
+								<span class="count"></span>
+								</a>
+							</li>
 							<li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
 										class="icon-menu"></span></a>
 							</li>
@@ -140,4 +143,5 @@ header {
 			})
 		})
 	</script>
+	<script src="jsf5/ygm/header.js" ></script>
 </header>
