@@ -1,3 +1,14 @@
+// ▶ 장바구니 아이콘에 장바구니 상품 개수 출력
+function cartCnt(){	
+	let url = 'cartCntIcon.do';	
+	
+	fetch(url)
+		.then(result => result.json())
+		.then(cnt => {
+			document.querySelector('.count').innerHTML = cnt;
+		})
+}
+
 // ▶ total price 보여주기
 viewtotal();
 function viewtotal(){
@@ -38,11 +49,14 @@ function viewtotal(){
 let xBtn = document.querySelectorAll('.deleteCartRow');
 //console.log(xBtn);
 xBtn.forEach(x => {
-	x.addEventListener('click', function() {
-		let delTr = x.parentElement.parentElement;
-		deleteTr(delTr)
-	})
-})
+	x.addEventListener('click', onClickRowDelete);
+})	
+	
+function onClickRowDelete(x) {
+	let delTr = x.target.parentElement.parentElement;
+	deleteTr(delTr);
+	alert('선택하신 상품이 장바구니에서 삭제되었습니다.');
+}
 
 
 // ▶ tr 삭제
@@ -53,8 +67,8 @@ function deleteTr(tr) {
 		.then(result => result.json())
 		.then(result => {
 			if (result.result == "OK") {
-				alert(result.message);
 				tr.remove();
+				cartCnt();
 			} else {
 				alert(result.message);
 			}
@@ -76,6 +90,7 @@ document.getElementById('checkDelete').addEventListener('click', function() {
 			deleteTr(selectTr);
 		}
 	})
+	alert('선택하신 상품이 장바구니에서 삭제되었습니다.')
 }) // end of 선택 상품 삭제.
 
 
@@ -94,6 +109,7 @@ function onClickAllHeartReset() {
 					if (result.result == "OK") {
 						//alert(result.message);
 						cartList.remove();
+						cartCnt();
 					} else {
 						alert(result.message);
 					}

@@ -31,7 +31,14 @@
 		update cart_f5
 		set product_cnt = #{productCnt}
 		where cart_code = #{cartCode}
-	</update>	
+	</update>
+	
+	<!-- 카트 수량 표시 -->
+	<select id="selectCartCnt" parameterType="string">				
+		select count(1)
+		from   cart_f5
+		where  id = #{id}
+	</select>
 	
 	<select id="getCartInfo" parameterType="string">
 		select *

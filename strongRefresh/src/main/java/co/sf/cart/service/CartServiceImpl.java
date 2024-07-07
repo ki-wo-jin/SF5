@@ -34,7 +34,13 @@ public class CartServiceImpl implements CartService {
 	public boolean changeCnt(CartVO cvo) {
 		return mapper.updateCnt(cvo) == 1;
 	}
-
+	
+	// 해당 id의 카트 행 개수 가져오기
+	@Override
+	public int getCartCnt(String id) {
+		return mapper.selectCartCnt(id);
+	}
+	
 	@Override
 	public CartVO getCart(String cartCode) {
 		return mapper.getCartInfo(cartCode);

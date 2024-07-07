@@ -1,3 +1,14 @@
+// ▶ 장바구니 아이콘에 장바구니 상품 개수 출력
+function cartCnt(){	
+	let url = 'cartCntIcon.do';
+	
+	fetch(url)
+		.then(result => result.json())
+		.then(cnt => {
+			document.querySelector('.count').innerHTML = cnt;
+		})
+}
+
 // ▶ 하트 삭제
 let heartBtn = document.querySelectorAll('.deleteRowHeart');
 heartBtn.forEach(ele => {
@@ -40,6 +51,7 @@ function addCart(e) {
 		.then(result => result.json())
 		.then(result => {
 			if (result.retCode == "OK") {
+				cartCnt();
 				Swal.fire({								//sweetalert2 라이브러리
 					title: "상품이 장바구니에 담겼습니다.",
 					text: "장바구니로 이동하시겠습니까?",
@@ -74,7 +86,7 @@ document.getElementById('checkDelete').addEventListener('click', function() {
 			deleteTr(selectTr);
 		}
 	})
-	alert('선택하신 상품이 wish list에서 삭제되었습니다.');
+	alert('선택하신 상품이 WISH LIST에서 삭제되었습니다.');
 }) // end of 선택 상품 삭제.
 
 
@@ -91,6 +103,7 @@ document.getElementById('checkCartPage').addEventListener('click', function(){
 				.then(result => result.json())
 				.then(result => {
 					if (result.retCode == "OK") {
+						cartCnt();
 						Swal.fire({								//sweetalert2 라이브러리
 							title: "상품이 장바구니에 담겼습니다.",
 							text: "장바구니로 이동하시겠습니까?",
@@ -137,4 +150,13 @@ function onClickAllHeartReset() {
 				})
 		}
 	})
+}
+
+
+// ▶ 이미지 클릭 시 해당 상품 상세 페이지로 이동 : kwj/productDetail.js랑 heart.jsp 연동해주기
+function goDetailPage(e){
+	//console.log(e.target.parentElement.parentElement.dataset.id);
+	let code = e.target.parentElement.parentElement.dataset.id;
+	
+	location.href = 'productDetailAjax.do?code=' + code;
 }

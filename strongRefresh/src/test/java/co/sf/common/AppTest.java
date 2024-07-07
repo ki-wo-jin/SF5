@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import co.sf.cart.mapper.CartMapper;
+import co.sf.cart.service.CartService;
+import co.sf.cart.service.CartServiceImpl;
 import co.sf.cart.vo.CartVO;
 import co.sf.heart.mapper.HeartMapper;
 import co.sf.product.mapper.ProductMapper;
@@ -17,12 +19,17 @@ public class AppTest {
 	public static void main(String[] args) {
 		SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		String page = "1";
-		String category = "OUTERS";
-
-		ProductService svc = new ProductServiceImpl();
-		List<ProductVO> list = svc.productListPagingCategory(Integer.parseInt(page), category);
-		list.forEach(System.out::println);
+//		String page = "1";
+//		String category = "OUTERS";
+//
+//		ProductService svc = new ProductServiceImpl();
+//		List<ProductVO> list = svc.productListPagingCategory(Integer.parseInt(page), category);
+//		list.forEach(System.out::println);
+		
+		
+		//카트 개수 TEST
+		CartService svc2 = new CartServiceImpl();
+		System.out.println(svc2.getCartCnt("1"));
 
 	}
 }
