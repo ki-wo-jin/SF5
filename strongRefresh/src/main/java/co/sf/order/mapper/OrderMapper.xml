@@ -5,6 +5,13 @@
 
 <mapper namespace="co.sf.order.mapper.OrderMapper">
 
+	<!-- 기존 배송지 목록 -->
+	<select id="userInfo" parameterType="co.sf.user.vo.UserVO">
+	SELECT id, phone, address, email
+	FROM users_f5 
+	where id = #{id} 
+	</select>
+	
     <!-- 주문 정보 추가 -->
     <insert id="addAddress" parameterType="co.sf.order.vo.OrderVO">
         INSERT INTO order_f5 (order_code, id, recipient, phone, address, total_price, email)
@@ -32,12 +39,17 @@
         FROM order_f5 o
         JOIN order_detail_f5 od ON o.order_code = od.order_code
         JOIN product_f5 p ON od.product_code = p.product_code
-        WHERE o.id = #{id}
+        WHERE o.order_code = #{orderCode}
         GROUP BY o.order_code, o.recipient, o.order_status, p.product_name, p.thum_image, o.use_point, od.product_cnt, p.price
     </select>
     
-    <!-- 주문 상세 삭제 -->
+    <!-- 주문 시 선택된 카트물품 삭제 -->
     <delete id="removeOrderDetail" parameterType="string">
-        DELETE FROM order_detail_f5 WHERE order_detail_code = #{orderDetailCode}
+        DELETE FROM cart_f5
+		WHERE product_code IN (SELECT product_code FROM order_detail_f5 WHERE order_code = #{orderCode})
+		AND id = #{id};
     </delete>
+    
+    <!-- 주문 시 order_status 변환 -->
+    <update id=""></update>
 </mapper>

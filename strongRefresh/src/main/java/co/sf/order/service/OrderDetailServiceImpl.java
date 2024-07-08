@@ -16,9 +16,9 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
 	@Override
-	public List<OrderDetailVO> orderDetailList(String id) {
+	public List<OrderDetailVO> orderDetailList(String orderCode) {
 		// TODO Auto-generated method stub
-		return mapper.orderDetailList(id);
+		return mapper.orderDetailList(orderCode);
 	}
 
 	@Override

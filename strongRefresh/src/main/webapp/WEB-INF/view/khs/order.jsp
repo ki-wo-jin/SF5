@@ -21,9 +21,7 @@
 						<tbody>
 							<c:forEach var="order" items="${orderDetailList}">
 								<tr>
-									<td><img src="images/${order.thumImage}"
-										alt="${order.productName}" width="50">
-									${order.productName}</td>
+									<td><img src="images/${order.thumImage}" alt="${order.productName}" width="50">	${order.productName}</td>
 									<td>${order.price}</td>
 									<td>${order.productCnt}</td>
 									<td>${order.point}</td>

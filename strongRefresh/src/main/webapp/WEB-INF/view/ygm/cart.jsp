@@ -35,6 +35,11 @@
 		text-align: center;
 	}
 	
+	p a{
+		color: rgb(226, 119, 119);
+		text-decoration: none;
+	}
+	
 	#buyBtn {
 		text-align: center;
 	}
@@ -126,7 +131,7 @@
 			</div>
 		</c:when>
 		<c:otherwise>
-			<p>로그인을 해주세요.</p>
+			<p><a href="loginForm.do" style="font-weight: bold;">로그인</a>을 해주세요.</p>
 		</c:otherwise>
 	</c:choose>
 </div>
