@@ -15,6 +15,9 @@ public interface CartMapper {
 
 	// 카트 리스트
 	List<CartVO> cartList(String id);
+	
+	// 카트 수량 표시 : 해당 id의 행 개수
+	int selectCartCnt(String id);
 
 	CartVO getCartInfo(String cartCode);
 

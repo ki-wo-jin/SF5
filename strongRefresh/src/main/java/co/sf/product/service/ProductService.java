@@ -12,6 +12,7 @@ public interface ProductService {
 	int productTotalCnt(String category);
 	
 	
+	
 	// 카테고리 출력.
 	List<CategoryVO> categoryList();
 	List<ProductVO> productListPagingCategory(int page, String category);

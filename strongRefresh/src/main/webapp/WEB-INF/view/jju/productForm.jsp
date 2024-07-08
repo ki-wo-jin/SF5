@@ -21,44 +21,44 @@
               <ul class="list-unstyled mb-0">
 				<c:choose>
 					<c:when test="${category == 'BRAS' || category == 'UNDERWEAR' || category == 'LOUNGES'}">
-		                <li class="mb-1"><a href="#" class="d-flex"><span>bras</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>underwear</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>lounges</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="BRAS" class="d-flex"><span>bras</span>
+		                <span class="text-black ml-auto" id="BRAS">(0)</span></a></li>
+		                <li class="mb-1"><a href="UNDERWEAR" class="d-flex"><span>underwear</span>
+		                <span class="text-black ml-auto" id="UNDERWEAR">(0)</span></a></li>
+		                <li class="mb-1"><a href="LOUNGES" class="d-flex"><span>lounges</span>
+		                <span class="text-black ml-auto" id="LOUNGES">(0)</span></a></li>
 					</c:when>
 					<c:when test="${category == 'UOUTERS' || category == 'UTEES' || category == 'UTOPS' || category == 'UKNITS' || category == 'UBOTTOMS'}">
-		                <li class="mb-1"><a href="#" class="d-flex"><span>u-outers</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>u-tees</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>u-tops</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>u-knits</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>u-bottoms</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="UOUTERS" class="d-flex"><span>u-outers</span>
+		                <span class="text-black ml-auto" id="UOUTERS">(0)</span></a></li>
+		                <li class="mb-1"><a href="UTEES" class="d-flex"><span>u-tees</span>
+		                <span class="text-black ml-auto" id="UTEES">(0)</span></a></li>
+		                <li class="mb-1"><a href="UTOPS" class="d-flex"><span>u-tops</span>
+		                <span class="text-black ml-auto" id="UTOPS">(0)</span></a></li>
+		                <li class="mb-1"><a href="UKNITS" class="d-flex"><span>u-knits</span>
+		                <span class="text-black ml-auto" id="UKNITS">(0)</span></a></li>
+		                <li class="mb-1"><a href="UBOTTOMS" class="d-flex"><span>u-bottoms</span>
+		                <span class="text-black ml-auto" id="UBOTTOMS">(0)</span></a></li>
 					</c:when>
 					<c:otherwise>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>outers</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>tees</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>tops</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>boleros</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>knits</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>bottoms</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>dresses</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>bags</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
-		                <li class="mb-1"><a href="#" class="d-flex"><span>shoes</span>
-		                <span class="text-black ml-auto">(0)</span></a></li>
+		                <li class="mb-1"><a href="OUTERS" class="d-flex"><span>outers</span>
+		                <span class="text-black ml-auto" id="OUTERS">(0)</span></a></li>
+		                <li class="mb-1"><a href="TEES" class="d-flex"><span>tees</span>
+		                <span class="text-black ml-auto" id="TEES">(0)</span></a></li>
+		                <li class="mb-1"><a href="TOPS" class="d-flex"><span>tops</span>
+		                <span class="text-black ml-auto" id="TOPS">(0)</span></a></li>
+		                <li class="mb-1"><a href="BOLEROS" class="d-flex"><span>boleros</span>
+		                <span class="text-black ml-auto" id="BOLEROS">(0)</span></a></li>
+		                <li class="mb-1"><a href="KNITS" class="d-flex"><span>knits</span>
+		                <span class="text-black ml-auto" id="KNITS">(0)</span></a></li>
+		                <li class="mb-1"><a href="BOTTOMS" class="d-flex"><span>bottoms</span>
+		                <span class="text-black ml-auto" id="BOTTOMS">(0)</span></a></li>
+		                <li class="mb-1"><a href="DRESSES" class="d-flex"><span>dresses</span>
+		                <span class="text-black ml-auto" id="DRESSES">(0)</span></a></li>
+		                <li class="mb-1"><a href="BAGS" class="d-flex"><span>bags</span>
+		                <span class="text-black ml-auto" id="BAGS">(0)</span></a></li>
+		                <li class="mb-1"><a href="SHOES" class="d-flex"><span>shoes</span>
+		                <span class="text-black ml-auto" id="SHOES">(0)</span></a></li>
 					</c:otherwise>
 				</c:choose>
               </ul>
@@ -123,4 +123,4 @@
       </div>
     </div>
 
-    <!-- <script src="jsf5/jju/productAjax.js"></script> -->
+ <script defer src="jsf5/kwj/cnt.js"></script>

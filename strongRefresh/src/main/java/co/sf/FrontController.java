@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.sf.cart.web.AddCart;
+import co.sf.cart.web.CartCntIcon;
 import co.sf.cart.web.CartForm;
 import co.sf.cart.web.ChangeCnt;
 import co.sf.cart.web.RemoveCart;
@@ -23,6 +24,7 @@ import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.order.web.OrderHistory;
 import co.sf.order.web.Thankyou;
+import co.sf.product.web.CountCategory;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
 import co.sf.product.web.ProductForm;
@@ -33,6 +35,7 @@ import co.sf.product.web.heartProductAjax;
 import co.sf.product.web.prdQnAAjax;
 import co.sf.product.web.prdReviewAjax;
 import co.sf.product.web.srcPrd;
+import co.sf.qna.web.AddQna;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
@@ -86,6 +89,8 @@ public class FrontController extends HttpServlet {
 		map.put("/removeCart.do", new RemoveCart());
 		// 카트 수량 변경
 		map.put("/changeCnt.do", new ChangeCnt());
+		// 카트 수량 아이콘에 출력
+		map.put("/cartCntIcon.do", new CartCntIcon());
 		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
 		
@@ -123,6 +128,9 @@ public class FrontController extends HttpServlet {
 		map.put("/prdQnA.do", new prdQnAAjax());
 		// 제품 검색
 		map.put("/srcPrd.do", new srcPrd());
+		// 카테고리 갯수
+		map.put("/countCategory.do", new CountCategory());
+		
 
 		// 로그인
 		map.put("/loginForm.do", new LoginForm());
@@ -161,6 +169,8 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaList.do", new QnaList());
 		// QNA 상세페이지
 		map.put("/qnaDetail.do", new QnaDetailForm());
+		// QNA 추가
+		map.put("addQna.do", new AddQna());
 
 		// 리뷰
 		map.put("/review.do", new ReviewForm());

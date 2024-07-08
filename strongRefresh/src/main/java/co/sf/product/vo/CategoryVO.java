@@ -8,4 +8,6 @@ public class CategoryVO {
 	private String categoryName;
 	private String parentCategory;
 	private String orderBy;
+	private String categorie;
+	private int cnt;
 }

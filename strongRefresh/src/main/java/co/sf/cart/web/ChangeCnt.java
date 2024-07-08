@@ -35,7 +35,7 @@ public class ChangeCnt implements Control {
 			map.put("result", "OK");
 			map.put("message", "변경");
 		} else {
-			map.put("retCode", "NG");
+			map.put("result", "NG");
 			map.put("message", "실패");
 		}
 		
