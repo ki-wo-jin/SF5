@@ -34,7 +34,7 @@
 					<tr></tr>
 				</tbody>
 			</table>
-			<input type="button" id="qWriteBtn" value="Write" onclick="location.href='qnaDetail.do'"> 
+			<input type="button" class="buy-now btn btn-sm btn-primary" id="qWriteBtn" value="Write" onclick="location.href='qnaDetail.do'"> 
 		</form>
 	</div>
 </div>

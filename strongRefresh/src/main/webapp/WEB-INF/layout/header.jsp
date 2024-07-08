@@ -56,7 +56,7 @@ header {
 							<li>
 								<a href="cart.do" class="site-cart">
 								<span class="icon icon-shopping_cart" id="carticon"></span>
-								<span class="count"></span>
+								<span class="count">0</span>
 								</a>
 							</li>
 							<li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span
@@ -76,18 +76,18 @@ header {
 		<div class="container">
 			<ul class="site-menu js-clone-nav d-none d-md-block">
 
-				<li><a href="NEWIN">NEW</a></li>
+				<li><a href="NEWIN" id="newBtn">NEW</a></li>
 
-				<li class="has-children active"><a href="productForm.do">BEST</a>
+				<li class="has-children active"><a href="BEST">BEST</a>
 					<ul class="dropdown">
 						<li><a href="ALLWH">All Whites</a>
 						<li><a href="ALLBL">All Blacks</a>
 					</ul>
 				</li>
 
-				<li class="has-children active"><a href="about.html">SHOP</a>
+				<li class="has-children active"><a href="SHOP">SHOP</a>
 					<ul class="dropdown">
-						<li class="has-children"><a href="#">ALL</a>
+						<li class="has-children"><a href="ALL">ALL</a>
 							<ul class="dropdown">
 								<li><a href="OUTERS">outers</a></li>
 								<li><a href="TEES">tees</a></li>
@@ -99,7 +99,7 @@ header {
 								<li><a href="BAGS">bags</a></li>
 								<li><a href="SHOES">shoes</a></li>
 							</ul>
-						<li class="has-children"><a href="#">UNISEX</a>
+						<li class="has-children"><a href="UNISEX">UNISEX</a>
 							<ul class="dropdown">
 								<li><a href="UOUTERS">outers</a></li>
 								<li><a href="UTEES">tees</a></li>
@@ -108,7 +108,7 @@ header {
 								<li><a href="UBOTTOMS">bottoms</a></li>
 							</ul>
 						</li>
-						<li class="has-children"><a href="#">HOME</a>
+						<li class="has-children"><a href="HOME">HOME</a>
 							<ul class="dropdown">
 								<li><a href="BRAS">bras</a></li>
 								<li><a href="UNDERWEAR">underwear</a></li>

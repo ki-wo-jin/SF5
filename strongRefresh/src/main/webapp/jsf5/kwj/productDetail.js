@@ -171,10 +171,16 @@ function cloneRow3(qna = {}) {
 document.querySelector('#rListBtn').addEventListener('click', function(){
 	location.href='review.do';
 })
+document.querySelector('#rWriteBtn').addEventListener('click', function(){
+	location.href='reviewDetail.do';
+})
 
 document.querySelector('#qListBtn').addEventListener('click', function(){
 	location.href='qna.do';
 })
+document.querySelector('#qWriteBtn').addEventListener('click', function(){
+	location.href='qnaDetail.do';
+})
 
 
-//  
+// 

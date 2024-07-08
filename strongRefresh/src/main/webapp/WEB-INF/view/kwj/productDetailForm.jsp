@@ -111,8 +111,8 @@
 					<tr></tr>
 				</tbody>
 			</table>
-			<input type="button" id="rWriteBtn" value="Write"> 
-			<input type="button" id="rListBtn" value="List">
+			<input type="button" class ="buy-now btn btn-sm btn-primary" id="rWriteBtn" value="Write"> 
+			<input type="button" class ="buy-now btn btn-sm btn-primary" id="rListBtn" value="List">
 		</form>
 	</div>
 </div>
@@ -147,8 +147,8 @@
 					<tr></tr>
 				</tbody>
 			</table>
-			<input type="button" id="qWriteBtn" value="Write"> 
-			<input type="button" id="qListBtn" value="List">
+			<input type="button" class ="buy-now btn btn-sm btn-primary" id="qWriteBtn" value="Write"> 
+			<input type="button" class ="buy-now btn btn-sm btn-primary" id="qListBtn" value="List">
 		</form>
 	</div>
 </div>
