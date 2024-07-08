@@ -18,7 +18,6 @@ import co.sf.cart.web.RemoveCart;
 import co.sf.common.Control;
 import co.sf.heart.web.HeartForm;
 import co.sf.heart.web.RemoveHeart;
-import co.sf.newPage.web.NewForm;
 import co.sf.order.web.AddAddress;
 import co.sf.order.web.CreateOrder;
 import co.sf.order.web.OrderDetailForm;
@@ -94,8 +93,6 @@ public class FrontController extends HttpServlet {
 		map.put("/cartCntIcon.do", new CartCntIcon());
 		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
-		// NEW 화면
-		map.put("/new.do", new NewForm());
 		
 		
 		
