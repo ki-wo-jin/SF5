@@ -51,7 +51,8 @@
 	
 	<update id="modifyMember" parameterType="co.sf.user.vo.UserVO">
 	update users_f5
-	set pw=#{pw},
+	set name=#{name},
+		pw=#{pw},
 	    email=#{email},
 	    phone=#{phone},
 	    address=#{address}

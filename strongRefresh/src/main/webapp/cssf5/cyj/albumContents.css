@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24Shiningstar';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff')
+		format('woff');
+}
+
+.album{
+    display: block;
+    unicode-bidi: isolate;
+    margin: 0 auto;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+  padding: 0;
+}
+
+.albumContents {
+	width: 100%;
+    min-width: 756px;
+    font-size: 0;
+    line-height: 0;
+    font-family : 'Cafe24Shiningstar';
+    padding : 60px;
+    padding-bottom : 0;
+}
+
+#albumText h2{
+	padding : 10px;
+	margin-bottom : 0;
+	font-family: 'Cafe24Supermagic-Bold-v1.0';
+  	font-size: x-large;
+  	margin-left : 5px;
+}
+
+#albumTitle{
+	padding-top : 100px;
+	padding-bottom : 50px;
+	text-align: center;	
+	color: #7971ea;
+}
+
+#contenets {
+	text-align: center;	
+}
+.tail {
+	padding : 50px;
+}
+
+img {
+	max-width: 100% !important;
+    height: auto !important;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+

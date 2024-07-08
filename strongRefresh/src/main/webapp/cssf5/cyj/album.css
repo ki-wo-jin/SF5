@@ -67,7 +67,10 @@ html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form
   line-height: 18px;
   vertical-align: top;
   text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
+  unicode-bidi: isolate;
+}
+.album li > a {
+  color: #7971ea;
 }
 
 

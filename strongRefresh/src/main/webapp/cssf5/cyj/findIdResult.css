@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.findIdResult-wrapper {
+	width: 400px;
+	height: auto;
+	padding: 40px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.findIdResult-wrapper > h2 {
+	font-size: 30px;
+	color: #7971ea;
+	font-weight: bold;
+}
+.findIdResult-wrapper > h3 {
+	font-size: 18px;
+	color: #7971ea;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.goodShopping{
+	color: #7971ea;
+	text-align: center;
+	margin-top : 12px;
+}
+
+#findIdResult-form {
+	font-size : 18px;
+	font-weight: bold;
+}
+
+#findEmailUser {
+	font-size : 18px;
+	font-weight: bold;
+}
+
+
+#loginBtn{
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	background-color: #7971ea;
+	border: #ccc;
+	color: #fff;
+	margin-top : 16px;
+}
+#findPw{
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	background-color: black;
+	border: #ccc;
+	color: #fff;
+}

@@ -23,6 +23,7 @@ public class ModifyControl implements Control {
 		
 		id = req.getParameter("userId"); //아이디 (변경불가)
 		String pw = req.getParameter("userPw"); //비밀번호
+		String name = req.getParameter("userName"); //이름
 		
 		String postcode = req.getParameter("postcode");
 		String basicAddress = req.getParameter("address");
@@ -52,6 +53,7 @@ public class ModifyControl implements Control {
 		UserService uvc = new UserServiceImpl();
 		
 		user = uvc.getUser(id);
+		user.setName(name);
 		user.setPw(pw);
 		user.setAddress(address);
 		user.setPhone(phone);
@@ -65,8 +67,7 @@ public class ModifyControl implements Control {
 			req.getRequestDispatcher("cyj/modifyMemberForm.tiles").forward(req, resp);
 		}
 		
-		
-
+	
 	}
 
 }

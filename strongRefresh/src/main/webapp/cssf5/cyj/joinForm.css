@@ -17,6 +17,7 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 20px;
+  padding-bottom : 0;
 }
 
 .join-wrapper > h2 {
@@ -25,7 +26,7 @@ body {
   margin-bottom: 20px;
 }
 
-.joinTable > input {
+.joinForm > input {
   width: 100%;
   height: 48px;
   padding: 0 10px;
@@ -34,14 +35,20 @@ body {
   border-radius: 6px;
   background-color: #F8F8F8;
 }
-#join-form > input::placeholder{
+.joinForm > input::placeholder{
   color: #D2D2D2;
 }
-#join-form > input[type="submit"]{
-  color: #fff;
-  font-size: 16px;
-  background-color:  #7971ea;
-  margin-top: 20px;
+button {
+	width: 400px;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	border: #ccc;
+	color: #fff;
+	font-size: 16px;
+	background-color: #7971ea;
 }
 
 #frontPhone {
@@ -70,4 +77,87 @@ body {
   margin-bottom: 16px;
   border-radius: 6px;
   background-color: #F8F8F8;
+}
+
+.joinForm{
+	position: relative;
+}
+
+.pwCondition {
+	z-index: 2;
+	position: absolute;
+	padding: 10px;
+	border: 1px solid #565960;
+	background: #fff;
+	box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.15);
+	left : 300px;
+	top : 180px;
+}
+
+.pwConditionText {
+	color:red;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 300px;
+	font-size: smaller;
+}
+
+.pwConditionText > strong {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pwConditionText > ul {
+	list-style: none;
+}
+
+.joinForm > label {
+  font-weight: bold;
+}
+
+.redStar {
+  color: red;
+}
+#userId {
+  margin-bottom: 0;
+}
+
+#checkPw {
+  margin-bottom: 0;
+}
+
+#checkId {
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+
+#printCheckPw {
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
+
+
+.agree-wrapper{
+  width: 1200px;
+  padding: 40px;
+  padding-top : 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1px;
+}
+
+.agree-wrapper > h2 {
+  font-size: 24px;
+  color:  #7971ea;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border : solid 1px;
+}
+.joinBtn{
+  text-align: center;
 }
