@@ -121,8 +121,8 @@ header {
 
 				<li class="has-children active"><a href="#">INFO</a>
 					<ul class="dropdown">
-						<li><a href="#">Q&A</a>
-						<li><a href="#">REVIEW</a>
+						<li><a href="qna.do">Q&A</a>
+						<li><a href="review.do">REVIEW</a>
 					</ul>
 				</li>
 			</ul>

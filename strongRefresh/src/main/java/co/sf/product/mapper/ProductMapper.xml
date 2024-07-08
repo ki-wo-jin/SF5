@@ -47,9 +47,9 @@
 		</where>
 	</select>
 
-	<select id="categoryList">
-		select *
-		from product_category_order_v
+	<select id="categoryList" resultType="co.sf.product.vo.CategoryVO">
+		select categorie, cnt
+		from   product_cnt_per_category_v
 	</select>
 
 	<select id="selectProductPaging">
