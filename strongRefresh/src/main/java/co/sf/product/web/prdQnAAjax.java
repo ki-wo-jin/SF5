@@ -24,6 +24,8 @@ public class prdQnAAjax implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		String productCode = req.getParameter("code");
 		
+		productCode = productCode + '%';
+		
 		QnaService svc = new QnaServiceImpl();
 		List<QnaVO> list = svc.prdQnaList(productCode);
 		

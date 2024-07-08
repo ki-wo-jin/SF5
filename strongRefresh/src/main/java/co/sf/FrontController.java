@@ -23,6 +23,7 @@ import co.sf.order.web.CreateOrder;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.order.web.OrderHistory;
+import co.sf.order.web.RemoveOrderDetail;
 import co.sf.order.web.Thankyou;
 import co.sf.product.web.CountCategory;
 import co.sf.product.web.ProductDetailAjax;
@@ -36,6 +37,9 @@ import co.sf.product.web.prdQnAAjax;
 import co.sf.product.web.prdReviewAjax;
 import co.sf.product.web.srcPrd;
 import co.sf.qna.web.AddQna;
+import co.sf.qna.web.DelQna;
+import co.sf.qna.web.ModifyQna;
+import co.sf.qna.web.ModifyQnaForm;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
@@ -108,6 +112,8 @@ public class FrontController extends HttpServlet {
 		map.put("/thankyou.do", new Thankyou());
 		// 주문조회 페이지
 		map.put("/orderHistory.do", new OrderHistory());
+		// 주문 내역 페이지 삭제
+		map.put("/removeOrderDetail.do", new RemoveOrderDetail());
 		
 		
 		// 제품 페이지
@@ -168,11 +174,18 @@ public class FrontController extends HttpServlet {
 		map.put("/qna.do", new QnaForm());
 		// QNA 목록 요청
 		map.put("/qnaList.do", new QnaList());
-		// QNA 상세페이지
+		// QNA 추가페이지
 		map.put("/qnaDetail.do", new QnaDetailForm());
 		// QNA 추가
-		map.put("addQna.do", new AddQna());
+		map.put("/addQna.do", new AddQna());
+		// QNA 수정페이지
+		map.put("/modifyForm.do", new ModifyQnaForm());
+		// QNA 수정
+		map.put("/modifyQna.do", new ModifyQna());
+		// QNA 삭제
+		map.put("/delQna.do", new DelQna());
 
+		
 		// 리뷰
 		map.put("/review.do", new ReviewForm());
 		// 리뷰 목록 요청
