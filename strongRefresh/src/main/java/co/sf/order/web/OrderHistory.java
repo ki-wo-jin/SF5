@@ -19,10 +19,11 @@ public class OrderHistory implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
+		String code = req.getParameter("orderCode");
 
 		if (id != null) {
 			OrderService orderService = new OrderServiceImpl();
-			List<OrderDetailVO> orderDetailList = orderService.getOrderDetails(id);
+			List<OrderDetailVO> orderDetailList = orderService.OrderDetailList(code);
 
 			req.setAttribute("orderDetailList", orderDetailList);
 			req.getRequestDispatcher("khs/orderHistory.tiles").forward(req, resp);

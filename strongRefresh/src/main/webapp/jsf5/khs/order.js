@@ -1,3 +1,5 @@
+
+
 document.getElementById('payment').addEventListener('click', async function() {
 	const recipient = document.getElementById('recipient').value;
 	const phone1 = document.getElementById('phone1').value;
@@ -14,8 +16,6 @@ document.getElementById('payment').addEventListener('click', async function() {
 	const phone = `${phone1}-${phone2}-${phone3}`;
 	const email = `${emailUser}@${emailDomain}`;
 	const fullAddress = `${postalCode} ${address} ${addressDetail} ${reference}`;
-
-	const selectedItems = JSON.parse(sessionStorage.getItem('selectedCartItems')) || [];
 
 	const orderData = {
 		recipient: recipient,

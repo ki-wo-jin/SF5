@@ -26,77 +26,61 @@ import co.sf.user.vo.UserVO;
 
 public class CreateOrder implements Control {
 
-    @Override
-    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/json;charset=utf-8");
+	@Override
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		resp.setContentType("text/json;charset=utf-8");
 
-        HttpSession session = req.getSession();
-        String id = (String) session.getAttribute("id");
-        String[] cartAry = req.getParameterValues("code");
+		// 장바구니에서 카트번호를 선택한 값을 code=45&code=49&code=83
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		String[] cartAry = req.getParameterValues("code");
+		// 상품1, 상품2,....
 
-        CartService svc = new CartServiceImpl();
-        String orderNo = svc.getNewOrderNo();
+		CartService svc = new CartServiceImpl();
+		// OrderVO 하나 , OrderDetail 여러개.
+		// 주문번호 만들기.
+		String orderNo = svc.getNewOrderNo();
 
-        OrderVO ovo = new OrderVO();
-        ovo.setOrderCode(orderNo);
-        Map<String, Object> map = new HashMap<>();
-        Gson gson = new GsonBuilder().create();
-        
-        UserService usvc = new UserServiceImpl();
-        UserVO user = usvc.getUser(id);
-        System.out.println(user.getAddress());
-        // 주소가 널일 때, 조건
-        /*
-        if(user.getAddress() == null || user.getAddress() == "") {
-        	map.put("retCode", "NO");
-        	resp.getWriter().print(gson.toJson(map));
-        }*/
+		OrderVO ovo = new OrderVO();
+		ovo.setOrderCode(orderNo);
 
-        ovo.setId(user.getId());
-        ovo.setRecipient(user.getName());
-        ovo.setPhone(user.getPhone());
-        ovo.setAddress(user.getAddress());
-        ovo.setTotalPrice(0);
-        ovo.setEmail(user.getEmail());
-        ovo.setOrderStatus("주문완료");
+		UserService usvc = new UserServiceImpl();
+		UserVO user = usvc.getUser(id);
 
-        List<OrderDetailVO> detailList = new ArrayList<>();
-        List<CartVO> selectedItems = new ArrayList<>();
+		ovo.setId(user.getId());
+		ovo.setRecipient(user.getName());
+		ovo.setPhone(user.getPhone());
+		ovo.setAddress(user.getAddress());
+		ovo.setTotalPrice(0);
+		ovo.setEmail(user.getEmail());
 
-        for (String cartCode : cartAry) {
-            CartVO cart = svc.getCart(cartCode);
-            OrderDetailVO detail = new OrderDetailVO();
-            detail.setOrderCode(orderNo);
-            detail.setProductCnt(cart.getProductCnt());
-            detail.setProductCode(cart.getProductCode());
-            detail.setThumImage(cart.getThumImage());
-            detail.setProductName(cart.getProductName());
-            detail.setTotalPrice(cart.getPrice() * cart.getProductCnt());
-            detail.setOrderStatus("주문완료");
+		List<OrderDetailVO> detailList = new ArrayList<>();
 
-            detailList.add(detail);
-            selectedItems.add(cart);
-        }
+		for (String cartCode : cartAry) {
+			CartVO cart = svc.getCart(cartCode);
+			OrderDetailVO detail = new OrderDetailVO();
+			detail.setOrderCode(orderNo);
+			detail.setProductCnt(cart.getProductCnt());
+			detail.setProductCode(cart.getProductCode());
 
-        if (svc.createOrder(ovo, detailList)) {
-            System.out.println("OK");
-            map.put("retCode", "OK");
-            map.put("orderCode", orderNo);
-            map.put("orderDetails", detailList); // 주문 상세 데이터 반환
+			detailList.add(detail);
+		}
+		Map<String, Object> map = new HashMap<>();
+		if (svc.createOrder(ovo, detailList)) {
+			System.out.println("OK");
+			// {"retCode": "OK"}
+			map.put("retCode", "OK");
+			map.put("orderCode", orderNo);
 
-            // 카트 데이터 삭제
-            for (CartVO cart : selectedItems) {
-                svc.removeCart(cart.getCartCode());
-            }
+		} else {
+			System.out.println("NG");
+			map.put("retCode", "NG");
 
-            // 주문 데이터를 세션에 저장
-            session.setAttribute("orderHistory", detailList);
+		}
+		Gson gson = new GsonBuilder().create();
+		resp.getWriter().print(gson.toJson(map));
 
-        } else {
-            System.out.println("NG");
-            map.put("retCode", "NG");
-        }
+	}
 
-        resp.getWriter().print(gson.toJson(map));
-    }
 }

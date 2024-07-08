@@ -7,7 +7,7 @@ import co.sf.order.vo.OrderDetailVO;
 import co.sf.order.vo.OrderVO;
 
 public interface OrderService {
-	List<OrderDetailVO> getOrderDetails(String id);
+	List<OrderVO> userInfo(String id);
 
 	boolean addAddress(OrderVO ovo);
 

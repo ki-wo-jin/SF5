@@ -16,10 +16,10 @@ public class OrderServiceImpl implements OrderService {
 
 	OrderMapper mapper = sqlSession.getMapper(OrderMapper.class);
 
-	@Override
-	public List<OrderDetailVO> getOrderDetails(String id) {
-		return mapper.orderDetailList(id);
-	}
+//	@Override
+//	public List<OrderDetailVO> getOrderDetails(String id) {
+//		return mapper.orderDetailList(id);
+//	}
 
 	@Override
 	public boolean addAddress(OrderVO ovo) {
@@ -29,6 +29,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<OrderDetailVO> OrderDetailList(String orderCode) {
 		return mapper.orderDetailList(orderCode);
+	}
+
+	@Override
+	public List<OrderVO> userInfo(String id) {
+		// TODO Auto-generated method stub
+		return mapper.userInfo(id);
 	}
 
 }
