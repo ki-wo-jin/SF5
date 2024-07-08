@@ -5,7 +5,7 @@ import java.util.List;
 import co.sf.order.vo.OrderDetailVO;
 
 public interface OrderDetailService {
-	List<OrderDetailVO> orderDetailList(String id);
+	List<OrderDetailVO> orderDetailList(String orderCode);
 	
 	boolean removeCartItem(OrderDetailVO ovo);
 	

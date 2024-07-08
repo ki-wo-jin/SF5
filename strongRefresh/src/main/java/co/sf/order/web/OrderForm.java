@@ -20,10 +20,11 @@ public class OrderForm implements Control {
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
+		String code = req.getParameter("orderCode");
 
 		if (id != null) {
 			OrderService orderService = new OrderServiceImpl();
-			List<OrderDetailVO> orderDetailList = orderService.getOrderDetails(id); // 주문내역 출력
+			List<OrderDetailVO> orderDetailList = orderService.OrderDetailList(code); // 주문내역 출력
 			
 			req.setAttribute("orderDetailList", orderDetailList);
 			
