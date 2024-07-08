@@ -24,7 +24,9 @@ import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.order.web.OrderHistory;
 import co.sf.order.web.RemoveOrderDetail;
+import co.sf.order.web.RemoveSelectedCartItems;
 import co.sf.order.web.Thankyou;
+import co.sf.order.web.UpdateOrderStatus;
 import co.sf.product.web.CountCategory;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
@@ -46,9 +48,9 @@ import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
 import co.sf.review.web.AddReview;
 import co.sf.review.web.DelReivew;
-import co.sf.review.web.ModifyList;
 import co.sf.review.web.ModifyReview;
 import co.sf.review.web.ModifyReviewForm;
+import co.sf.review.web.ModifyReviewList;
 import co.sf.review.web.ReviewForm;
 import co.sf.review.web.ReviewList;
 import co.sf.review.web.reviewDetailForm;
@@ -125,6 +127,10 @@ public class FrontController extends HttpServlet {
 		map.put("/orderHistory.do", new OrderHistory());
 		// 주문 내역 페이지 삭제
 		map.put("/removeOrderDetail.do", new RemoveOrderDetail());
+		// 주문 완료시 선택 카트 아이템 삭제
+		map.put("/removeSelectedCartItems.do", new RemoveSelectedCartItems());
+		// 주문 완료 시 주문 상태 변환
+		map.put("/updateOrderStatus.do", new UpdateOrderStatus());
 		
 		
 		// 제품 페이지
@@ -228,7 +234,7 @@ public class FrontController extends HttpServlet {
 		// 리뷰 수정페이지
 		map.put("/modifyReviewForm.do", new ModifyReviewForm());
 		// 리뷰 수정데이터
-		map.put("/modifyList.do", new ModifyList());
+		map.put("/modifyReviewList.do", new ModifyReviewList());
 		// 리뷰 수정
 		map.put("/modifyReview.do", new ModifyReview());
 		// 리뷰 삭제

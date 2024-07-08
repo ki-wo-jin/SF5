@@ -21,14 +21,5 @@ public class OrderDetailServiceImpl implements OrderDetailService{
 		return mapper.orderDetailList(orderCode);
 	}
 
-	@Override
-	public boolean removeCartItem(OrderDetailVO ovo) {
-		// TODO Auto-generated method stub
-		return mapper.removeCartItem(ovo) == 1;
-	}
-
-
-	
-
 	
 }
