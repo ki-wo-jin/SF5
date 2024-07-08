@@ -12,8 +12,8 @@
 	</select>
 	
 	<insert id="insertQna" parameterType="co.sf.qna.vo.QnaVO">
-		insert into qna_f5(qna_subject, id, product_code, order_code, qna_pw, qna_content)
-		values(#{qnaSubject},#{id},#{productCode},#{orderCode},#{qnaPw},#{qnaContent})
+		insert into qna_f5(qna_subject, id, product_code, qna_pw, qna_content)
+		values(#{qnaSubject},#{id},#{productCode},#{qnaPw},#{qnaContent})
 	</insert>
 	
 	<select id="selectQna" parameterType = "string">

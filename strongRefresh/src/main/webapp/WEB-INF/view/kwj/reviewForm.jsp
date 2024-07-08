@@ -36,7 +36,6 @@
 					<tr></tr>
 				</tbody>
 			</table>
-			<input type="button" id="rWriteBtn" value="Write"> 
 		</form>
 	</div>
 </div>

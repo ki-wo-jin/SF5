@@ -18,22 +18,28 @@
           </div>
           <div class="col-md-12">
 
-            <form action="#" method="post">
+            <form action="addQna.do">
               
               <div class="p-3 p-lg-5 border">
 
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_subject" class="text-black">제목 </label>
-                    <input type="text" class="form-control" id="c_subject" name="c_subject">
+                    <input type="text" class="form-control" id="title" name="title">
                   </div>
-                </div>
+                 </div>
+                   <div class="col-md-12">
+                 <div class="form-group row">
+                    <label for="c_subject" class="text-black">상품 코드 </label>
+                    <input type="text" class="form-control" id="code" name="code">
+                  </div>
+                	</div>
                  <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_subject" class="text-black">QnA사항 </label>
                   </div>
                   <div class="col-md-12">
-                    <select class="col-md-2">
+                    <select class="col-md-2" id = "op" name = "op">
                     	<option value="상품">상품 문의 사항</option>
                     	<option value="배송">배송 문의 사항</option>
                     	<option value="교환">교환/반품 사항</option>
@@ -45,23 +51,23 @@
                  <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">작성자</label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
+                    <input type="text" class="form-control" id="name" name="name">
                   </div>
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">글 비밀번호</label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
+                    <input type="text" class="form-control" id="pw" name="pw">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_message" class="text-black">내용 </label>
-                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                    <textarea name="content" id="content" cols="30" rows="7" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-lg-12">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="등록하기">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="등록하기" id="addBtn">
                   </div>
                 </div>
               </div>
@@ -71,3 +77,5 @@
         </div>
       </div>
     </div>
+    
+ <script defer src="jsf5/kwj/qnaDetail.js"></script>
