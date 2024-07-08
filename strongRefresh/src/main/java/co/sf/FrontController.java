@@ -48,9 +48,9 @@ import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
 import co.sf.review.web.AddReview;
 import co.sf.review.web.DelReivew;
-import co.sf.review.web.ModifyList;
 import co.sf.review.web.ModifyReview;
 import co.sf.review.web.ModifyReviewForm;
+import co.sf.review.web.ModifyReviewList;
 import co.sf.review.web.ReviewForm;
 import co.sf.review.web.ReviewList;
 import co.sf.review.web.reviewDetailForm;
@@ -211,7 +211,7 @@ public class FrontController extends HttpServlet {
 		// 리뷰 수정페이지
 		map.put("/modifyReviewForm.do", new ModifyReviewForm());
 		// 리뷰 수정데이터
-		map.put("/modifyList.do", new ModifyList());
+		map.put("/modifyReviewList.do", new ModifyReviewList());
 		// 리뷰 수정
 		map.put("/modifyReview.do", new ModifyReview());
 		// 리뷰 삭제
