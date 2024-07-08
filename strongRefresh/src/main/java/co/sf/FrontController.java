@@ -24,7 +24,9 @@ import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.order.web.OrderHistory;
 import co.sf.order.web.RemoveOrderDetail;
+import co.sf.order.web.RemoveSelectedCartItems;
 import co.sf.order.web.Thankyou;
+import co.sf.order.web.UpdateOrderStatus;
 import co.sf.product.web.CountCategory;
 import co.sf.product.web.ProductDetailAjax;
 import co.sf.product.web.ProductDetailForm;
@@ -120,6 +122,10 @@ public class FrontController extends HttpServlet {
 		map.put("/orderHistory.do", new OrderHistory());
 		// 주문 내역 페이지 삭제
 		map.put("/removeOrderDetail.do", new RemoveOrderDetail());
+		// 주문 완료시 선택 카트 아이템 삭제
+		map.put("/removeSelectedCartItems.do", new RemoveSelectedCartItems());
+		// 주문 완료 시 주문 상태 변환
+		map.put("/updateOrderStatus.do", new UpdateOrderStatus());
 		
 		
 		// 제품 페이지

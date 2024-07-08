@@ -173,5 +173,4 @@
 <script src="jsf5/khs/order.js"></script>
 <script src="jsf5/khs/userinfo.js"></script>
 <script src="jsf5/khs/address.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
