@@ -23,6 +23,7 @@ import co.sf.order.web.CreateOrder;
 import co.sf.order.web.OrderDetailForm;
 import co.sf.order.web.OrderForm;
 import co.sf.order.web.OrderHistory;
+import co.sf.order.web.RemoveOrderDetail;
 import co.sf.order.web.Thankyou;
 import co.sf.product.web.CountCategory;
 import co.sf.product.web.ProductDetailAjax;
@@ -107,6 +108,8 @@ public class FrontController extends HttpServlet {
 		map.put("/thankyou.do", new Thankyou());
 		// 주문조회 페이지
 		map.put("/orderHistory.do", new OrderHistory());
+		// 주문 내역 페이지 삭제
+		map.put("/removeOrderDetail.do", new RemoveOrderDetail());
 		
 		
 		// 제품 페이지
