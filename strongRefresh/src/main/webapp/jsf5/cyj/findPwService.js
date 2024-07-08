@@ -12,11 +12,11 @@ function printPathFunc() {
 
 	if (result == 'phone') {
 		document.getElementById('printEmailPath').style.display = 'none';
-		document.getElementById('printPhonePath').style.display = 'table-row';
+		document.getElementById('printPhonePath').style.display = 'block';
 
 	} else if (result == 'email') {
-		document.getElementById('printEmailPath').style.display = 'table-row';
 		document.getElementById('printPhonePath').style.display = 'none';
+		document.getElementById('printEmailPath').style.display = 'block';
 	}
 
 }

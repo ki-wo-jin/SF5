@@ -26,7 +26,11 @@ public class FindIdControl implements Control {
 		if(phone.length() > 0 && email.length() < 1) uvo = uvc.findId(phone);
 		else uvo = uvc.findId(email);
 		
-		System.out.println(uvo.toString());
+		if(uvo==null) {
+			req.setAttribute("retCode", "NO");
+			req.getRequestDispatcher("cyj/findId.tiles").forward(req, resp);
+		}
+		
 		
 		if(name.equals(uvo.getName())&&email.equals(uvo.getEmail())) {
 			UserVO emailUser = uvc.findId(email);
