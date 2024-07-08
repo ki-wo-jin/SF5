@@ -40,6 +40,7 @@ import co.sf.qna.web.AddQna;
 import co.sf.qna.web.DelQna;
 import co.sf.qna.web.ModifyQna;
 import co.sf.qna.web.ModifyQnaForm;
+import co.sf.qna.web.ModifyQnaList;
 import co.sf.qna.web.QnaDetailForm;
 import co.sf.qna.web.QnaForm;
 import co.sf.qna.web.QnaList;
@@ -179,7 +180,9 @@ public class FrontController extends HttpServlet {
 		// QNA 추가
 		map.put("/addQna.do", new AddQna());
 		// QNA 수정페이지
-		map.put("/modifyForm.do", new ModifyQnaForm());
+		map.put("/modifyQnaForm.do", new ModifyQnaForm());
+		// QNA 수정데이터
+		map.put("/modifyQnaList.do", new ModifyQnaList());
 		// QNA 수정
 		map.put("/modifyQna.do", new ModifyQna());
 		// QNA 삭제

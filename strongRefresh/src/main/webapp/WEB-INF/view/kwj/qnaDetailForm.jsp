@@ -51,7 +51,7 @@
                  <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">작성자</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="${id }" readonly>
                   </div>
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">글 비밀번호</label>

@@ -8,9 +8,11 @@ public interface QnaMapper {
 	List<QnaVO> qnaList();
 	int insertQna(QnaVO qvo);
 	int selectQna(String qnaSubject);
-	int deleteQna(String qnaSubject);
+	int deleteQna(QnaVO qvo);
 	int updateQna(QnaVO qvo);
 	
 	List<QnaVO> prdQnaList(String productCode);
+	
+	List<QnaVO> selModifyQna(String qnaCode);
 
 }
