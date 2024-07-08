@@ -8,3 +8,8 @@ window.onload = function(){
 			document.querySelector('.count').innerHTML = cnt;
 		})
 }
+
+// ▶ New 버튼 클릭 시 상품 보여주기
+document.getElementById('newBtn').addEventListener('click', function(){
+	console.log('안녕? 난 뉴 버튼이야.');
+})

@@ -154,9 +154,10 @@ function onClickAllHeartReset() {
 
 
 // ▶ 이미지 클릭 시 해당 상품 상세 페이지로 이동 : kwj/productDetail.js랑 heart.jsp 연동해주기
-function goDetailPage(e){
+/*function goDetailPage(e){
 	//console.log(e.target.parentElement.parentElement.dataset.id);
 	let code = e.target.parentElement.parentElement.dataset.id;
 	
-	location.href = 'productDetailAjax.do?code=' + code;
-}
+	location.href = 'productDetailAjax.do?code=' + code;	
+	
+}*/

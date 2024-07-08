@@ -73,7 +73,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 메인 홈페이지
-		map.put("/main.do", new MainControl());
+		map.put("/main.do", new MainControl());		
 		
 		
 		// 찜 화면
@@ -81,7 +81,7 @@ public class FrontController extends HttpServlet {
 		// 찜 삭제
 		map.put("/removeHeart.do", new RemoveHeart());		
 		// 찜 화면에서 카드 담기 클릭시 카트 목록에 담기
-		map.put("/addCart.do", new AddCart());		
+		map.put("/addCart.do", new AddCart());
 		
 		// 카트 화면
 		map.put("/cart.do", new CartForm());	
@@ -93,6 +93,7 @@ public class FrontController extends HttpServlet {
 		map.put("/cartCntIcon.do", new CartCntIcon());
 		// 주문생성
 		map.put("/createOrder.do", new CreateOrder());
+		
 		
 		
 		

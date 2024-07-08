@@ -76,11 +76,13 @@
 							<tbody id="cartList">
 								<c:forEach var="cart" items="${cartList }">
 									<tr data-id="${cart.cartCode }" class="cartCode">
-										<td class="checkbox"><input type="checkbox" class="boxs"></td>
-										<td class="product-thumbnail product-name"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"><h2 class="h5 text-black" style="font-size: 15px">${cart.productName }</h2></td>
+										<td><input type="checkbox" class="boxs"></td>
+										<td class="product-thumbnail"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"></td>
+										<%-- <td class="product-thumbnail"><img src="images/${cart.thumImage }" alt="Image" class="img-fluid"><h2 class="h5 text-black" style="font-size: 15px">${cart.productName }</h2></td> --%>
+										<td class="product-name">${cart.productName }<br>${cart.productSize} ${cart.color}</td>
 										<td id="price">KRW ${cart.price}</td>
 										
-										<td><input type="number" min="0" max="10" value="${cart.productCnt }" class="counter"></td>
+										<td><input type="number" min="1" max="50" value="${cart.productCnt }" class="counter"></td>
 										
 										<td><c:out value="${cart.price >= 50000 ? '무료배송' : 'KRW 3,000'}" /></td>
 										<td>
@@ -99,7 +101,7 @@
 						<thead>
 							<tr>
 								<th>총 상품금액&emsp;&emsp;&emsp;</th>
-								<th> 총 배송비&emsp;&emsp;&emsp;</th>
+								<th> 상품 배송비&emsp;&emsp;&emsp;</th>
 								<th>결제예정금액</th>
 							</tr>
 						</thead>

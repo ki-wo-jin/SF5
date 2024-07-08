@@ -22,8 +22,8 @@ function viewtotal(){
 	let price = 0;
 	Array.from(cartList.children).forEach(cart => {
 		//price = Number(cart.children[2].innerHTML);
-		price = cart.children[2].innerHTML.split(" ");
-		let quantity = cart.children[3].children[0].value;
+		price = cart.children[3].innerHTML.split(" "); //2
+		let quantity = cart.children[4].children[0].value; //3
 		total += price[1] * quantity;
 	})
 	
@@ -34,7 +34,7 @@ function viewtotal(){
 	let tbody = document.getElementById('totalContainer');
 	let tr = document.createElement('tr');
 	let td = document.createElement('td');		
-	let tds = ['KRW ' + total, ' + KRW ' + charge, ' = KRW ' + (charge + total)];
+	let tds = ['&emsp; KRW ' + total, '+ KRW ' + charge, ' = KRW ' + (charge + total)];
 	for (i = 0; i < tds.length; i++) {		
 	    td.innerHTML += tds[i];
 	    tr.appendChild(td);
@@ -122,10 +122,16 @@ function onClickAllHeartReset() {
 // ▶ 수량 버튼 클릭 시 DB에 저장 & 총 가격 계산
 let cnts = document.querySelectorAll('.counter');
 cnts.forEach(cnt => {
-	cnt.addEventListener('change', function() {
+	cnt.addEventListener('change', function(e) {
+		// 수량 change가 일어났을 때, min-max 값으로 제한
+		// console.log(e.target.value);
+		let cntNumber = e.target.value;
+		if(cntNumber <= 0 || cntNumber > 50) {
+			return; // function 종료
+		}
 		
-		viewtotal();
-		
+		// 페이지 하단에 토탈 보여주기
+		viewtotal();		
 		
 		let changeCnt = cnt.value;
 		let code = cnt.parentElement.parentElement.dataset.id;
@@ -154,8 +160,8 @@ function buyAll() {
 	let total = 0;
 	let price = 0;
 	Array.from(cartList.children).forEach(cart => {
-		price = cart.children[2].innerHTML.split(" ");
-		let quantity = cart.children[3].children[0].value;
+		price = cart.children[3].innerHTML.split(" ");
+		let quantity = cart.children[4].children[0].value;
 		total += Number(price[1] * quantity);
 	})		
 	let charge = 0;
@@ -200,8 +206,8 @@ document.getElementById('buySelectBtn').addEventListener('click', function() {
 	
 	document.querySelectorAll('.boxs').forEach((box, idx) => {
 		if (box.checked){
-			price = box.parentElement.parentElement.children[2].innerHTML.split(" ");
-			quantity = box.parentElement.parentElement.children[3].children[0].value;
+			price = box.parentElement.parentElement.children[3].innerHTML.split(" ");
+			quantity = box.parentElement.parentElement.children[4].children[0].value;
 			total += Number(price[1] * quantity);
 			
 			let code = box.parentElement.parentElement.dataset.id;
