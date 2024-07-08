@@ -18,12 +18,13 @@
           </div>
           <div class="col-md-12">
 
-            <form action="addQna.do">
+            <form action="modifyQna.do">
               
               <div class="p-3 p-lg-5 border">
 
                 <div class="form-group row">
                   <div class="col-md-12">
+                  	<input type="text" style="display:none;" id="no" name="no">
                     <label for="c_subject" class="text-black">제목 </label>
                     <input type="text" class="form-control" id="title" name="title">
                   </div>
@@ -31,7 +32,7 @@
                    <div class="col-md-12">
                  <div class="form-group row">
                     <label for="c_subject" class="text-black">상품 코드 </label>
-                    <input type="text" class="form-control" id="code" name="code">
+                    <input type="text" class="form-control" id="code" name="code" readonly>
                   </div>
                 	</div>
                  <div class="form-group row">
@@ -39,7 +40,7 @@
                     <label for="c_subject" class="text-black">QnA사항 </label>
                   </div>
                   <div class="col-md-12">
-                    <select class="col-md-2" id = "op" name = "op">
+                    <select class="col-md-3" id = "op" name = "op">
                     	<option value="상품">상품 문의 사항</option>
                     	<option value="배송">배송 문의 사항</option>
                     	<option value="교환">교환/반품 사항</option>
@@ -51,7 +52,7 @@
                  <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">작성자</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="" readonly>
                   </div>
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">글 비밀번호</label>
@@ -68,6 +69,7 @@
                 <div class="form-group row">
                   <div class="col-lg-12">
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="수정하기" id="modifyBtn">
+                    <input type="button" class="btn btn-primary btn-lg btn-block" value="삭제하기" id="delBtn">
                   </div>
                 </div>
               </div>
@@ -78,3 +80,4 @@
       </div>
     </div>
     
+ <script defer src="jsf5/kwj/modifyQna.js"></script>

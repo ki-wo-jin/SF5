@@ -8,9 +8,11 @@ public interface QnaService {
 	List<QnaVO> qnaList();
 	boolean addQna(QnaVO qvo);
 	boolean getQna(String qnaSubject);
-	boolean removeQna(String qnaSubject);
+	boolean removeQna(QnaVO qvo);
 	boolean editQna(QnaVO qvo);
 	
 	// 상품에서 QnA리스트 출력
 	List<QnaVO> prdQnaList(String productCode);
+	
+	List<QnaVO> selModifyQna(String qnaCode);
 }
