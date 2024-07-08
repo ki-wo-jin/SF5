@@ -25,8 +25,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.selectReview(reviewSubject) == 1;
 	}
 	@Override
-	public boolean removeReview(String reviewSubject) {
-		return mapper.deleteReview(reviewSubject) == 1;
+	public boolean removeReview(String reviewCode) {
+		return mapper.deleteReview(reviewCode) == 1;
 	}
 	@Override
 	public boolean editReview(ReviewVO rvo) {
@@ -37,6 +37,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<ReviewVO> prdReviewList(String productCode) {
 		// TODO 상품 상세 리뷰 리스트
 		return mapper.prdReviewList(productCode);
+	}
+	@Override
+	public List<ReviewVO> selReviewList(String reviewCode) {
+		// TODO Auto-generated method stub
+		return mapper.selReviewList(reviewCode);
 	}
 
 }

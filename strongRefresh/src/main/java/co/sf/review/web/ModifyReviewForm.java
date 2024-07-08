@@ -12,7 +12,7 @@ public class ModifyReviewForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		req.getRequestDispatcher("kwj/modifyReviewForm.tiles").forward(req, resp);
 
 	}
 
