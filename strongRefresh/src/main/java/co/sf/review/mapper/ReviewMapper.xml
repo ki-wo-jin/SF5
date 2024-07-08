@@ -38,7 +38,7 @@
 	<select id="prdReviewList" resultType="co.sf.review.vo.ReviewVO">
 		select *
 		from   review_f5
-		where  product_code = #{productCode}
+		where  product_code like #{productCode}
 	</select>
 </mapper>
 
