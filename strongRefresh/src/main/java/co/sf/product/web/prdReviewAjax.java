@@ -24,6 +24,8 @@ public class prdReviewAjax implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		String productCode = req.getParameter("code");
 		
+		productCode = productCode + '%';
+		
 		ReviewService svc = new ReviewServiceImpl();
 		List<ReviewVO> list = svc.prdReviewList(productCode);
 		
