@@ -39,6 +39,11 @@ p {
 	margin: 100px 100px;
 }
 
+p a{
+	color: rgb(226, 119, 119);
+	text-decoration: none;
+}
+
 #selectBtn input{
 	padding: 5px 10px;
 	background: rgb(235, 169, 169);
@@ -99,7 +104,7 @@ p {
 			</div>
 		</c:when>
 		<c:otherwise>
-			<p style="text-align: center;">로그인을 해주세요.</p>
+			<p style="text-align: center;"><a href="loginForm.do" style="font-weight: bold;">로그인</a>을 해주세요.</p>
 		</c:otherwise>
 	</c:choose>
 </div>
