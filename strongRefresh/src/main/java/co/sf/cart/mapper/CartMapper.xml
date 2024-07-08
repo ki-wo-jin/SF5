@@ -56,7 +56,7 @@
 	
 	<insert id="insertOrder" parameterType="co.sf.order.vo.OrderVO">  
 	    insert into order_f5 (order_code, id, recipient, phone, address, total_price, email)
-		values(#{orderCode}, #{id}, #{recipient}, #{phone}, #{address}, #{totalPrice}, #{email})
+		values(#{orderCode}, #{id}, #{recipient}, #{phone}, decode(#{address}, null, '', #{address}), #{totalPrice}, #{email})
 	</insert>
 	
 	<insert id="insertOrderDetail" parameterType="co.sf.order.vo.OrderDetailVO">

@@ -39,9 +39,18 @@ public class CreateOrder implements Control {
 
         OrderVO ovo = new OrderVO();
         ovo.setOrderCode(orderNo);
-
+        Map<String, Object> map = new HashMap<>();
+        Gson gson = new GsonBuilder().create();
+        
         UserService usvc = new UserServiceImpl();
         UserVO user = usvc.getUser(id);
+        System.out.println(user.getAddress());
+        // 주소가 널일 때, 조건
+        /*
+        if(user.getAddress() == null || user.getAddress() == "") {
+        	map.put("retCode", "NO");
+        	resp.getWriter().print(gson.toJson(map));
+        }*/
 
         ovo.setId(user.getId());
         ovo.setRecipient(user.getName());
@@ -69,7 +78,6 @@ public class CreateOrder implements Control {
             selectedItems.add(cart);
         }
 
-        Map<String, Object> map = new HashMap<>();
         if (svc.createOrder(ovo, detailList)) {
             System.out.println("OK");
             map.put("retCode", "OK");
@@ -89,7 +97,6 @@ public class CreateOrder implements Control {
             map.put("retCode", "NG");
         }
 
-        Gson gson = new GsonBuilder().create();
         resp.getWriter().print(gson.toJson(map));
     }
 }
