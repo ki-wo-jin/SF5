@@ -11,7 +11,15 @@
 			   p.product_name,
 			   p.thum_image,
 			   p.price,
-			   c.product_cnt 
+			   c.product_cnt,
+   			   case p.product_size when 'S' then 'SMALL'
+								   when 'M' then 'MIDDLE'
+								   when 'L' then 'LARGE'
+								   end as product_size,
+			   case p.color when 'BL' then 'BLACK'
+							when 'BE' then 'BEIGE'
+							when 'WH' then 'WHITE'
+							end as color
 		from   cart_f5 c join product_f5 p
 			             on c.product_code = p.product_code
 		                 join users_f5 u
