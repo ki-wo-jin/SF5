@@ -20,7 +20,7 @@ function cloneRow3(qna = {}) {
 	template.querySelector('tr td.no2').innerHTML = qna.qnaCode;
 	template.querySelector('tr td.cate2').innerHTML = qna.qnaCategory;
 	template.querySelector('tr td.sub2 a').innerHTML = qna.qnaSubject;
-	template.querySelector('tr td.sub2 a').setAttribute('href', 'qnaDetail.do?no=' + qna.qnaCode);
+	template.querySelector('tr td.sub2 a').setAttribute('href', 'modifyQnaForm.do?no=' + qna.qnaCode);
 	template.querySelector('tr td.writer2').innerHTML = qna.id;
 	
 	console.log(qna.qnaDate);

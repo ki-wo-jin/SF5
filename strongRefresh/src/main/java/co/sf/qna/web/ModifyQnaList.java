@@ -1,40 +1,36 @@
 package co.sf.qna.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import co.sf.common.Control;
 import co.sf.qna.service.QnaService;
 import co.sf.qna.service.QnaServiceImpl;
 import co.sf.qna.vo.QnaVO;
 
-public class DelQna implements Control {
+public class ModifyQnaList implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO 삭제버튼
 		resp.setContentType("text/json;charset=utf-8");
 		
-		String no = req.getParameter("no");
-		String pw = req.getParameter("pw");
-		
-		QnaVO qvo = new QnaVO();
-		
-		qvo.setQnaCode(no);
-		qvo.setQnaPw(pw);
+		String qnaCode = req.getParameter("no");
 		
 		QnaService svc = new QnaServiceImpl();
+		List<QnaVO> list = svc.selModifyQna(qnaCode);
 		
-		if(svc.removeQna(qvo)) {
-			System.out.println("삭제 성공");
-			resp.sendRedirect("qna.do");
-		}else {
-			System.out.println("삭제 실패");
-			resp.sendRedirect("qna.do");
-		}
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(list);
+		
+		resp.getWriter().print(json);		
+
 	}
-	
+
 }
