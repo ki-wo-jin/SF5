@@ -9,7 +9,7 @@ window.onload = function(){
 		})
 }
 
-// ▶ New 버튼 클릭 시 상품 보여주기
+/*// ▶ New 버튼 클릭 시 상품 보여주기
 document.getElementById('newBtn').addEventListener('click', function(){
 	console.log('안녕? 난 뉴 버튼이야.');
-})
+})*/
