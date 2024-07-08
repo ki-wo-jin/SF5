@@ -2,6 +2,8 @@
 findIdService.js
 */
 
+
+
 //선택된 값에 따라 출력
 //라디오버튼 선택된 값 가져오기 document.querySelector('input[type=radio][name={라디오버튼의 name}]:checked').value;
 
@@ -15,11 +17,11 @@ function printPathFunc() {
 
 	if (result == 'phone') {
 		document.getElementById('printEmailPath').style.display = 'none';
-		document.getElementById('printPhonePath').style.display = 'table-row';
+		document.getElementById('printPhonePath').style.display = 'block';
 
 	} else if (result == 'email') {
-		document.getElementById('printEmailPath').style.display = 'table-row';
 		document.getElementById('printPhonePath').style.display = 'none';
+		document.getElementById('printEmailPath').style.display = 'block';
 	}
 
 }

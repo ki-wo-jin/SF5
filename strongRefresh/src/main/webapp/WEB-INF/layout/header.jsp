@@ -133,10 +133,12 @@ header {
 		document.querySelectorAll('ul.site-menu a').forEach(site => {
 			console.log(site.getAttribute('href'));
 			let param = site.getAttribute('href');
+			
 			if (param == 'albumForm.do') {
 				e.preventDefault();
 				return;
 			}
+			
 			site.addEventListener('click', function (e) {
 				e.preventDefault();
 				location.href = 'productForm.do?category=' + param;
