@@ -19,13 +19,25 @@
 
     <!-- 주문 상세 목록 조회 -->
     <select id="orderDetailList" parameterType="string" resultType="co.sf.order.vo.OrderDetailVO">
-        SELECT o.order_code AS orderCode, o.recipient AS recipient, 
-               SUM(od.product_cnt * p.price) AS totalPrice, o.order_status AS orderStatus,
-               p.product_name AS productName, p.thum_image AS thumImage
+        SELECT o.order_code AS orderCode,
+               o.recipient AS recipient,
+               p.price, 
+               od.product_cnt as productCnt,
+               SUM(od.product_cnt * p.price) AS totalPrice, 
+               o.order_status AS orderStatus,
+               p.product_name AS productName,
+               p.thum_image AS thumImage,
+               o.use_point AS point
+               
         FROM order_f5 o
         JOIN order_detail_f5 od ON o.order_code = od.order_code
         JOIN product_f5 p ON od.product_code = p.product_code
         WHERE o.id = #{id}
-        GROUP BY o.order_code, o.recipient, o.order_status, p.product_name, p.thum_image
+        GROUP BY o.order_code, o.recipient, o.order_status, p.product_name, p.thum_image, o.use_point, od.product_cnt, p.price
     </select>
+    
+    <!-- 주문 상세 삭제 -->
+    <delete id="removeOrderDetail" parameterType="string">
+        DELETE FROM order_detail_f5 WHERE order_detail_code = #{orderDetailCode}
+    </delete>
 </mapper>

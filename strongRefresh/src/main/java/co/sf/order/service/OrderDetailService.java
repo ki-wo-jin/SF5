@@ -8,4 +8,5 @@ public interface OrderDetailService {
 	List<OrderDetailVO> orderDetailList(String id);
 	
 	boolean removeCartItem(OrderDetailVO ovo);
+	
 }
