@@ -40,8 +40,8 @@
  	<!-- cart 중복 체크 -->
 	<select id="selectProduct" parameterType="co.sf.heart.vo.HeartVO">
 		select count(1)
-		from cart_f5
-		where product_code = #{productCode}
+		from   cart_f5
+		where  product_code = #{productCode}
 		and    id = #{id}
 	</select>
   

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.findPw-text {
+  width: 650px;
+  box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.findPw-text>h2 {
+	font-size: 24px;
+	color: #7971ea;
+	margin-bottom: 20px;
+}
+
+.findPw-text>ul {
+	list-style: none;
+	font-size: 14px;
+}
+
+.findPw-wrapper {
+	width: 400px;
+	height: auto;
+	padding: 40px;
+	padding-top : 0;
+	box-sizing: border-box;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+#findpathtext {
+	font-size : 18px;
+	font-weight: bold;
+}
+
+#findPw-form>input {
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	background-color: #f8f8f8;
+	border: #ccc;
+}
+#findPw-form>input::placeholder {
+	color: #D2D2D2;
+}
+#findPw-form>input[type="submit"] {
+	color: #fff;
+	font-size: 16px;
+	background-color: #7971ea;
+}
+#printEmailPath>input {
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	background-color: #f8f8f8;
+	border: #ccc;
+}
+#printEmailPath>input::placeholder {
+	color: #D2D2D2;
+}
+#printPhonePath>input {
+	width: 100%;
+	height: 48px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+	border-radius: 6px;
+	background-color: #f8f8f8;
+	border: #ccc;
+}
+
+#printPhonePath>input::placeholder {
+	color: #D2D2D2;
+}
