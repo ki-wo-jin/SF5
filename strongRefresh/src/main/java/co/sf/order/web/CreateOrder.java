@@ -74,12 +74,8 @@ public class CreateOrder implements Control {
             // 주문 상태 업데이트
             Map<String, Object> params = new HashMap<>();
             params.put("orderCode", orderNo);
-            params.put("status", "주문완료");
+            params.put("orderStatus", "주문완료");
             orderService.updateOrderStatus(params);
-
-            // 주문이 성공적으로 완료되었을 때 선택된 카트 아이템 삭제
-            params.put("id", user.getId());
-            orderService.removeSelectedCartItems(params);
 
             map.put("retCode", "OK");
             map.put("orderCode", orderNo);

@@ -34,7 +34,12 @@
 
 				<div class="d-flex justify-content-between mb-4">
 					<div>
-						<strong>합계 : <span style="color: black;" id="totalPrice">KRW</span></strong>
+						<strong>합계 : <span style="color: black;" id="totalPrice">KRW
+								 <c:set var="totalSum" value="0" />
+                                <c:forEach var="order" items="${orderDetailList}">
+                                    <c:set var="totalSum" value="${totalSum + order.totalPrice}" />
+                                </c:forEach>
+                                ${totalSum}</span></strong>
 					</div>
 				</div>
 
@@ -134,10 +139,15 @@
 						<div class="p-3 p-lg-5 border">
 							<div class="row">
 								<div class="col-md-6">
-									<span class="text-black">총 주문 금액:</span>
+									<span class="text-black">총 주문 금액: </span>
 								</div>
 								<div class="col-md-6 text-right">
-									<strong id="orderTotal">KRW </strong>
+									<strong id="orderTotal">KRW  
+									<c:set var="totalSum" value="0" />
+                                <c:forEach var="order" items="${orderDetailList}">
+                                    <c:set var="totalSum" value="${totalSum + order.totalPrice}" />
+                                </c:forEach>
+                                ${totalSum}</strong>
 								</div>
 							</div>
 							<div class="row">
@@ -145,7 +155,12 @@
 									<span class="text-black">총 할인:</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<strong>- KRW </strong>
+									<strong id = "usePoint">- KRW
+									 <c:set var="totalSum" value="0" />
+                                <c:forEach var="order" items="${orderDetailList}">
+                                    <c:set var="totalSum" value="${order.point}" />
+                                </c:forEach>
+                                ${totalSum} </strong>
 								</div>
 							</div>
 							<div class="row">
@@ -153,7 +168,12 @@
 									<span class="text-black">총 결제 예정 금액:</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<strong id="finalTotal">KRW </strong>
+									<strong id="finalTotal">KRW
+									  <c:set var="totalSum" value="0" />
+                                <c:forEach var="order" items="${orderDetailList}">
+                                    <c:set var="totalSum" value="${totalSum + order.totalPrice - order.point}" />
+                                </c:forEach>
+                                ${totalSum}</strong>
 								</div>
 							</div>
 							<br>
