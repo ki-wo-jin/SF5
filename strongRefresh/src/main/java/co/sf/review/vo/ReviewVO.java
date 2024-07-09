@@ -11,7 +11,7 @@ public class ReviewVO {
 	String reviewSubject;
 	String productCode;
 	String reviewContent;
-	Date reviewDate;
+	String reviewDate;
 	int clickCnt;
 	String star;
 	String reviewImage;
