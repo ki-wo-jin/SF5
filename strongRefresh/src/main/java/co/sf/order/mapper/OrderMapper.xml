@@ -46,7 +46,7 @@
     <!-- 주문 상태 업데이트 -->
     <update id="updateOrderStatus" parameterType="map">
         UPDATE order_f5
-        SET order_status = #{status}
+        SET order_status = #{orderStatus}
         WHERE order_code = #{orderCode}
     </update>
 

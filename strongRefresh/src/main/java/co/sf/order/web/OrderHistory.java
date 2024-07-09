@@ -23,7 +23,8 @@ public class OrderHistory implements Control {
 
 		if (id != null) {
 			OrderService orderService = new OrderServiceImpl();
-			List<OrderDetailVO> orderDetailList = orderService.OrderDetailList(code);
+//			List<OrderDetailVO> orderDetailList = orderService.OrderDetailList(code);
+			List<OrderDetailVO> orderDetailList = orderService.getOrderDetails(id);
 
 			req.setAttribute("orderDetailList", orderDetailList);
 			req.getRequestDispatcher("khs/orderHistory.tiles").forward(req, resp);
